@@ -1,0 +1,15 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+    name:
+        label: janvince.smallrecords::lang.attributes.columns.name
+        searchable: true
+        sortable: true
+        type: strong
+
+    value:
+        type: partial
+        path: ~/plugins/janvince/smallrecords/models/attribute/_value_column.htm

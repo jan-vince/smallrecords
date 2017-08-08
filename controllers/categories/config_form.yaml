@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: janvince.smallrecords::lang.categories.category
+form: ~/plugins/janvince/smallrecords/models/category/fields.yaml
+modelClass: JanVince\SmallRecords\Models\Category
+defaultRedirect: janvince/smallrecords/categories
+
+create:
+    redirect: janvince/smallrecords/categories/update/:id
+    redirectClose: janvince/smallrecords/categories
+
+update:
+    redirect: janvince/smallrecords/categories
+    redirectClose: janvince/smallrecords/categories

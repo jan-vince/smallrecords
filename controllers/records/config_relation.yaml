@@ -1,0 +1,61 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+categories:
+    label: janvince.smallrecords::lang.categories.menu_label
+    manage:
+        form: $/janvince/smallrecords/models/category/fields.yaml
+        list: $/janvince/smallrecords/models/category/columns.yaml
+        showSearch: true
+    view:
+        list: $/janvince/smallrecords/models/category/columns.yaml
+        toolbarButtons: create|add|remove
+        showSearch: true
+
+area:
+    label: janvince.smallrecords::lang.area.menu_label
+    manage:
+        form: $/janvince/smallrecords/models/area/fields.yaml
+        list: $/janvince/smallrecords/models/area/columns.yaml
+        showSearch: true
+    view:
+        list: $/janvince/smallrecords/models/area/columns.yaml
+        showSearch: true
+
+# category:
+#     label: janvince.smallrecords::lang.categories.category
+#     manage:
+#         form: $/janvince/smallrecords/models/category/fields.yaml
+#         list: $/janvince/smallrecords/models/category/columns.yaml
+#         showSearch: true
+#     view:
+#         list: $/janvince/smallrecords/models/category/columns.yaml
+#         toolbarButtons: add|remove
+#         showSearch: true
+
+attributes:
+    label: janvince.smallrecords::lang.attributes.menu_label
+    manage:
+        form: $/janvince/smallrecords/models/attribute/fields.yaml
+        list: $/janvince/smallrecords/models/attribute/columns.yaml
+        showSearch: true
+    view:
+        list: $/janvince/smallrecords/models/attribute/columns_relation.yaml
+        toolbarButtons: add|remove
+        showSearch: true
+    pivot:
+        form: $/janvince/smallrecords/models/attribute/fields_relation.yaml
+
+records_attributes:
+    label: janvince.smallrecords::lang.attributes.menu_label
+    manage:
+        form: $/janvince/smallrecords/models/attribute/fields.yaml
+        list: $/janvince/smallrecords/models/attribute/columns.yaml
+        showSearch: true
+    view:
+        list: $/janvince/smallrecords/models/attribute/columns_relation.yaml
+        toolbarButtons: add|remove
+        showSearch: true
+    pivot:
+        form: $/janvince/smallrecords/models/attribute/fields_relation.yaml

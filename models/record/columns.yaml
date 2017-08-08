@@ -1,0 +1,60 @@
+columns:
+    id:
+        label: janvince.smallrecords::lang.common.columns.id
+        sortable: true
+        searchable: true
+        invisible: true
+
+    slug:
+        label: 'janvince.smallrecords::lang.common.columns.slug'
+        type: text
+        searchable: true
+        sortable: true
+        invisible: true
+
+    preview_image:
+        label: 'janvince.smallrecords::lang.common.columns.preview_image'
+        type: record_image_preview
+        width: 30px
+        cssClass: text-center
+        invisible: true
+
+    name:
+        label: 'janvince.smallrecords::lang.common.columns.name'
+        type: strong
+        select: name
+        searchable: true
+        sortable: true
+
+    category:
+        label: 'janvince.smallrecords::lang.common.columns.category'
+        relation: category
+        select: name
+        sortable: true
+        searchable: true
+
+    date:
+        label: 'janvince.smallrecords::lang.common.columns.date'
+        type: date
+        sortable: true
+        invisible: true
+
+    active:
+        label: 'janvince.smallrecords::lang.common.columns.active'
+        type: switch_extended
+        cssClass: text-center
+        sortable: true
+        width: 60px
+
+    favourite:
+        label: 'janvince.smallrecords::lang.common.columns.favourite'
+        type: switch_extended
+        cssClass: text-center
+        sortable: true
+        width: 60px
+
+    images:
+        label: 'janvince.smallrecords::lang.common.columns.attached_images_count'
+        type: attached_images_count
+        sortable: true
+        invisible: true

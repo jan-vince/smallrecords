@@ -1,0 +1,11 @@
+name: Records
+modelClass: JanVince\SmallRecords\Models\Record
+form: $/janvince/smallrecords/models/record/fields.yaml
+defaultRedirect: janvince/smallrecords/records/index/:area_id
+create:
+    redirect: 'janvince/smallrecords/records/update/:id/:area_id'
+    redirectClose: janvince/smallrecords/records/index/:area_id
+update:
+    redirect: janvince/smallrecords/records/index/:area_id
+    redirectClose: janvince/smallrecords/records/index/:area_id
+preview: {  }

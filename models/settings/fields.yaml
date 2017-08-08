@@ -1,0 +1,26 @@
+fields:
+    main_section:
+        type: section
+        label: 'janvince.smallrecords::lang.settings.main_section'
+        comment: 'janvince.smallrecords::lang.settings.main_section_comment'
+
+tabs:
+    fields:
+
+        records_list_preview_width:
+            label: 'janvince.smallrecords::lang.settings.fields.preview_width'
+            span: left
+            type: number
+            default: 50
+            tab: 'janvince.smallrecords::lang.settings.tabs.lists'
+
+        records_list_preview_height:
+            label: 'janvince.smallrecords::lang.settings.fields.preview_height'
+            span: left
+            type: number
+            default: 50
+            tab: 'janvince.smallrecords::lang.settings.tabs.lists'
+
+
+secondaryTabs:
+    fields:

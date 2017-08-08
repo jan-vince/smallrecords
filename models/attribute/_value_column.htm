@@ -1,0 +1,37 @@
+<?php
+
+switch($record->value_type){
+
+	case "number":
+		echo $record->pivot->value_number;
+	break;
+
+	case "text":
+		// Remove HTML tags
+		$str = mb_substr(strip_tags($record->pivot->value_text), 0, 60);
+
+		// Shorten string
+		if(strlen($record->pivot->value_text)>60){
+			echo $str . '...';
+		} else {
+			echo $str;
+		}
+	break;
+
+	case "string":
+		echo $record->pivot->value_string;
+	break;
+
+	case "switch":
+		if($record->pivot->value_boolean){
+			$checked = "checked";
+		} else {
+			$checked = "";
+		}
+		echo "<input type='checkbox' $checked>";
+	break;
+
+
+}
+
+?>

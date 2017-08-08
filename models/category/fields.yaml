@@ -1,0 +1,69 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: janvince.smallrecords::lang.common.columns.name
+        span: left
+        require: true
+        type: text
+
+    slug:
+        label: janvince.smallrecords::lang.common.columns.slug
+        span: right
+        type: text
+        require: true
+        preset: name
+
+tabs:
+    fields:
+
+        parent:
+            label: janvince.smallrecords::lang.categories.columns.parent
+            comment: janvince.smallrecords::lang.categories.columns.parent_comment
+            commentHtml: true
+            span: left
+            type: relation
+            # readOnly: true
+            # disabled: true
+            emptyOption: janvince.smallrecords::lang.common.fields.empty_option
+            tab: janvince.smallrecords::lang.common.tabs.info
+
+        preview_image:
+            label: 'janvince.smallrecords::lang.common.columns.preview_image'
+            type: fileupload
+            mode: image
+            span: right
+            imageHeight: 260
+            imageWidth: 260
+            tab: janvince.smallrecords::lang.common.tabs.info
+
+        description:
+            label: janvince.smallrecords::lang.common.columns.description
+            span: left
+            size: large
+            type: textarea
+            tab: janvince.smallrecords::lang.common.tabs.info
+
+        active:
+            label: 'janvince.smallrecords::lang.common.columns.active'
+            span: left
+            type: checkbox
+            default: true
+            tab: 'janvince.smallrecords::lang.common.tabs.info'
+
+        content:
+            label: janvince.smallrecords::lang.common.columns.content
+            span: full
+            size: giant
+            type: richeditor
+            tab: janvince.smallrecords::lang.common.tabs.content
+
+        images:
+            label: 'janvince.smallrecords::lang.common.columns.images'
+            type: fileupload
+            mode: image
+            span: full
+            tab: janvince.smallrecords::lang.common.tabs.images

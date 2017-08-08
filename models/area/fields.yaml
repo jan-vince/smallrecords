@@ -1,0 +1,60 @@
+fields:
+
+    name:
+        label: 'janvince.smallrecords::lang.common.columns.name'
+        span: left
+        type: text
+        required: true
+
+    slug:
+        label: 'janvince.smallrecords::lang.common.columns.slug'
+        span: right
+        required: true
+        type: text
+        preset:
+            field: name
+            type: slug
+
+tabs:
+    fields:
+
+        description:
+            type: textarea
+            size: large
+            span: left
+            label: 'janvince.smallrecords::lang.common.columns.description'
+            tab: 'janvince.smallrecords::lang.common.tabs.info'
+
+        ##
+        # Fields
+        #
+        allowed_fields:
+            label: 'janvince.smallrecords::lang.areas.columns.allowed_fields'
+            comment: 'janvince.smallrecords::lang.areas.columns.allowed_fields_comment'
+            commentHtml: true
+            span: right
+            type: checkboxlist
+            default: true
+            tab: 'janvince.smallrecords::lang.common.tabs.info'
+            options:
+                category: 'janvince.smallrecords::lang.common.columns.category'
+                preview_image: 'janvince.smallrecords::lang.common.columns.preview_image'
+                description: 'janvince.smallrecords::lang.common.columns.description'
+                date: 'janvince.smallrecords::lang.common.columns.date'
+                url: 'janvince.smallrecords::lang.common.columns.url'
+                active: 'janvince.smallrecords::lang.common.columns.active'
+                favourite: 'janvince.smallrecords::lang.common.columns.favourite'
+                content: 'janvince.smallrecords::lang.common.columns.content'
+                images: 'janvince.smallrecords::lang.common.columns.images'
+                tags: 'janvince.smallrecords::lang.common.columns.tags'
+                attributes: 'janvince.smallrecords::lang.common.columns.attributes'
+                files: 'janvince.smallrecords::lang.common.columns.files'
+                categories: 'janvince.smallrecords::lang.common.columns.categories'
+                repeater: 'janvince.smallrecords::lang.common.columns.repeater'
+
+        active:
+            label: 'janvince.smallrecords::lang.common.columns.active'
+            span: left
+            type: checkbox
+            default: true
+            tab: 'janvince.smallrecords::lang.common.tabs.info'

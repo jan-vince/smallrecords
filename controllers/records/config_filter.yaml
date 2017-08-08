@@ -1,0 +1,31 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    active:
+        label: janvince.smallrecords::lang.common.columns.active
+        type: switch
+        conditions:
+            - visible <> true
+            - visible = true
+
+    favourite:
+        label: janvince.smallrecords::lang.common.columns.favourite
+        type: switch
+        conditions:
+            - favourite <> true
+            - favourite = true
+
+    category:
+        label: janvince.smallrecords::lang.common.columns.category
+        modelClass: JanVince\SmallRecords\Models\Category
+        conditions: category_id in (:filtered)
+        nameFrom: name
+        type: group
+
+    date:
+        label: janvince.smallrecords::lang.common.columns.date
+        type: daterange
+        conditions: date >= ':after' AND date <= ':before'

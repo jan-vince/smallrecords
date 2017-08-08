@@ -1,0 +1,33 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: janvince.smallrecords::lang.common.columns.name
+        span: left
+        required: true
+        type: text
+
+    slug:
+        label: janvince.smallrecords::lang.common.columns.slug
+        span: right
+        required: true
+        type: text
+        preset: name
+
+    # section:
+    #     type: section
+
+    value_type:
+        label: janvince.smallrecords::lang.attributes.columns.value_type
+        commentAbove: janvince.smallrecords::lang.attributes.columns.value_type_comment
+        span: left
+        required: true
+        type: dropdown
+        options:
+            string: janvince.smallrecords::lang.attributes.columns.value_string
+            text: janvince.smallrecords::lang.attributes.columns.value_text
+            number: janvince.smallrecords::lang.attributes.columns.value_number
+            switch: janvince.smallrecords::lang.attributes.columns.value_switch

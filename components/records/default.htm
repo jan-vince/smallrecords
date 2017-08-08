@@ -1,0 +1,4 @@
+{% for record in __SELF__.getRecordsAll %}
+	<img alt="{{ record.name }}" src="{{ record.preview_image.getPath }}" />
+	<h3><a href="{{ record.url }}">{{ product.name }}</a></h3>
+{% endfor %}

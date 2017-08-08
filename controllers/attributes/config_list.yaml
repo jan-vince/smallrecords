@@ -1,0 +1,36 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+# Model List Column configuration
+list: ~/plugins/janvince/smallrecords/models/attribute/columns.yaml
+
+# Model Class name
+modelClass: JanVince\SmallRecords\Models\Attribute
+
+# List Title
+title: janvince.smallrecords::lang.attributes.menu_label
+
+# Link URL for each record
+recordUrl: janvince/smallrecords/attributes/update/:id
+
+# Message to display if the list is empty
+noRecordsMessage: backend::lang.list.no_records
+
+# Records to display per page
+recordsPerPage: 15
+
+# Display checkboxes next to each record
+showCheckboxes: true
+
+# Show icon for list setup
+showSetup: true
+
+# Toolbar widget configuration
+toolbar:
+    # Partial for toolbar buttons
+    buttons: list_toolbar
+
+    # Search widget configuration
+    search:
+        prompt: backend::lang.list.search_prompt

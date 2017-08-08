@@ -1,0 +1,25 @@
+columns:
+    id:
+        label: janvince.smallrecords::lang.common.columns.id
+        sortable: true
+        searchable: true
+        invisible: true
+
+    slug:
+        label: 'janvince.smallrecords::lang.common.columns.slug'
+        type: text
+        searchable: true
+        sortable: true
+        invisible: true
+
+    name:
+        label: 'janvince.smallrecords::lang.common.columns.name'
+        type: strong
+        searchable: true
+        sortable: true
+
+    description:
+        label: 'janvince.smallrecords::lang.common.columns.description'
+        type: text_preview
+        searchable: true
+        sortable: false

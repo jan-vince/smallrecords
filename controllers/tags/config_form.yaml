@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: janvince.smallrecords::lang.tags.tag
+form: ~/plugins/janvince/smallrecords/models/tag/fields.yaml
+modelClass: JanVince\SmallRecords\Models\Tag
+defaultRedirect: janvince/smallrecords/tags
+
+create:
+    redirect: janvince/smallrecords/tags/update/:id
+    redirectClose: janvince/smallrecords/tags
+
+update:
+    redirect: janvince/smallrecords/tags
+    redirectClose: janvince/smallrecords/tags

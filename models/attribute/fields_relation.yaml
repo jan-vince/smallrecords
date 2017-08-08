@@ -1,0 +1,56 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: janvince.smallrecords::lang.attributes.columns.name
+        span: left
+        readOnly: true
+        disabled: false
+
+    pivot[value_string]:
+        label: janvince.smallrecords::lang.attributes.columns.value_string
+        span: right
+        type: text
+        trigger:
+            action: show
+            field: value_type
+            condition: value[string]
+
+    pivot[value_text]:
+        label: janvince.smallrecords::lang.attributes.columns.value_text
+        span: full
+        size: huge
+        type: richeditor
+        trigger:
+            action: show
+            field: value_type
+            condition: value[text]
+
+    pivot[value_number]:
+        label: janvince.smallrecords::lang.attributes.columns.value_number
+        span: right
+        type: number
+        trigger:
+            action: show
+            field: value_type
+            condition: value[number]
+
+    pivot[value_boolean]:
+        label: janvince.smallrecords::lang.attributes.columns.value_boolean
+        span: right
+        type: switch
+        trigger:
+            action: show
+            field: value_type
+            condition: value[switch]
+
+    value_type:
+        label: janvince.smallrecords::lang.attributes.columns.value_type
+        searchable: true
+        span: left
+        readOnly: true
+        disabled: true
+        cssClass: hidden

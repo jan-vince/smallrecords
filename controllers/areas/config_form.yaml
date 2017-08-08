@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: janvince.smallrecords::lang.common.menu.area
+form: ~/plugins/janvince/smallrecords/models/area/fields.yaml
+modelClass: JanVince\SmallRecords\Models\Area
+defaultRedirect: janvince/smallrecords/areas
+
+create:
+    redirect: janvince/smallrecords/areas/update/:id
+    redirectClose: janvince/smallrecords/areas
+
+update:
+    redirect: janvince/smallrecords/areas
+    redirectClose: janvince/smallrecords/areas

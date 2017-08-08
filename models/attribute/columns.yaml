@@ -1,0 +1,19 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+    name:
+        label: janvince.smallrecords::lang.common.columns.name
+        searchable: true
+        type: strong
+
+    slug:
+        label: janvince.smallrecords::lang.common.columns.slug
+        searchable: true
+        invisible: true
+
+    value_type:
+        label: janvince.smallrecords::lang.attributes.columns.value_type
+        searchable: true

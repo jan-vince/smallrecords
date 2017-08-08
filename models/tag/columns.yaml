@@ -1,0 +1,39 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+    id:
+        label: janvince.smallrecords::lang.common.columns.id
+        searchable: true
+        invisible: true
+
+    preview_image:
+        label: 'janvince.smallrecords::lang.common.columns.preview_image'
+        type: record_image_preview
+        width: 30px
+        cssClass: text-center
+        invisible: true
+
+    name:
+        label: janvince.smallrecords::lang.common.columns.name
+        searchable: true
+        type: strong
+
+    slug:
+        label: janvince.smallrecords::lang.common.columns.slug
+        searchable: true
+
+    active:
+        label: 'janvince.smallrecords::lang.common.columns.active'
+        type: switch_extended
+        cssClass: text-center
+        sortable: true
+        width: 60px
+
+    images:
+        label: 'janvince.smallrecords::lang.common.columns.attached_images_count'
+        type: attached_images_count
+        sortable: true
+        invisible: true

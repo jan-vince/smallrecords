@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: janvince.smallrecords::lang.attributes.attribute
+form: ~/plugins/janvince/smallrecords/models/attribute/fields.yaml
+modelClass: JanVince\SmallRecords\Models\Attribute
+defaultRedirect: janvince/smallrecords/attributes
+
+create:
+    redirect: janvince/smallrecords/attributes/update/:id
+    redirectClose: janvince/smallrecords/attributes
+
+update:
+    redirect: janvince/smallrecords/attributes
+    redirectClose: janvince/smallrecords/attributes
