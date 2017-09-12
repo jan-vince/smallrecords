@@ -17,16 +17,60 @@ Just look for 'Small Records' in search field in:
 
 ### Permissions
 
-You can set permissions
+You can set permissions to access each of a plugin parts.
 
 
-#### Settings
+### Settings
+
+Right now just to set list's preview image height and width.
+
+
+## Records
+
+Main idea behind this is to have a place where I can easily collect records in several lists (like portfolio, partners, sliders and their images, simple photo galleries, etc.).
+
+### Records lists
+
+Here you can add and edit lists and choose which data (and form fields) will be available.
+
+*Created list will be appended to the top of the side menu in Records administration.*
+
+### Categories
+
+You can add one main and several secondary categories to your records.
+
+Here you can set up categories hierarchy (it is a nested tree).
+
+### Tags
+
+Simple list of tags that can be assigned to records.
+
+### Attributes
+
+If you need a specific information for your records, here you can define a name of an attribute and it's type (string, text, number, switch).
+
+If Attributes are allowed in Records list, you can select an attribute and add a custom content to it.
+
+## Components
+
+### Records
+
+You can add a Records component to a page, layout or partial.
+
+*There are several parameters - only Records list is required.*
+
+#### Record
+
+You can add a record detail to yout page, layout or partial.
+
+*Record list and record slug is required.*
+
 
 
 ----
 > Special thanks goes to:    
-> [OctoberCMS](http://www.octobercms.com) team members and supporters for this great system.   
-> [Joel kyber](https://unsplash.com/@jtkyber1) for his photo I have used in the plugin banner.    
+> [OctoberCMS](http://www.octobercms.com) team members and supporters for this great system.
+> [Samuel Zeller](https://unsplash.com/@samuelzeller) for his photo I have used in the plugin banner.
 > [Font Awesome](http://www.fontawesome.io) for Universal access symbol.
 
 
