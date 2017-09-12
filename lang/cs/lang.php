@@ -180,6 +180,13 @@
                 'category_description' => 'Záznamy můžete omezit na vybranou kategorie (dynamicky parametrem např. ":category" nebo ručně)',
                 'active_only' => 'Pouze aktivní záznamy',
                 'active_only_description' => 'Vybere pouze záznamy označené jako aktivní (Pokud není zaškrtnuto, vybere všechny záznamy)',
+                'detail_page_slug' => 'Slug stránky detailu záznamu',
+                'detail_page_slug_description' => 'Vložte slug CMS stránky, na které chcete zobrazit detail vybraného záznamu',
+
+                'groups' => [
+                    'links' => 'Odkazy',
+                ],
+
             ],
 
         ],

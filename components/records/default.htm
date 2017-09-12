@@ -1,4 +1,17 @@
-{% for record in __SELF__.getRecordsAll %}
-	<img alt="{{ record.name }}" src="{{ record.preview_image.getPath }}" />
-	<h3><a href="{{ record.url }}">{{ product.name }}</a></h3>
+{% for record in __SELF__.items %}
+
+    <div class="record-box {{ cssClass }}">
+
+        {% if record.preview_image %}
+            <img alt="{{ record.name }}" src="{{ record.preview_image.getPath }}" />
+        {% endif %}
+
+        <h3>
+            <a href="{{ record.url }}">
+                {{ record.name }}
+            </a>
+        </h3>
+
+    </div>
+
 {% endfor %}

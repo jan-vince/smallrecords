@@ -108,7 +108,19 @@ class Plugin extends PluginBase
             ],
         ];
 
-        $nav['smallrecords']['sideMenu'] = array_merge($nav['smallrecords']['sideMenu'], $sideMenu);
+        $sideMenuPrepend = [];
+
+        if( count($areas) ) {
+            $sideMenuPrepend = [
+                'divider' => [
+                    'icon'        => 'icon-ellipsis-h',
+                    'url'         => null,
+                    'permissions' => ['janvince.smallrecords.*']
+                ],
+            ];
+        }
+
+        $nav['smallrecords']['sideMenu'] = array_merge($nav['smallrecords']['sideMenu'], $sideMenuPrepend, $sideMenu);
 
         return $nav;
 

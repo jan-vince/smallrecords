@@ -185,6 +185,13 @@
                 'category_description' => 'Category slug (dynamic like :category or manually entered)',
                 'active_only' => 'Active records only',
                 'active_only_description' => 'Get only active records (unchecked will get all records)',
+                'detail_page_slug' => 'Detail page slug',
+                'detail_page_slug_description' => 'Enter a slug of CMS page where you want to render a record\'s details',
+
+                'groups' => [
+                    'links' => 'Links',
+                ],
+
             ],
 
         ],

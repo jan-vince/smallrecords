@@ -15,7 +15,7 @@ class Area extends Model
 
     public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
 
-	public $timestamps = true;
+    public $timestamps = true;
 
     protected $guarded = [];
 
@@ -40,20 +40,14 @@ class Area extends Model
     ];
 
 
-	/**
-	 * @var array Relations
-	 */
-	public $hasMany = [
-		'records' => [
-			'JanVince\SmallRecords\Models\Record'
-		]
-	];
-
-
-    public function afterDelete()
-    {
-        $this->records()->detach();
-    }
+    /**
+     * @var array Relations
+     */
+    public $hasMany = [
+        'records' => [
+            'JanVince\SmallRecords\Models\Record', 'delete' => true
+        ]
+    ];
 
     /**
      *  SCOPES

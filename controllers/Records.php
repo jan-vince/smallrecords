@@ -62,12 +62,14 @@ class Records extends Controller
 
         parent::create($area_id);
 
+        $this->area_id = $area_id;
+
         $area = Area::find($area_id);
         if ($area) {
             $this->areaName = $area->name;
         }
 
-        BackendMenu::setContext('JanVince.SmallRecords', 'smallrecords', ('rec' . $this->area_id) );
+        BackendMenu::setContext('JanVince.SmallRecords', 'smallrecords', ('rec' . $area_id) );
 
     }
 
@@ -75,9 +77,9 @@ class Records extends Controller
 
         parent::update($id, $area_id);
 
-        BackendMenu::setContext('JanVince.SmallRecords', 'smallrecords', ('rec' . $this->area_id) );
-
         $this->area_id = $area_id;
+
+        BackendMenu::setContext('JanVince.SmallRecords', 'smallrecords', ('rec' . $area_id) );
 
         $area = Area::find($area_id);
         if ($area) {
@@ -124,8 +126,6 @@ class Records extends Controller
         }
 
     }
-
-
 
     public function getRecordsStats($part){
 
