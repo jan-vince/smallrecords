@@ -191,6 +191,17 @@
 
         ],
 
+        'record' => [
+            'name' => 'Záznam',
+            'description' => 'Získá jeden konkrétní záznam',
+
+            'properties' => [
+                'record_slug' => 'Slug záznamu',
+                'record_slug_description' => 'vložte slug vybraného záznamu',
+            ],
+
+        ],
+
     ],
 
     'permissions' => [

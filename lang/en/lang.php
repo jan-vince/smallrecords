@@ -196,6 +196,18 @@
 
         ],
 
+        'record' => [
+            'name' => 'Record',
+            'description' => 'Get one specific record',
+
+            'properties' => [
+                'record_slug' => 'Record slug',
+                'record_slug_description' => 'Enter a slug of specific record',
+            ],
+
+        ],
+
+
     ],
 
     'permissions' => [

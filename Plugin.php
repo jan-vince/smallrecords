@@ -161,8 +161,7 @@ class Plugin extends PluginBase
     {
         return [
             'JanVince\SmallRecords\Components\Records' => 'records',
-            // 'JanVince\SmallRecords\Components\RecordDetail' => 'detail',
-            // 'JanVince\SmallRecords\Components\Categories' => 'categories',
+            'JanVince\SmallRecords\Components\RecordDetail' => 'recordDetail',
         ];
     }
 
