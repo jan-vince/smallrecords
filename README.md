@@ -7,7 +7,7 @@
 **GitHub** clone into `/plugins` dir:
 
 ```sh
-git clone https://github.com/jan-vince/smallrecords
+git clone https://github.com/jan-vince/smallrecords.git
 ```
 
 **OctoberCMS backend**
