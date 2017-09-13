@@ -81,7 +81,7 @@ class SmallRecordsTables extends Migration
             $table->integer('record_id')->unsigned();
             $table->integer('category_id')->unsigned();
 
-            $table->primary(['record_id', 'category_id']);
+            $table->primary(['record_id', 'category_id'], 'janvince_smallrecords_record_category');
 
             $table->timestamps();
         });
@@ -109,7 +109,7 @@ class SmallRecordsTables extends Migration
             $table->integer('record_id')->unsigned();
             $table->integer('tag_id')->unsigned();
 
-            $table->primary(['record_id', 'tag_id']);
+            $table->primary(['record_id', 'attribute_id'], 'janvince_smallrecords_record_attribute');
 
             $table->timestamps();
         });
