@@ -1,7 +1,7 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><?= e(trans('janvince.smallrecords::lang.plugin.name')) ?></li>
-        <li><?= e($this->areaName) ?></li>
+        <li><a href="<?= Backend::url('janvince/smallrecords/records/'.$this->area_id) ?>"><?= e(trans('janvince.smallrecords::lang.records.menu_label')) ?></a></li>
+        <li><?= e(trans($this->pageTitle)) ?></li>
     </ul>
 <?php Block::endPut() ?>
 
@@ -23,4 +23,5 @@
         data-stripe-load-indicator>
         <?= e(trans('backend::lang.list.delete_selected')) ?>
     </button>
+
 </div>

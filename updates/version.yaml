@@ -1,3 +1,8 @@
 1.0.0:
     - "Initial version"
     - sr_tables.php
+1.1.0:
+    - Added testimonials column
+    - sr-update-01.php
+1.2.0:
+    - Import/Export for Records, Categories and Tags. Permissions for each Records list.

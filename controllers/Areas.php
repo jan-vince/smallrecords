@@ -12,6 +12,7 @@ class Areas extends Controller
     public $implement = [
     'Backend\Behaviors\ListController',
     'Backend\Behaviors\FormController',
+    'Backend.Behaviors.ImportExportController',
     ];
 
     public $listConfig = [
@@ -21,6 +22,8 @@ class Areas extends Controller
     public $formConfig = 'config_form.yaml';
 
     public $requiredPermissions = ['janvince.smallrecords.access_areas'];
+
+    public $importExportConfig = 'config_import_export.yaml';
 
     public function __construct() {
         parent::__construct();

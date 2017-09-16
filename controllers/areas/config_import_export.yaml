@@ -1,0 +1,18 @@
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
+import:
+    title: janvince.smallrecords::lang.areas.import.import_records
+    modelClass: JanVince\SmallRecords\Models\RecordImport
+    list: $/janvince/smallrecords/models/record/columns_import.yaml
+    form: $/janvince/smallrecords/models/recordimport/fields.yaml
+    redirect: /janvince/smallrecords/areas
+
+export:
+    title: janvince.smallrecords::lang.areas.import.export_records
+    modelClass: JanVince\SmallRecords\Models\RecordExport
+    form: $/janvince/smallrecords/models/recordexport/fields.yaml
+    list: $/janvince/smallrecords/models/record/columns_import.yaml
+    redirect: /janvince/smallrecords/areas
+    fileName: export.csv

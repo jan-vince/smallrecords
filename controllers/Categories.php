@@ -26,9 +26,11 @@ class Categories extends Controller
     public $requiredPermissions = ['janvince.smallrecords.access_categories'];
 
     public function __construct() {
+
         parent::__construct();
 
         BackendMenu::setContext('JanVince.SmallRecords', 'smallrecords', 'categories');
+
     }
 
 }

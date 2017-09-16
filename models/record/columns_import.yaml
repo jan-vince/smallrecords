@@ -1,0 +1,62 @@
+columns:
+    id:
+        label: janvince.smallrecords::lang.common.columns.id
+        type: text
+
+    area_id:
+        label: janvince.smallrecords::lang.common.columns.area
+        type: text
+
+    slug:
+        label: 'janvince.smallrecords::lang.common.columns.slug'
+        type: text
+        type: text
+
+    name:
+        label: 'janvince.smallrecords::lang.common.columns.name'
+        type: text
+        type: text
+
+    category_id:
+        label: 'janvince.smallrecords::lang.common.columns.category'
+        type: text
+
+    description:
+        label: 'janvince.smallrecords::lang.common.columns.description'
+        type: text
+
+    date:
+        label: 'janvince.smallrecords::lang.common.columns.date'
+        type: datetime
+
+    url:
+        label: 'janvince.smallrecords::lang.common.columns.url'
+        type: text
+
+    active:
+        label: 'janvince.smallrecords::lang.common.columns.active'
+        type: text
+
+    favourite:
+        label: 'janvince.smallrecords::lang.common.columns.favourite'
+        type: text
+
+    content:
+        label: 'janvince.smallrecords::lang.common.columns.content'
+        type: text
+
+    repeater:
+        label: 'janvince.smallrecords::lang.common.columns.repeater'
+        type: text
+
+    testimonials:
+        label: 'janvince.smallrecords::lang.common.columns.testimonials'
+        type: text
+
+    created_at:
+        label: janvince.smallrecords::lang.common.columns.created_at
+        type: datetime
+
+    updated_at:
+        label: janvince.smallrecords::lang.common.columns.updated_at
+        type: datetime

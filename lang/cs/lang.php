@@ -8,6 +8,10 @@
 
     'common' => [
 
+        'import' => 'Importovat',
+        'export' => 'Exportovat',
+        'edit' => 'Upravit',
+
         'menu' => [
             'areas' => 'Seznamy',
             'area' => 'Seznam',
@@ -23,6 +27,7 @@
             'attributes' => 'Vlastnosti',
             'attachments' => 'Přílohy',
             'secondary_categories' => 'Kategorie',
+            'testimonials' => 'Testimonialy',
         ],
 
         'columns' => [
@@ -45,8 +50,10 @@
             'attributes' => 'Vlastnosti',
             'files' => 'Soubory',
             'categories' => 'Kategorie',
-            'repeater' => 'Repeater',
+            'repeater' => 'Informace',
             'repeater_prompt' => 'Přidat novou položku ...',
+            'testimonials' => 'Testimonialy',
+            'testimonials_prompt' => 'Přidat novou položku ...',
             'created_at' => 'Vytvořeno',
             'updated_at' => 'Aktualizováno',
         ],
@@ -60,11 +67,25 @@
             'back_to_list' => 'Zpět na seznam',
         ],
 
+        'import_settings' => [
+            'truncate_table' => 'Před importem smazat tabulku',
+            'truncate_table_description' => 'Smaže všechny záznamy z tabulky kategorií a resetuje počítadlo nových záznamů',
+            'delete_relations' => 'Smazat všechny vazby záznamů na kategorie',
+            'delete_relations_description' => 'Smaže všechny vazby záznamů na kategorie',
+        ],
+
     ],
 
     'areas' => [
         'new_area' => 'Nový seznam',
         'menu_label' => 'Seznamy',
+
+        'import' => [
+            'import_records' => 'Importovat záznamy',
+            'export_records' => 'Exportovat záznamy',
+            'area_id_description' => 'Můžete exportovat data pouze z vybraného Seznamu',
+            'area_id_empty_option' => '-- Všechny záznamy --',
+        ],
 
         'columns' => [
             'allowed_fields' => 'Povolené formulářové prvky',
@@ -83,6 +104,14 @@
             'value3' => 'Hodnota 3',
             'value4' => 'Hodnota 4',
             'text' => 'Text',
+        ],
+
+        'tetimonials' => [
+            'title' => 'Titulek',
+            'image' => 'Obrázek',
+            'author' => 'Autor',
+            'date' => 'Datum',
+            'content' => 'Obsah',
         ],
 
         'scoreboard' => [
@@ -105,15 +134,6 @@
         'return_to_categories' => 'Zpět na kategorie',
         'category' => 'Kategorie',
         'secondary_categories' => 'Další kategorie',
-        'import' => 'Importovat',
-        'export' => 'Exportovat',
-
-        'categoryimport' => [
-            'truncate_table' => 'Před importem smazat tabulku',
-            'truncate_table_description' => 'Smaže všechny záznamy z tabulky kategorií a resetuje počítadlo nových záznamů',
-            'delete_relations' => 'Smazat všechny vazby záznamů na kategorie',
-            'delete_relations_description' => 'Smaže všechny vazby záznamů na kategorie',
-        ],
 
         'columns' => [
             'main_category' => 'Kategorie',
@@ -222,7 +242,7 @@
         'access_records' => 'Přístup k Záznamům',
         'access_categories' => 'Přístup ke Kategoriím',
         'access_attributes' => 'Přístup k Vlastnostem',
-        'access_settings' => 'Přístup k nastavení pluginu',
+        'access_settings' => 'Přístup k Nastavení pluginu',
         'access_tags' => 'Přístup ke Štítkům',
         'access_denied' => 'Přístup zamítnut',
     ],

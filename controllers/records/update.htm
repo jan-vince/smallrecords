@@ -1,7 +1,7 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
         <li><a href="<?= Backend::url('janvince/smallrecords/records/index', ['area_id' => $this->area_id]) ?>"><?= e($this->areaName) ?></a></li>
-        <li><?= e($this->pageTitle) ?></li>
+        <li><?= e(trans('janvince.smallrecords::lang.common.edit')) . ': ' . e($record->name) ?></li>
     </ul>
 <?php Block::endPut() ?>
 
@@ -58,18 +58,18 @@
                 </button>
 
 
-				<? if($this->nextRecord) : ?>
-	                <a	href="<?= Backend::url('janvince/smallrecords/records/update', ['id' => $this->nextRecord, 'area_id' => $this->area_id]) ?>"
-	                    class="oc-icon-arrow-right btn-icon info pull-right"
-						title="Next record">
-	                </a>
-				<? endif ?>
-				<? if($this->previousRecord) : ?>
-					<a	href="<?= Backend::url('janvince/smallrecords/records/update', ['id' => $this->previousRecord, 'area_id' => $this->area_id]) ?>"
-						class="oc-icon-arrow-left btn-icon info pull-right"
-						title="Previous record">
-					</a>
-				<? endif ?>
+                <? if($this->nextRecord) : ?>
+                    <a	href="<?= Backend::url('janvince/smallrecords/records/update', ['id' => $this->nextRecord, 'area_id' => $this->area_id]) ?>"
+                        class="oc-icon-arrow-right btn-icon info pull-right"
+                        title="Next record">
+                    </a>
+                <? endif ?>
+                <? if($this->previousRecord) : ?>
+                    <a	href="<?= Backend::url('janvince/smallrecords/records/update', ['id' => $this->previousRecord, 'area_id' => $this->area_id]) ?>"
+                        class="oc-icon-arrow-left btn-icon info pull-right"
+                        title="Previous record">
+                    </a>
+                <? endif ?>
 
                 <span class="btn-text">
                     <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('janvince/smallrecords/records/index' , ['area_id' => $this->area_id]) ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>

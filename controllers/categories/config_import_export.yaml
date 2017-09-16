@@ -3,7 +3,7 @@
 # ===================================
 
 import:
-    title: janvince.smallrecords::lang.categories.import
+    title: janvince.smallrecords::lang.common.import
     modelClass: JanVince\SmallRecords\Models\CategoryImport
     list: $/janvince/smallrecords/models/category/columns.yaml
     form: $/janvince/smallrecords/models/categoryimport/fields.yaml
@@ -11,9 +11,8 @@ import:
     permissions: janvince.smallrecords.access_categories
 
 export:
-    title: janvince.smallrecords::lang.categories.export
+    title: janvince.smallrecords::lang.common.export
     modelClass: JanVince\SmallRecords\Models\CategoryExport
     list: $/janvince/smallrecords/models/category/columns.yaml
-    redirect: /janvince/smallrecords/categories
     redirect: /janvince/smallrecords/categories
     permissions: janvince.smallrecords.access_categories

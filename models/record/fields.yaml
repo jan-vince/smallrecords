@@ -159,3 +159,38 @@ tabs:
                         label: 'janvince.smallrecords::lang.records.repeater.text'
                         type: richeditor
                         span: full
+
+        testimonials:
+            type: repeater
+            prompt: 'janvince.smallrecords::lang.common.testimonials_prompt'
+            tab: 'janvince.smallrecords::lang.tabs.testimonials'
+            trigger:
+                action: hide
+                field: id
+                condition: value[]
+            form:
+                fields:
+                    testimonial_title:
+                        label: 'janvince.smallrecords::lang.records.testimonials.title'
+                        type: mltext
+                        span: left
+                    testimonial_image:
+                        label: 'janvince.smallrecords::lang.records.testimonials.image'
+                        type: mediafinder
+                        mode: image
+                        span: right
+                        imageHeight: 260
+                        imageWidth: 260
+                    testimonial_author:
+                        label: 'janvince.smallrecords::lang.records.testimonials.author'
+                        type: mltext
+                        span: left
+                    testimonial_date:
+                        label: 'janvince.smallrecords::lang.records.testimonials.date'
+                        type: datepicker
+                        span: left
+                    testimonial_content:
+                        label: 'janvince.smallrecords::lang.records.testimonials.content'
+                        type: mlricheditor
+                        span: left
+                        size: huge

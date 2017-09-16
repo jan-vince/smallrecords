@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('janvince/smallrecords/records') ?>">Records</a></li>
+        <li><a href="<?= Backend::url('janvince/smallrecords/records/index', ['area_id' => $this->area_id]) ?>"><?= e($this->areaName) ?></a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>

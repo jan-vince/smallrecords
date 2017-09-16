@@ -9,6 +9,7 @@ use JanVince\SmallRecords\Models\Settings;
 use JanVince\SmallRecords\Models\Area;
 use Redirect;
 use Backend;
+use Request;
 
 class Records extends Controller
 {
@@ -37,6 +38,7 @@ class Records extends Controller
     public $previousRecord;
 
     public function __construct() {
+
         parent::__construct();
 
         BackendMenu::setContext('JanVince.SmallRecords', 'smallrecords', 'records' );
@@ -57,6 +59,7 @@ class Records extends Controller
         $area = Area::find($area_id);
         if ($area) {
             $this->areaName = $area->name;
+            $this->pageTitle = $area->name;
         }
 
         $this->asExtension('ListController')->index();
@@ -104,11 +107,15 @@ class Records extends Controller
 
         $record = Record::find($id);
 
+        if($record ) {
+            $this->vars['record'] = $record;
+        }
         /**
          * TODO: add prev/next records
          */
         if($record ) {
             $this->nextRecord = null;
+
         }
 
         if($record) {

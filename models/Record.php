@@ -48,6 +48,7 @@ class Record extends Model
         'content',
         'url',
         'repeater',
+        'testimonials',
     ];
 
     /**

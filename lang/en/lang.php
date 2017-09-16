@@ -8,9 +8,13 @@
 
     'common' => [
 
+        'import' => 'Import',
+        'export' => 'Export',
+        'edit' => 'Edit',
+
         'menu' => [
-            'areas' => 'Records lists',
-            'area' => 'Records list',
+            'areas' => 'Lists',
+            'area' => 'List',
         ],
 
         'tabs' => [
@@ -23,6 +27,7 @@
             'attributes' => 'Attributes',
             'attachments' => 'Attachments',
             'secondary_categories' => 'Categories',
+            'testimonials' => 'Testimonials',
         ],
 
         'columns' => [
@@ -38,15 +43,17 @@
             'preview_image' => 'Preview image',
             'images' => 'Images',
             'attached_images_count' => 'Images',
-            'area' => 'Records list',
+            'area' => 'List',
             'category' => 'Category',
             'category_comment' => 'You can manage items on <a href="'.Backend::url('janvince/smallrecords/categories/index').'">Categories page</a>',
             'tags' => 'Tags',
             'attributes' => 'Attributes',
             'files' => 'Files',
             'categories' => 'Categories',
-            'repeater' => 'Repeater',
+            'repeater' => 'Information',
             'repeater_prompt' => 'Add new record ...',
+            'testimonials' => 'Testimonials',
+            'testimonials_prompt' => 'Add new record ...',
             'created_at' => 'Created',
             'updated_at' => 'Updated',
         ],
@@ -60,11 +67,25 @@
             'back_to_list' => 'Back to list',
         ],
 
+        'import' => [
+            'truncate_table' => 'Empty table before import',
+            'truncate_table_description' => 'Delete all categories and reset autoincrement',
+            'delete_relations' => 'Delete records relations to categories',
+            'delete_relations_description' => 'Delete all record\'s relations to categories',
+        ],
+
     ],
 
     'areas' => [
         'new_area' => 'New records list',
         'menu_label' => 'Records lists',
+
+        'import' => [
+            'import_records' => 'Import records',
+            'export_records' => 'Export records',
+            'area_id_description' => 'You can export data only from a specific List',
+            'area_id_empty_option' => '-- All records --',
+        ],
 
         'columns' => [
             'allowed_fields' => 'Available records fields',
@@ -83,6 +104,14 @@
             'value3' => 'Value 3',
             'value4' => 'Value 4',
             'text' => 'Text',
+        ],
+
+        'tetimonials' => [
+            'title' => 'Title',
+            'image' => 'Image',
+            'author' => 'Author',
+            'date' => 'Date',
+            'content' => 'Content',
         ],
 
         'scoreboard' => [
@@ -105,15 +134,6 @@
         'return_to_categories' => 'Return to Categories',
         'category' => 'Category',
         'secondary_categories' => 'More categories',
-        'import' => 'Import',
-        'export' => 'Export',
-
-        'categoryimport' => [
-            'truncate_table' => 'Empty table before import',
-            'truncate_table_description' => 'Delete all categories and reset autoincrement',
-            'delete_relations' => 'Delete records relations to categories',
-            'delete_relations_description' => 'Delete all record\'s relations to categories',
-        ],
 
         'columns' => [
             'main_category' => 'Category',
@@ -190,8 +210,8 @@
             'description' => 'Get records of selected records list',
 
             'properties' => [
-                'area' => 'Records list',
-                'area_description' => 'Select a Records list to get records from',
+                'area' => 'List',
+                'area_description' => 'Select a List to get records from',
                 'category' => 'Category slug',
                 'category_description' => 'Category slug (dynamic like :category or manually entered)',
                 'active_only' => 'Active records only',
@@ -223,13 +243,13 @@
 
     'permissions' => [
         'tab_name' => 'Small records permissions',
-        'access_areas' => 'Access records lists',
+        'access_areas' => 'Access Lists',
         'access_area' => '> Access to list ',
-        'access_records' => 'Access records',
-        'access_categories' => 'Access categories',
-        'access_attributes' => 'Access attributes',
-        'access_settings' => 'Access settings',
-        'access_tags' => 'Access tags',
+        'access_records' => 'Access Records',
+        'access_categories' => 'Access Categories',
+        'access_attributes' => 'Access Attributes',
+        'access_settings' => 'Access Settings',
+        'access_tags' => 'Access Tags',
         'access_denied' => 'Access denied',
     ],
 

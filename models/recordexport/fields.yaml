@@ -1,0 +1,12 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    list_id:
+        label: janvince.smallrecords::lang.common.columns.area
+        description: janvince.smallrecords::lang.areas.import.area_id_description
+        type: dropdown
+        span: left
+        default: false

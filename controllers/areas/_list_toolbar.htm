@@ -24,9 +24,20 @@
         data-stripe-load-indicator>
         <?= e(trans('backend::lang.list.delete_selected')) ?>
     </button>
-	<? if(JanVince\SmallRecords\Models\Settings::get('areas_list_tree_enable') ):  ?>
-    <a href="<?= Backend::url('janvince/smallrecords/areas/reorder') ?>" class="btn btn-default oc-icon-sort-amount-asc">
-        <?= e(trans('janvince.smallrecords::lang.forms.reorder')) ?>
-    </a>
-	<? endif ?>
+
+    <?php if ($this->user->hasAccess([('janvince.smallrecords.access_area_'.$this->area_id)])): ?>
+        <div class="btn-group">
+            <a
+                href="<?= Backend::url('janvince/smallrecords/areas/export/') ?>"
+                class="btn btn-default oc-icon-download">
+                <?= e(trans('janvince.smallrecords::lang.common.export')) ?>
+            </a>
+            <a
+                href="<?= Backend::url('janvince/smallrecords/areas/import/') ?>"
+                class="btn btn-default oc-icon-upload">
+                <?= e(trans('janvince.smallrecords::lang.common.import')) ?>
+            </a>
+        </div>
+    <?php endif ?>
+
 </div>
