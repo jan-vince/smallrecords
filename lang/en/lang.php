@@ -224,11 +224,13 @@
     'permissions' => [
         'tab_name' => 'Small records permissions',
         'access_areas' => 'Access records lists',
+        'access_area' => '> Access to list ',
         'access_records' => 'Access records',
         'access_categories' => 'Access categories',
         'access_attributes' => 'Access attributes',
         'access_settings' => 'Access settings',
         'access_tags' => 'Access tags',
+        'access_denied' => 'Access denied',
     ],
 
     'settings' => [

@@ -14,8 +14,6 @@ class Settings extends Model
 
     public $translatable = [];
 
-    public $requiredPerrmision = ['janvince.smallrecords.settings'];
-
     public $settingsCode = 'janvince_smallrecords_settings';
 
     public $settingsFields = 'fields.yaml';

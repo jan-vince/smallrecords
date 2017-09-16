@@ -3,6 +3,7 @@
 namespace JanVince\SmallRecords;
 
 use Backend;
+use BackendAuth;
 use Controller;
 use System\Classes\PluginBase;
 use Event;
@@ -43,7 +44,7 @@ class Plugin extends PluginBase
                 'class' => 'JanVince\smallrecords\Models\Settings',
                 'keywords' => 'portfolio partners sponsors records data categories tags attributes',
                 'order' => 991,
-                'permission' => ['janvince.smallrecords.access_settings'],
+                'permissions' => ['janvince.smallrecords.access_settings'],
             ]
         ];
     }
@@ -67,6 +68,12 @@ class Plugin extends PluginBase
 
         foreach( $areas as $area ) {
 
+            $user = BackendAuth::getUser();
+
+            if ( !$user->hasAccess([('janvince.smallrecords.access_area_'.$area->id)]) ) {
+                continue;
+            }
+
             if( !$customArea ) {
                 $nav['smallrecords']['url'] = Backend::url('janvince/smallrecords/records/index', ['area_id' => $area->id]);
                 $customArea = true;
@@ -76,7 +83,7 @@ class Plugin extends PluginBase
                 'label'       => $area->name,
                 'icon'        => 'icon-archive',
                 'url'         => Backend::url('janvince/smallrecords/records/index/' . $area->id ),
-                'permissions' => ['janvince.smallrecords.access_records']
+                'permissions' => [('janvince.smallrecords.access_area_'.$area->id)]
             ];
 
         }
@@ -108,19 +115,7 @@ class Plugin extends PluginBase
             ],
         ];
 
-        $sideMenuPrepend = [];
-
-        if( count($areas) ) {
-            $sideMenuPrepend = [
-                'divider' => [
-                    'icon'        => 'icon-ellipsis-h',
-                    'url'         => null,
-                    'permissions' => ['janvince.smallrecords.*']
-                ],
-            ];
-        }
-
-        $nav['smallrecords']['sideMenu'] = array_merge($nav['smallrecords']['sideMenu'], $sideMenuPrepend, $sideMenu);
+        $nav['smallrecords']['sideMenu'] = array_merge($nav['smallrecords']['sideMenu'], $sideMenu);
 
         return $nav;
 
@@ -128,18 +123,10 @@ class Plugin extends PluginBase
 
     public function registerPermissions()
     {
-        return [
+        $permissions = [
             'janvince.smallrecords.access_areas' => [
                 'tab'   => 'janvince.smallrecords::lang.permissions.tab_name',
                 'label' => 'janvince.smallrecords::lang.permissions.access_areas'
-            ],
-            'janvince.smallrecords.access_settings' => [
-                'tab'   => 'janvince.smallrecords::lang.permissions.tab_name',
-                'label' => 'janvince.smallrecords::lang.permissions.access_settings'
-            ],
-            'janvince.smallrecords.access_records' => [
-                'tab'   => 'janvince.smallrecords::lang.permissions.tab_name',
-                'label' => 'janvince.smallrecords::lang.permissions.access_records'
             ],
             'janvince.smallrecords.access_categories' => [
                 'tab'   => 'janvince.smallrecords::lang.permissions.tab_name',
@@ -153,7 +140,32 @@ class Plugin extends PluginBase
                 'tab'   => 'janvince.smallrecords::lang.permissions.tab_name',
                 'label' => 'janvince.smallrecords::lang.permissions.access_attributes'
             ],
+
+            // 'janvince.smallrecords.access_records' => [
+            //     'tab'   => 'janvince.smallrecords::lang.permissions.tab_name',
+            //     'label' => 'janvince.smallrecords::lang.permissions.access_records'
+            // ],
+
+            'janvince.smallrecords.access_settings' => [
+                'tab'   => 'janvince.smallrecords::lang.permissions.tab_name',
+                'label' => 'janvince.smallrecords::lang.permissions.access_settings'
+            ],
+
         ];
+
+        $areas = Area::get();
+        $customPermissions = null;
+
+        foreach( $areas as $area ) {
+
+            $customPermissions[('janvince.smallrecords.access_area_'.$area->id)] = [
+                'tab'   => 'janvince.smallrecords::lang.permissions.tab_name',
+                'label' => (e(trans('janvince.smallrecords::lang.permissions.access_area')) . $area->name),
+            ];
+
+        }
+
+        return array_merge($permissions, $customPermissions);
 
     }
 

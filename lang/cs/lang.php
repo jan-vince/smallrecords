@@ -218,11 +218,13 @@
     'permissions' => [
         'tab_name' => 'Záznamy',
         'access_areas' => 'Přístup k Seznamům záznamů',
+        'access_area' => '> Přístup k seznamu ',
         'access_records' => 'Přístup k Záznamům',
         'access_categories' => 'Přístup ke Kategoriím',
         'access_attributes' => 'Přístup k Vlastnostem',
         'access_settings' => 'Přístup k nastavení pluginu',
         'access_tags' => 'Přístup ke Štítkům',
+        'access_denied' => 'Přístup zamítnut',
     ],
 
     'settings' => [

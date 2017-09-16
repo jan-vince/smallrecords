@@ -7,6 +7,8 @@ use Lang;
 use JanVince\SmallRecords\Models\Record;
 use JanVince\SmallRecords\Models\Settings;
 use JanVince\SmallRecords\Models\Area;
+use Redirect;
+use Backend;
 
 class Records extends Controller
 {
@@ -31,8 +33,6 @@ class Records extends Controller
 
     public $relationConfig = 'config_relation.yaml';
 
-    public $requiredPermissions = ['janvince.smallrecords.access_records'];
-
     public $nextRecord;
     public $previousRecord;
 
@@ -44,6 +44,11 @@ class Records extends Controller
     }
 
     public function index($area_id) {
+
+        if ( !$this->user->hasAccess([('janvince.smallrecords.access_area_'.$area_id)]) ) {
+            \Flash::error( e(trans('janvince.smallrecords::lang.permissions.access_denied')) );
+            return Redirect::to(Backend::url('/'));
+        }
 
         $this->area_id = $area_id;
 
@@ -62,6 +67,11 @@ class Records extends Controller
 
         parent::create($area_id);
 
+        if ( !$this->user->hasAccess([('janvince.smallrecords.access_area_'.$area_id)]) ) {
+            \Flash::error( e(trans('janvince.smallrecords::lang.permissions.access_denied')) );
+            return Redirect::to(Backend::url('/'));
+        }
+
         $this->area_id = $area_id;
 
         $area = Area::find($area_id);
@@ -76,6 +86,11 @@ class Records extends Controller
     public function update($id, $area_id) {
 
         parent::update($id, $area_id);
+
+        if ( !$this->user->hasAccess([('janvince.smallrecords.access_area_'.$area_id)]) ) {
+            \Flash::error( e(trans('janvince.smallrecords::lang.permissions.access_denied')) );
+            return Redirect::to(Backend::url('/'));
+        }
 
         $this->area_id = $area_id;
 
