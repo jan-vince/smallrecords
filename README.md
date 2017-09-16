@@ -51,6 +51,11 @@ If you need a specific information for your records, here you can define a name 
 
 If Attributes are allowed in Records list, you can select an attribute and add a custom content to it.
 
+## Import and Export
+
+You can export and import data to Categories and to Records (Records through Import/Export buttons in Lists toolbar).
+
+
 ## Components
 
 ### Records
