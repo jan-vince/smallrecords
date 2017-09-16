@@ -28,6 +28,7 @@ showSetup: true
 
 # Show list as tree
 showTree: true
+
 treeExpanded: false
 
 # Sorting

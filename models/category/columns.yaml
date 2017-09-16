@@ -32,8 +32,28 @@ columns:
         sortable: true
         width: 60px
 
-    images:
-        label: 'janvince.smallrecords::lang.common.columns.attached_images_count'
-        type: attached_images_count
-        sortable: true
+    parent:
+        label: janvince.smallrecords::lang.categories.columns.parent
+        type: relation
+        valueFrom: name
+        invisible: true
+
+    description:
+        label: janvince.smallrecords::lang.common.columns.description
+        type: text
+        invisible: true
+
+    content:
+        label: janvince.smallrecords::lang.common.columns.content
+        type: text_preview
+        invisible: true
+
+    created_at:
+        label: janvince.smallrecords::lang.common.columns.created_at
+        type: datetime
+        invisible: true
+
+    updated_at:
+        label: janvince.smallrecords::lang.common.columns.updated_at
+        type: datetime
         invisible: true

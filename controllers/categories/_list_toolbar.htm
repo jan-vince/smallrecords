@@ -27,4 +27,20 @@
     <a href="<?= Backend::url('janvince/smallrecords/categories/reorder') ?>" class="btn btn-default oc-icon-sort-amount-asc">
         <?= e(trans('janvince.smallrecords::lang.forms.reorder')) ?>
     </a>
+
+    <?php if ($this->user->hasAnyAccess(['janvince.smallrecords.access_categories'])): ?>
+        <div class="btn-group">
+            <a
+                href="<?= Backend::url('janvince/smallrecords/categories/export') ?>"
+                class="btn btn-default oc-icon-download">
+                <?= e(trans('janvince.smallrecords::lang.categories.export')) ?>
+            </a>
+            <a
+                href="<?= Backend::url('janvince/smallrecords/categories/import') ?>"
+                class="btn btn-default oc-icon-upload">
+                <?= e(trans('janvince.smallrecords::lang.categories.import')) ?>
+            </a>
+        </div>
+    <?php endif ?>
+
 </div>

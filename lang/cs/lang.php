@@ -47,6 +47,8 @@
             'categories' => 'Kategorie',
             'repeater' => 'Repeater',
             'repeater_prompt' => 'Přidat novou položku ...',
+            'created_at' => 'Vytvořeno',
+            'updated_at' => 'Aktualizováno',
         ],
 
         'fields' => [
@@ -103,6 +105,15 @@
         'return_to_categories' => 'Zpět na kategorie',
         'category' => 'Kategorie',
         'secondary_categories' => 'Další kategorie',
+        'import' => 'Importovat',
+        'export' => 'Exportovat',
+
+        'categoryimport' => [
+            'truncate_table' => 'Před importem smazat tabulku',
+            'truncate_table_description' => 'Smaže všechny záznamy z tabulky kategorií a resetuje počítadlo nových záznamů',
+            'delete_relations' => 'Smazat všechny vazby záznamů na kategorie',
+            'delete_relations_description' => 'Smaže všechny vazby záznamů na kategorie',
+        ],
 
         'columns' => [
             'main_category' => 'Kategorie',

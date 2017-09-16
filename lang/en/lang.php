@@ -47,6 +47,8 @@
             'categories' => 'Categories',
             'repeater' => 'Repeater',
             'repeater_prompt' => 'Add new record ...',
+            'created_at' => 'Created',
+            'updated_at' => 'Updated',
         ],
 
         'fields' => [
@@ -103,6 +105,15 @@
         'return_to_categories' => 'Return to Categories',
         'category' => 'Category',
         'secondary_categories' => 'More categories',
+        'import' => 'Import',
+        'export' => 'Export',
+
+        'categoryimport' => [
+            'truncate_table' => 'Empty table before import',
+            'truncate_table_description' => 'Delete all categories and reset autoincrement',
+            'delete_relations' => 'Delete records relations to categories',
+            'delete_relations_description' => 'Delete all record\'s relations to categories',
+        ],
 
         'columns' => [
             'main_category' => 'Category',
