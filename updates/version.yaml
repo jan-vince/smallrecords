@@ -2,6 +2,16 @@
     - "Initial version"
     - sr_tables.php
 1.1.0:
-    - Import/Export for Records, Categories and Tags. Permissions for each Records list. Added testimonials column, add unique for area_id,slug. New components for record and category detail.
+    - "Import/Export for Records, Categories and Tags."
+1.1.1:
+    - "Permissions for each Records list."
+1.1.2:
+    - "Added testimonials column."
     - sr-update-01.php
+1.1.3:
+    - Experimental support for duplicate slugs (unique must be combination [list-slug]). Duplicates for now checked only by DB.
     - sr-update-02.php
+1.1.4:
+    - Added components for RecordDetail and CategoryDetail.
+1.1.5:
+    - Added navigation to next/previous record in a record edit form.

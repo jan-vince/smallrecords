@@ -159,6 +159,24 @@ class Records extends ComponentBase
 
     }
 
+    /**
+     * Get testimonials from records
+     * array @paramOverride Array of parameters names and values to override
+     * return @array
+     */
+    public function testimonials($paramOverride = []) {
+
+        $records = $this->items($paramOverride);
+
+        $records->each( function($record, $key) use($records) {
+            if (!is_array($record->testimonials) or !count($record->testimonials)) {
+                $records->forget($key);
+            }
+        });
+
+        return $records;
+
+    }
 
     /**
      * Change property

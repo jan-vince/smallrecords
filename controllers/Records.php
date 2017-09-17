@@ -110,16 +110,13 @@ class Records extends Controller
         if($record ) {
             $this->vars['record'] = $record;
         }
-        /**
-         * TODO: add prev/next records
-         */
-        if($record ) {
-            $this->nextRecord = null;
 
+        if($record ) {
+            $this->nextRecord = $record->getNextRecordByDate();
         }
 
         if($record) {
-            $this->previousRecord = null;
+            $this->previousRecord = $record->getPreviousRecordByDate();
         }
 
 

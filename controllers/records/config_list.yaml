@@ -18,7 +18,7 @@ recordUrl: 'janvince/smallrecords/records/update/:id/:area_id'
 noRecordsMessage: 'backend::lang.list.no_records'
 
 # Records to display per page
-recordsPerPage: 25
+recordsPerPage: 50
 
 # Display checkboxes next to each record
 showCheckboxes: true
