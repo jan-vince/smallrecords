@@ -2,6 +2,7 @@
 
 namespace JanVince\SmallRecords\Models;
 
+use Db;
 use \Backend\Models\ExportModel;
 use \October\Rain\Support\Collection;
 
@@ -27,18 +28,24 @@ class RecordExport extends ExportModel {
     public function exportData($columns, $sessionKey = null)
     {
 
-        if( $this->list_id ) {
-            $record = Record::where('area_id', '=', $this->list_id)->get();
+        $records = Record::all();
 
-        } else {
-            $record = Record::all();
-        }
+        $records->each(function($record) use ($columns) {
 
-        $record->each(function($record) use ($columns) {
             $record->addVisible($columns);
+
         });
 
-        return $record->toArray();
+        $records->transform( function($item, $key) {
+
+            $item->testimonials = json_encode($item->testimonials);
+            $item->repeater = json_encode($item->repeater);
+
+            return $item;
+
+        });
+
+        return $records->toArray();
 
     }
 

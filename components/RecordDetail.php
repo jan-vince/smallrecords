@@ -14,6 +14,14 @@ use JanVince\SmallRecords\Models\Area;
 class RecordDetail extends ComponentBase
 {
 
+
+    /**
+    * Selected record
+     * @var JanVince\SmallRecords\Models\Record
+     */
+    public $recordDetail;
+
+
     public function componentDetails()
     {
         return [
@@ -26,6 +34,12 @@ class RecordDetail extends ComponentBase
     {
 
         return [
+            'recordSlug'   => [
+                'title'       => 'janvince.smallrecords::lang.components.record.properties.record_slug',
+                'description' => 'janvince.smallrecords::lang.components.record.properties.record_slug_description',
+                'type'        => 'string',
+                'default'     => '{{ :slug }}',
+            ],
             'areaSlug'  => [
                 'title' => 'janvince.smallrecords::lang.components.records.properties.area',
                 'type'  => 'dropdown',
@@ -40,13 +54,13 @@ class RecordDetail extends ComponentBase
                 'title'       => 'janvince.smallrecords::lang.components.records.properties.active_only',
                 'description' => 'janvince.smallrecords::lang.components.records.properties.active_only_description',
                 'type'        => 'checkbox',
-                'default'     => 'true',
+                'default'     => true,
             ],
-            'recordSlug'   => [
-                'title'       => 'janvince.smallrecords::lang.components.record.properties.record_slug',
-                'description' => 'janvince.smallrecords::lang.components.record.properties.record_slug_description',
-                'type'        => 'string',
-                'default'     => '{{ :slug }}',
+            'throw404'   => [
+                'title'       => 'janvince.smallrecords::lang.components.record.properties.throw404',
+                'description' => 'janvince.smallrecords::lang.components.record.properties.throw404_description',
+                'type'        => 'checkbox',
+                'default'     => false,
             ],
         ];
 
@@ -58,7 +72,13 @@ class RecordDetail extends ComponentBase
 
     public function onRun()
     {
-        $this->page['recordDetail'] = $this->getRecord();
+
+        $this->recordDetail = $this->page['recordDetail'] = $this->getRecord();
+
+        if( $this->property('recordSlug') and !$this->recordDetail ){
+            abort(404, 'Record not found!');
+        }
+
     }
 
     public function onRender()
@@ -75,7 +95,7 @@ class RecordDetail extends ComponentBase
      * Get record with filters from properties
      * return @array
      */
-    public function getRecord() {
+    private function getRecord() {
 
         /**
          *  Filter area
@@ -102,9 +122,7 @@ class RecordDetail extends ComponentBase
          *  Filter active only
          */
          if( $this->property('activeOnly') ) {
-
              $record->isActive();
-
          }
 
         $recordDetail = $record->first();
@@ -112,6 +130,5 @@ class RecordDetail extends ComponentBase
         return $recordDetail;
 
     }
-
 
 }

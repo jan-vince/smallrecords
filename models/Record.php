@@ -25,7 +25,7 @@ class Record extends Model
 
     protected $guarded = [];
 
-    protected $jsonable = ['repeater'];
+    protected $jsonable = ['repeater', 'testimonials'];
 
     protected $dates = [
         'created_at',
@@ -38,7 +38,7 @@ class Record extends Model
      */
     public $rules = [
         'name' => 'required',
-        'slug' => 'required|between:3,64|unique:janvince_smallrecords_records',
+        'slug' => 'required|between:3,64',
     ];
 
     public $translatable = [
@@ -117,6 +117,13 @@ class Record extends Model
     }
 
     /**
+     *  SCOPES
+     */
+    public function scopeIsFavourite($query) {
+        return $query->where('favourite', '=', true);
+    }
+
+    /**
     *    FILTERS
     */
     public function filterFields($fields, $context = NULL) {
@@ -169,5 +176,40 @@ class Record extends Model
         return Record::get();
 
     }
+
+    public function getNextRecordByDate($activeOnly = true){
+
+        $record = Record::whereDate('date', '<', $this->date)
+                            ->where('id', '<>', $this->id)
+                            ->orderBy('date', 'desc');
+
+        /**
+         *  Filter active only
+         */
+         if( $activeOnly ) {
+             $record->isActive();
+         }
+
+        return $record->first();
+
+    }
+
+    public function getPreviousRecordByDate($activeOnly = true){
+
+        $record = Record::whereDate('date', '>', $this->date)
+                            ->where('id', '<>', $this->id)
+                            ->orderBy('date', 'asc');
+
+        /**
+         *  Filter active only
+         */
+         if( $activeOnly ) {
+             $record->isActive();
+         }
+
+        return $record->first();
+
+    }
+
 
 }

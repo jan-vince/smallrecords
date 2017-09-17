@@ -2,7 +2,6 @@
     - "Initial version"
     - sr_tables.php
 1.1.0:
-    - Added testimonials column
+    - Import/Export for Records, Categories and Tags. Permissions for each Records list. Added testimonials column, add unique for area_id,slug. New components for record and category detail.
     - sr-update-01.php
-1.2.0:
-    - Import/Export for Records, Categories and Tags. Permissions for each Records list.
+    - sr-update-02.php

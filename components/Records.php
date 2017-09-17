@@ -40,7 +40,13 @@ class Records extends ComponentBase
                 'title'       => 'janvince.smallrecords::lang.components.records.properties.active_only',
                 'description' => 'janvince.smallrecords::lang.components.records.properties.active_only_description',
                 'type'        => 'checkbox',
-                'default'     => 'true',
+                'default'     => true,
+            ],
+            'favouriteOnly'      => [
+                'title'       => 'janvince.smallrecords::lang.components.records.properties.favourite_only',
+                'description' => 'janvince.smallrecords::lang.components.records.properties.favourite_only_description',
+                'type'        => 'checkbox',
+                'default'     => false,
             ],
             'detailPageSlug'   => [
                 'title'       => 'janvince.smallrecords::lang.components.records.properties.detail_page_slug',
@@ -48,6 +54,18 @@ class Records extends ComponentBase
                 'type'        => 'dropdown',
                 'default'     => 'records/detail',
                 'group'       => 'janvince.smallrecords::lang.components.records.properties.groups.links',
+            ],
+            'orderBy'   => [
+                'title'       => 'janvince.smallrecords::lang.components.records.properties.order_by',
+                'type'        => 'dropdown',
+                'default'     => 'date',
+                'group'       => 'janvince.smallrecords::lang.components.records.properties.groups.sort',
+            ],
+            'orderByDirection'   => [
+                'title'       => 'janvince.smallrecords::lang.components.records.properties.order_by_direction',
+                'type'        => 'dropdown',
+                'default'     => 'DESC',
+                'group'       => 'janvince.smallrecords::lang.components.records.properties.groups.sort',
             ],
         ];
 
@@ -62,6 +80,25 @@ class Records extends ComponentBase
         return Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
     }
 
+    public function getOrderByOptions()
+    {
+        return [
+            'date' => e(trans('janvince.smallrecords::lang.common.columns.date')),
+            'name' => e(trans('janvince.smallrecords::lang.common.columns.name')),
+            'url' =>  e(trans('janvince.smallrecords::lang.common.columns.url')),
+            'active' => e(trans('janvince.smallrecords::lang.common.columns.active')),
+            'favourite' => e(trans('janvince.smallrecords::lang.common.columns.favourite')),
+        ];
+    }
+
+    public function getOrderByDirectionOptions()
+    {
+        return [
+            'ASC' => e(trans('janvince.smallrecords::lang.common.asc')),
+            'DESC' => e(trans('janvince.smallrecords::lang.common.desc')),
+        ];
+    }
+
     public function onRender()
     {
 
@@ -69,14 +106,16 @@ class Records extends ComponentBase
          *  Allow some varibles from component
          */
         $this->page['cssClass'] = $this->property('cssClass');
+        $this->page['detailPageSlug'] = $this->property('detailPageSlug');
 
     }
 
     /**
-     * Get records with filters from properties
+     * Get records
+     * array @paramOverride Array of parameters names and values to override
      * return @array
      */
-    public function items() {
+    public function items($paramOverride = []) {
 
         /**
          *  Filter area
@@ -97,15 +136,39 @@ class Records extends ComponentBase
         /**
          *  Filter active only
          */
-         if( $this->property('activeOnly') ) {
-
+         if( $this->property('activeOnly') or !empty($paramOverride['activeOnly']) ) {
              $records->isActive();
-
          }
+
+        /**
+         *  Filter favourite only
+         */
+         if( $this->property('favouriteOnly') or !empty($paramOverride['favouriteOnly']) ) {
+             $records->isFavourite();
+         }
+
+        /**
+         *  Order
+         */
+         if( $this->property('orderBy')  ) {
+             $records->orderBy($this->property('orderBy'), $this->property('orderByDirection'));
+         }
+
 
         return $records->get();
 
     }
 
+
+    /**
+     * Change property
+     */
+    public function changeProperty($propertyName, $propertyValue) {
+
+        if($this->propertyExists($propertyName)) {
+            $this->setProperty($propertyName, $propertyValue);
+        }
+
+    }
 
 }

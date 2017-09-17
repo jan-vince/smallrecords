@@ -11,6 +11,8 @@
         'import' => 'Import',
         'export' => 'Export',
         'edit' => 'Edit',
+        'desc' => 'Descending',
+        'asc' => 'Ascending',
 
         'menu' => [
             'areas' => 'Lists',
@@ -106,7 +108,7 @@
             'text' => 'Text',
         ],
 
-        'tetimonials' => [
+        'testimonials' => [
             'title' => 'Title',
             'image' => 'Image',
             'author' => 'Author',
@@ -216,11 +218,16 @@
                 'category_description' => 'Category slug (dynamic like :category or manually entered)',
                 'active_only' => 'Active records only',
                 'active_only_description' => 'Get only active records (unchecked will get all records)',
+                'favourite_only' => 'Favourite records only',
+                'favourite_only_description' => 'Get only favourite records (unchecked will get all records)',
                 'detail_page_slug' => 'Detail page slug',
                 'detail_page_slug_description' => 'Enter a slug of CMS page where you want to render a record\'s details',
+                'sort_by' => 'Sort by',
+                'sort_by_direction' => 'Sort direction',
 
                 'groups' => [
                     'links' => 'Links',
+                    'sort' => 'Sorting',
                 ],
 
             ],
@@ -234,6 +241,24 @@
             'properties' => [
                 'record_slug' => 'Record slug',
                 'record_slug_description' => 'Enter a slug of specific record',
+                'throw404' => '404 error on invalid slug',
+                'throw404_description' => 'Return 404 error when slug is invalid',
+            ],
+
+        ],
+
+        'categories' => [
+            'name' => 'Recors\'s categories',
+            'description' => 'Get categories of records',
+        ],
+
+        'category' => [
+            'name' => 'Category',
+            'description' => 'Get one specific category',
+
+            'properties' => [
+                'throw404' => '404 error on invalid slug',
+                'throw404_description' => 'Return 404 error when slug is invalid',
             ],
 
         ],

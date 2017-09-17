@@ -41,10 +41,9 @@ class Category extends Model
     /**
      * @var array Relations
      */
-    public $belongsToMany = [
+    public $hasMany = [
         'records' => [
-            'JanVince\SmallRecords\Models\Record',
-            'table' => 'janvince_smallrecords_records_categories',
+            'JanVince\SmallRecords\Models\Record'
         ]
     ];
 
@@ -56,9 +55,11 @@ class Category extends Model
         'preview_image' => ['System\Models\File'],
     ];
 
-    public function afterDelete()
-    {
-        $this->records()->detach();
+    /**
+     *  SCOPES
+     */
+    public function scopeIsActive($query) {
+        return $query->where('active', '=', true);
     }
 
 }

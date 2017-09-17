@@ -162,8 +162,8 @@ tabs:
 
         testimonials:
             type: repeater
-            prompt: 'janvince.smallrecords::lang.common.testimonials_prompt'
-            tab: 'janvince.smallrecords::lang.tabs.testimonials'
+            prompt: 'janvince.smallrecords::lang.common.columns.testimonials_prompt'
+            tab: 'janvince.smallrecords::lang.common.tabs.testimonials'
             trigger:
                 action: hide
                 field: id

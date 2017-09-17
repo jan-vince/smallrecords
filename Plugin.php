@@ -174,6 +174,8 @@ class Plugin extends PluginBase
         return [
             'JanVince\SmallRecords\Components\Records' => 'records',
             'JanVince\SmallRecords\Components\RecordDetail' => 'recordDetail',
+            'JanVince\SmallRecords\Components\Categories' => 'categories',
+            'JanVince\SmallRecords\Components\CategoryDetail' => 'categoryDetail',
         ];
     }
 

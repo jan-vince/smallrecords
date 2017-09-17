@@ -11,6 +11,9 @@
         'import' => 'Importovat',
         'export' => 'Exportovat',
         'edit' => 'Upravit',
+        'desc' => 'Sestupně',
+        'asc' => 'Vzestupně',
+
 
         'menu' => [
             'areas' => 'Seznamy',
@@ -40,7 +43,7 @@
             'url' => 'URL',
             'description' => 'Popisek',
             'content' => 'Obsah',
-            'preview_image' => 'Náhledový obrázek',
+            'preview_image' => 'Náhled',
             'images' => 'Obrázky',
             'attached_images_count' => 'Obrázků',
             'area' => 'Seznam',
@@ -106,7 +109,7 @@
             'text' => 'Text',
         ],
 
-        'tetimonials' => [
+        'testimonials' => [
             'title' => 'Titulek',
             'image' => 'Obrázek',
             'author' => 'Autor',
@@ -211,11 +214,18 @@
                 'category_description' => 'Záznamy můžete omezit na vybranou kategorie (dynamicky parametrem např. ":category" nebo ručně)',
                 'active_only' => 'Pouze aktivní záznamy',
                 'active_only_description' => 'Vybere pouze záznamy označené jako aktivní (Pokud není zaškrtnuto, vybere všechny záznamy)',
+                'favourite_only' => 'Pouze oblíbené záznamy',
+                'favourite_only_description' => 'Vybere pouze záznamy označené jako oblíbené (Pokud není zaškrtnuto, vybere všechny záznamy)',
                 'detail_page_slug' => 'Slug stránky detailu záznamu',
                 'detail_page_slug_description' => 'Vložte slug CMS stránky, na které chcete zobrazit detail vybraného záznamu',
+                'order_by' => 'Řadit podle',
+                'order_by_direction' => 'Směr řazení',
+                'throw404' => 'Zobrazit chybu 404',
+                'throw404_description' => 'Vrátí chybu 404, pokud je neplatný slug',
 
                 'groups' => [
                     'links' => 'Odkazy',
+                    'sort' => 'Řazení',
                 ],
 
             ],
@@ -228,9 +238,19 @@
 
             'properties' => [
                 'record_slug' => 'Slug záznamu',
-                'record_slug_description' => 'vložte slug vybraného záznamu',
+                'record_slug_description' => 'Vložte slug vybraného záznamu',
             ],
 
+        ],
+
+        'categories' => [
+            'name' => 'Kategorie záznamů',
+            'description' => 'Získá kategorie záznamů',
+        ],
+
+        'category' => [
+            'name' => 'Kategorie',
+            'description' => 'Získá jednu konkrétní kategorii',
         ],
 
     ],
