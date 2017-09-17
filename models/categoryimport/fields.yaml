@@ -5,13 +5,13 @@
 fields:
 
     truncate_table:
-        label: janvince.smallrecords::lang.common.import.truncate_table
+        label: janvince.smallrecords::lang.common.import_settings.truncate_table
         description: janvince.smallrecords::lang.common.import_settings.truncate_table_description
         type: checkbox
         default: false
 
     delete_relations:
-        label: janvince.smallrecords::lang.common.import.delete_relations
+        label: janvince.smallrecords::lang.common.import_settings.delete_relations
         description: janvince.smallrecords::lang.common.import_settings.delete_relations_description
         type: checkbox
         default: false
