@@ -231,7 +231,7 @@
         ],
 
         'record' => [
-            'name' => 'Záznam',
+            'name' => 'Jeden záznam',
             'description' => 'Získá jeden konkrétní záznam',
 
             'properties' => [
@@ -244,12 +244,12 @@
         ],
 
         'categories' => [
-            'name' => 'Kategorie záznamů',
-            'description' => 'Získá kategorie záznamů',
+            'name' => 'Kategorie',
+            'description' => 'Získá kategorie',
         ],
 
         'category' => [
-            'name' => 'Kategorie',
+            'name' => 'Jedna kategorie',
             'description' => 'Získá jednu konkrétní kategorii',
 
             'properties' => [

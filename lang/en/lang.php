@@ -208,7 +208,7 @@
     'components' => [
 
         'records' => [
-            'name' => 'Records list',
+            'name' => 'Records',
             'description' => 'Get records of selected records list',
 
             'properties' => [
@@ -248,7 +248,7 @@
         ],
 
         'categories' => [
-            'name' => 'Recors\'s categories',
+            'name' => 'Categories',
             'description' => 'Get categories of records',
         ],
 
