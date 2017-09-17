@@ -69,7 +69,7 @@
             'back_to_list' => 'Back to list',
         ],
 
-        'import' => [
+        'import_settings' => [
             'truncate_table' => 'Empty table before import',
             'truncate_table_description' => 'Delete all categories and reset autoincrement',
             'delete_relations' => 'Delete records relations to categories',

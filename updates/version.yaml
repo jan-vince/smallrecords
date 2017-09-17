@@ -15,3 +15,5 @@
     - Added components for RecordDetail and CategoryDetail.
 1.1.5:
     - Added navigation to next/previous record in a record edit form.
+1.1.6:
+    - Fixed typo in EN locale
