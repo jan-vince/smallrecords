@@ -27,7 +27,8 @@ class Categories extends ComponentBase
 
         return [
             'areaSlug'  => [
-                'title' => 'janvince.smallrecords::lang.components.records.properties.area',
+                'title' => 'janvince.smallrecords::lang.components.categories.properties.area',
+                'description' => 'janvince.smallrecords::lang.components.categories.properties.area_description',
                 'type'  => 'dropdown',
                 'default' => false,
             ],
@@ -48,7 +49,15 @@ class Categories extends ComponentBase
     }
 
     public function getAreaSlugOptions() {
-        return  Area::isActive()->orderBy('name')->lists('name', 'slug');
+
+        $areas = [];
+
+        $areas = Area::isActive()->orderBy('name')->lists('name', 'slug');;
+
+        $emptyOption = [0 => e(trans('janvince.smallrecords::lang.areas.import.area_id_empty_option')) ];
+
+        return $emptyOption + $areas;
+
     }
 
     public function getDetailPageSlugOptions()
@@ -66,22 +75,6 @@ class Categories extends ComponentBase
 
     }
 
-    public function onRun()
-    {
-
-        // $this->page['detailPage'] = $this->property('detailPage');
-        //
-        // if($this->property('slug')) {
-        //     $category = $this->getRecord();
-        //
-        //     $this->page['category'] = $category;
-        //     $this->page->title = $this->page->title . ' (' . $category->name . ')';
-        //     $this->page->meta_description = strip_tags($category->description);
-        //
-        // }
-
-    }
-
     /**
      * Get categories
      * return @array
@@ -91,13 +84,18 @@ class Categories extends ComponentBase
         $categories = Category::with('records');
 
         /**
-         *  Filter records by area
+         *  Filter category records by area
          */
         if( $this->property('areaSlug') ) {
+
             $categories->whereHas('records', function ($query) {
-                $query->whereHas('area', function ($query) {
-                    $query->where('slug', '=', $this->property('areaSlug'));
+
+                $query->whereHas('area', function ($query2) {
+
+                    $query2->where('slug', '=', $this->property('areaSlug'));
+
                 });
+
             });
 
         }

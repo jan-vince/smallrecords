@@ -1,36 +1,17 @@
-{% for record in __SELF__.items %}
+<ul class="categories-box {{ cssClass }}">
 
-    <div class="record-box {{ cssClass }}">
+    {% for category in categories.items %}
 
-        {% if record.preview_image %}
-            <img alt="{{ record.name }}" src="{{ record.preview_image.getPath }}" />
+    <li {% if category.slug == this.param.categorySlug %}class="active"{% endif %}>
+
+        <a href="{{ 'moje-prace'|page({'category':category.slug}) }}">{{ category.name }}</a>
+
+        {% if category.records|length %}
+            {# All category records - not limited to a specific list ! #}
+            <span class="badge">{{ category.records|length }}</span>
         {% endif %}
 
-        <h3>
-            <a href="{{ record.url }}">
-                {{ record.name }}
-            </a>
-        </h3>
+    </li>
+    {% endfor %}
 
-    </div>
-
-    <ul class="categories-box {{ cssClass }}">
-
-        {% for category in categories.items %}
-
-        <li {% if category.slug == this.param.categorySlug %}class="active"{% endif %}>
-
-            <a href="{{ 'moje-prace'|page({'category':category.slug}) }}">{{ category.name }}</a>
-
-            {% if category.records|length %}
-                <span class="badge">{{ category.records|length }}</span>
-            {% endif %}
-
-        </li>
-        {% endfor %}
-
-    </ul>
-
-
-
-{% endfor %}
+</ul>

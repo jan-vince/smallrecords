@@ -246,6 +246,12 @@
         'categories' => [
             'name' => 'Kategorie',
             'description' => 'Získá kategorie',
+
+            'properties' => [
+                'area' => 'Jen se záznamy z',
+                'area_description' => 'Vybrat pouze kategorie se záznamy z tohoto seznamu',
+            ],
+
         ],
 
         'category' => [

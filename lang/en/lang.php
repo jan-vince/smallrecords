@@ -250,6 +250,12 @@
         'categories' => [
             'name' => 'Categories',
             'description' => 'Get categories of records',
+
+            'properties' => [
+                'area' => 'With record from',
+                'area_description' => 'Select only categories with records in this list',
+            ],
+
         ],
 
         'category' => [
