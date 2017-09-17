@@ -220,8 +220,6 @@
                 'detail_page_slug_description' => 'Vložte slug CMS stránky, na které chcete zobrazit detail vybraného záznamu',
                 'order_by' => 'Řadit podle',
                 'order_by_direction' => 'Směr řazení',
-                'throw404' => 'Zobrazit chybu 404',
-                'throw404_description' => 'Vrátí chybu 404, pokud je neplatný slug',
 
                 'groups' => [
                     'links' => 'Odkazy',
@@ -239,6 +237,8 @@
             'properties' => [
                 'record_slug' => 'Slug záznamu',
                 'record_slug_description' => 'Vložte slug vybraného záznamu',
+                'throw404' => 'Zobrazit chybu 404',
+                'throw404_description' => 'Vrátí chybu 404, pokud je neplatný slug',
             ],
 
         ],
@@ -251,6 +251,11 @@
         'category' => [
             'name' => 'Kategorie',
             'description' => 'Získá jednu konkrétní kategorii',
+
+            'properties' => [
+                'throw404' => 'Zobrazit chybu 404',
+                'throw404_description' => 'Vrátí chybu 404, pokud je neplatný slug',
+            ],
         ],
 
     ],
