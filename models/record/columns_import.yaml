@@ -45,14 +45,14 @@ columns:
         label: 'janvince.smallrecords::lang.common.columns.content'
         type: text
 
-    repeater:
-        label: 'janvince.smallrecords::lang.common.columns.repeater'
-        type: text
-
-    testimonials:
-        label: 'janvince.smallrecords::lang.common.columns.testimonials'
-        type: text
-
+    # repeater:
+    #     label: 'janvince.smallrecords::lang.common.columns.repeater'
+    #     type: text
+    #
+    # testimonials:
+    #     label: 'janvince.smallrecords::lang.common.columns.testimonials'
+    #     type: text
+    #
     created_at:
         label: janvince.smallrecords::lang.common.columns.created_at
         type: datetime
