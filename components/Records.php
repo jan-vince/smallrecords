@@ -13,7 +13,8 @@ use JanVince\SmallRecords\Models\Area;
 
 class Records extends ComponentBase
 {
-
+    public $detailPageSlug;
+    
     public function componentDetails()
     {
         return [
@@ -108,6 +109,11 @@ class Records extends ComponentBase
         $this->page['cssClass'] = $this->property('cssClass');
         $this->page['detailPageSlug'] = $this->property('detailPageSlug');
 
+    }
+    
+    public function onRun()
+    {
+        $this->detailPageSlug = $this->property('detailPageSlug');
     }
 
     /**
