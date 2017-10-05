@@ -62,7 +62,9 @@ You can export and import data to Categories and to Records (Records through Imp
 
 You can add a Records component to a page, layout or partial.
 
-*There are several parameters - only Records list is required.*
+*There are several parameters - only Records list slug is required.*
+
+You can access all properties in twig like: ````{{records.property('detailPageSlug')}}````
 
 #### Record
 
