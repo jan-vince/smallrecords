@@ -93,10 +93,6 @@ class Record extends Model
         'category' => [
             'JanVince\SmallRecords\Models\Category',
         ],
-        'client' => [
-            'JanVince\SmallRecords\Models\Client',
-            'table' => 'janvince_smallrecords_records_clients',
-        ],
 
     ];
 
