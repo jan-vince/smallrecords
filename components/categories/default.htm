@@ -1,8 +1,8 @@
 <ul class="categories-box {{ cssClass }}">
 
-    {% for category in categories.items %}
+    {% for category in __SELF__.items %}
 
-    <li {% if category.slug == this.param.categorySlug %}class="active"{% endif %}>
+    <li {% if category.slug == __SELF__.param.categorySlug %}class="active"{% endif %}>
 
         <a href="{{ 'moje-prace'|page({'category':category.slug}) }}">{{ category.name }}</a>
 
