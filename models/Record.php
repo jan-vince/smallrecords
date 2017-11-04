@@ -216,7 +216,7 @@ class Record extends Model
     }
 
     /**
-     * Get specifig attribute by slug
+     * Get specific attribute by slug
      */
     public function getAttributeBySlug($slug) {
 
