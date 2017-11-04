@@ -218,7 +218,7 @@ class Record extends Model
     /**
      * Get specific attribute by slug
      */
-    public function getAttributeBySlug($slug) {
+    public function getAttributeValueBySlug($slug) {
 
         if( empty( $this->attributes() ) ) {
             return false;

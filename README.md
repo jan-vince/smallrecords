@@ -67,7 +67,7 @@ Or there is a function to get a specific attribute by slug like:
 
 ````
 
-    {{ record.getAttributeBySlug('my-attribute-slug') }}
+    {{ record.getAttributeValueBySlug('my-attribute-slug') }}
 
 ````
 
