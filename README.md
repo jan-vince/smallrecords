@@ -58,7 +58,7 @@ If you assigned one or more attributes to any record, you can iterate through th
 ````
 {% for attribute in record.attributes %}
 
-    {{ attribute.name }} : {{ item.value }}
+    {{ attribute.name }} : {{ attribute.value }}
 
 {% endfor %}
 
