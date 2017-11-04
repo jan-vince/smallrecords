@@ -21,3 +21,5 @@
     - Improved Category component.
 1.1.8:
     - Added {{ attribute.value }} and {{ record.getAttributeBySlug('slug') }} functions.
+1.1.9:
+    - Added {{ record.getAttributeValueBySlug('slug') }} function.

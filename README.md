@@ -63,9 +63,11 @@ If you assigned one or more attributes to any record, you can iterate through th
 {% endfor %}
 
 ````
-Or there is a function to get a specific attribute by slug like:
+Or there are functions to get a specific attribute (or attribute's value) by slug like:
 
 ````
+
+    {{ record.getAttributeBySlug('my-attribute-slug') }}
 
     {{ record.getAttributeValueBySlug('my-attribute-slug') }}
 
