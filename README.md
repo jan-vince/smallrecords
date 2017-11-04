@@ -51,6 +51,28 @@ If you need a specific information for your records, here you can define a name 
 
 If Attributes are allowed in Records list, you can select an attribute and add a custom content to it.
 
+#### Access attributes in Twig
+
+If you assigned one or more attributes to any record, you can iterate through them with Twig code like:
+
+````
+{% for attribute in record.attributes %}
+
+    {{ attribute.name }} : {{ item.value }}
+
+{% endfor %}
+
+````
+Or there is a function to get a specific attribute by slug like:
+
+````
+
+    {{ record.getAttributeBySlug('my-attribute-slug') }}
+
+````
+
+
+
 ## Import and Export
 
 You can export and import data to Categories and to Records (Records through Import/Export buttons in Lists toolbar).

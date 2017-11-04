@@ -51,4 +51,50 @@ class Attribute extends Model
         $this->records()->detach();
     }
 
+	/**
+	 * Get attribute pivot value
+	 */
+    public function value() {
+
+        if( !empty($this->value_type) ) {
+            $valueType = $this->value_type;
+        } else {
+            return null;
+        }
+
+        switch($valueType) {
+
+            case 'number':
+                if( isset($this->pivot->value_number) ) {
+                    return $this->pivot->value_number;
+                }
+                break;
+
+            case 'string':
+                if( isset($this->pivot->value_string) ) {
+                    return $this->pivot->value_string;
+                }
+                break;
+
+            case 'text':
+                if( isset($this->pivot->value_text) ) {
+                    return $this->pivot->value_text;
+                }
+                break;
+
+            case 'switch':
+                if( isset($this->pivot->value_boolean) ) {
+                    return $this->pivot->value_boolean;
+                }
+                break;
+
+            default:
+                return null;
+                break;
+        }
+
+        return null;
+
+    }
+
 }

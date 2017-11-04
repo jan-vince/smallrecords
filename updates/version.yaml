@@ -18,4 +18,6 @@
 1.1.6:
     - Fixed typo in EN locale
 1.1.7:
-    - Improved Category component
+    - Improved Category component.
+1.1.8:
+    - Added {{ attribute.value }} and {{ record.getAttributeBySlug('slug') }} functions.

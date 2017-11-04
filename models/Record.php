@@ -215,5 +215,28 @@ class Record extends Model
 
     }
 
+    /**
+     * Get specifig attribute by slug
+     */
+    public function getAttributeBySlug($slug) {
+
+        if( empty( $this->attributes() ) ) {
+            return false;
+        }
+
+        $attributes = $this->attributes()->get();
+
+        foreach($attributes as $attribute) {
+
+            if( $attribute->slug == $slug ) {
+                return $attribute->value();
+            }
+
+        }
+
+        return false;
+
+    }
+
 
 }
