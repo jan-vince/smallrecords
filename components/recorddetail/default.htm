@@ -1,11 +1,11 @@
 <div class="record-box {{ cssClass }}">
 
-    {% if recordDetail.preview_image %}
-        <img alt="{{ recordDetail.name }}" src="{{ recordDetail.preview_image.getPath }}" />
+    {% if __SELF__.preview_image %}
+        <img alt="{{ __SELF__.name }}" src="{{ __SELF__.preview_image.getPath }}" />
     {% endif %}
 
-    <h3>
-        {{ recordDetail.name }}
+    <h3 class="record-box-title">
+        {{ __SELF__.name }}
     </h3>
 
 </div>
