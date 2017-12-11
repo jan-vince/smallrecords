@@ -56,13 +56,13 @@ class Records extends ComponentBase
                 'group'       => 'janvince.smallrecords::lang.components.records.properties.groups.links',
             ],
             'orderBy'   => [
-                'title'       => 'janvince.smallrecords::lang.components.records.properties.order_by',
+                'title'       => 'janvince.smallrecords::lang.components.records.properties.sort_by',
                 'type'        => 'dropdown',
                 'default'     => 'date',
                 'group'       => 'janvince.smallrecords::lang.components.records.properties.groups.sort',
             ],
             'orderByDirection'   => [
-                'title'       => 'janvince.smallrecords::lang.components.records.properties.order_by_direction',
+                'title'       => 'janvince.smallrecords::lang.components.records.properties.sort_by_direction',
                 'type'        => 'dropdown',
                 'default'     => 'DESC',
                 'group'       => 'janvince.smallrecords::lang.components.records.properties.groups.sort',
