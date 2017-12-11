@@ -25,3 +25,5 @@
     - Added {{ record.getAttributeValueBySlug('slug') }} function.
 1.1.10:
     - Fixed recordDetail coponent code (thanks to https://github.com/onemedicare)
+1.2.0:
+    - Added limit function to Records component
