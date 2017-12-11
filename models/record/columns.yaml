@@ -33,6 +33,11 @@ columns:
         sortable: true
         searchable: true
 
+    tags:
+        label: 'janvince.smallrecords::lang.common.columns.tags'
+        type: tags_names
+        sortable: true
+
     date:
         label: 'janvince.smallrecords::lang.common.columns.date'
         type: date

@@ -199,6 +199,7 @@ class Plugin extends PluginBase
 
                 if($value){ return "<img src='".$value->getThumb($width, $height)."' style='width: auto; height: auto; max-width: ".$width."px; max-height: ".$height."px'>"; }
             },
+            'tags_names' => function($values){ $names = []; if( $values->count() > 0 ) { foreach($values as $value) { $names[] = $value->name; } } return implode(', ', $names); },
         ];
     }
 
