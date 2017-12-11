@@ -218,8 +218,12 @@
                 'favourite_only_description' => 'Vybere pouze záznamy označené jako oblíbené (Pokud není zaškrtnuto, vybere všechny záznamy)',
                 'detail_page_slug' => 'Slug stránky detailu záznamu',
                 'detail_page_slug_description' => 'Vložte slug CMS stránky, na které chcete zobrazit detail vybraného záznamu',
-                'order_by' => 'Řadit podle',
-                'order_by_direction' => 'Směr řazení',
+                'sort_by' => 'Řadit podle',
+                'sort_by_direction' => 'Směr řazení',
+                'allow_limit' => 'Omezit počet záznamů',
+                'allow_limit_description' => 'Pokud je zaškrtnuto, vrátí pouze uvedený počet záznamů',
+                'limit' => 'Počet záznamů',
+                'limit_description' => 'Kolik záznamů má být vráceno',
 
                 'groups' => [
                     'links' => 'Odkazy',
@@ -248,7 +252,7 @@
             'description' => 'Získá kategorie',
 
             'properties' => [
-                'area' => 'Jen se záznamy z',
+                'area' => 'Seznam',
                 'area_description' => 'Vybrat pouze kategorie se záznamy z tohoto seznamu',
             ],
 

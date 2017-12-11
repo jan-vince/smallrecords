@@ -48,6 +48,20 @@ class Records extends ComponentBase
                 'type'        => 'checkbox',
                 'default'     => false,
             ],
+            'allowLimit'   => [
+                'title'       => 'janvince.smallrecords::lang.components.records.properties.allow_limit',
+                'description' => 'janvince.smallrecords::lang.components.records.properties.allow_limit_description',
+                'type'        => 'checkbox',
+                'default'     => 'false',
+                'group'       => 'janvince.smallrecords::lang.components.records.properties.groups.limit',
+            ],
+            'limit'   => [
+                'title'       => 'janvince.smallrecords::lang.components.records.properties.limit',
+                'description' => 'janvince.smallrecords::lang.components.records.properties.limit_description',
+                'type'        => 'string',
+                'default'     => 10,
+                'group'       => 'janvince.smallrecords::lang.components.records.properties.groups.limit',
+            ],
             'detailPageSlug'   => [
                 'title'       => 'janvince.smallrecords::lang.components.records.properties.detail_page_slug',
                 'description' => 'janvince.smallrecords::lang.components.records.properties.detail_page_slug_description',
@@ -153,6 +167,15 @@ class Records extends ComponentBase
          if( $this->property('orderBy')  ) {
              $records->orderBy($this->property('orderBy'), $this->property('orderByDirection'));
          }
+
+        /**
+         *  Limit
+         */
+         if( $this->property('allowLimit') and  $this->property('limit') ) {
+             $records->limit($this->property('limit'));
+         }
+
+
 
 
         return $records->get();

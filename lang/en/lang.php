@@ -224,10 +224,15 @@
                 'detail_page_slug_description' => 'Enter a slug of CMS page where you want to render a record\'s details',
                 'sort_by' => 'Sort by',
                 'sort_by_direction' => 'Sort direction',
+                'allow_limit' => 'Limit number or records',
+                'allow_limit_description' => 'If checked, only required number of records will be returned',
+                'limit' => 'Records count',
+                'limit_description' => 'How many records will be returned',
 
                 'groups' => [
                     'links' => 'Links',
                     'sort' => 'Sorting',
+                    'limit' => 'Limit',
                 ],
 
             ],
@@ -252,7 +257,7 @@
             'description' => 'Get categories of records',
 
             'properties' => [
-                'area' => 'With record from',
+                'area' => 'List',
                 'area_description' => 'Select only categories with records in this list',
             ],
 
