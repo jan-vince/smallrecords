@@ -216,6 +216,8 @@
                 'area_description' => 'Select a List to get records from',
                 'category' => 'Category slug',
                 'category_description' => 'Category slug (dynamic like :category or manually entered)',
+                'tag' => 'Tag slug',
+                'tag_description' => 'Tag slug (dynamic like :tag or manually entered)', 
                 'active_only' => 'Active records only',
                 'active_only_description' => 'Get only active records (unchecked will get all records)',
                 'favourite_only' => 'Favourite records only',
