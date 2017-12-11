@@ -40,7 +40,7 @@ class Records extends ComponentBase
                 'title'       => 'janvince.smallrecords::lang.components.records.properties.tag',
                 'description' => 'janvince.smallrecords::lang.components.records.properties.tag_description',
                 'type'        => 'string',
-                'default'     => '{{ :category }}',
+                'default'     => '{{ :tag }}',
             ],
             'activeOnly'      => [
                 'title'       => 'janvince.smallrecords::lang.components.records.properties.active_only',
