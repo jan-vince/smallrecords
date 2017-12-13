@@ -31,3 +31,5 @@
     - Added Tags to records list and Records component
 1.3.1:
     - Fixed default Tag slug for Records component
+1.4.0:
+    - Added Categories component property to get only root categories. Fixed some translations.

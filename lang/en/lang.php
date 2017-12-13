@@ -217,7 +217,7 @@
                 'category' => 'Category slug',
                 'category_description' => 'Category slug (dynamic like :category or manually entered)',
                 'tag' => 'Tag slug',
-                'tag_description' => 'Tag slug (dynamic like :tag or manually entered)', 
+                'tag_description' => 'Tag slug (dynamic like :tag or manually entered)',
                 'active_only' => 'Active records only',
                 'active_only_description' => 'Get only active records (unchecked will get all records)',
                 'favourite_only' => 'Favourite records only',
@@ -259,8 +259,11 @@
             'description' => 'Get categories of records',
 
             'properties' => [
-                'area' => 'List',
+                'area' => 'Only with records in list',
                 'area_description' => 'Select only categories with records in this list',
+                'root_only' => 'Root categories only',
+                'root_only_description' => 'Return only root categories',
+                'area_id_empty_option' => '-- Do not limit to --',
             ],
 
         ],

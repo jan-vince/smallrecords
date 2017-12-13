@@ -213,7 +213,7 @@
                 'category' => 'Parametr kategorie (slug)',
                 'category_description' => 'Záznamy můžete omezit na vybranou kategorie (dynamicky parametrem např. ":category" nebo zadáním ručně)',
                 'tag' => 'Parametr štítku (slug)',
-                'tag_description' => 'Záznamy můžete omezit na vybraný štítek (dynamicky parametrem např. ":tag" nebo zadáním ručně)', 
+                'tag_description' => 'Záznamy můžete omezit na vybraný štítek (dynamicky parametrem např. ":tag" nebo zadáním ručně)',
                 'active_only' => 'Pouze aktivní záznamy',
                 'active_only_description' => 'Vybere pouze záznamy označené jako aktivní (Pokud není zaškrtnuto, vybere všechny záznamy)',
                 'favourite_only' => 'Pouze oblíbené záznamy',
@@ -254,8 +254,11 @@
             'description' => 'Získá kategorie',
 
             'properties' => [
-                'area' => 'Seznam',
+                'area' => 'Se záznamy ze seznamu:',
                 'area_description' => 'Vybrat pouze kategorie se záznamy z tohoto seznamu',
+                'root_only' => 'Pouze nejvyšší kategorie',
+                'root_only_description' => 'Vrátí pouze kategorie nejvyšší úrovně',
+                'area_id_empty_option' => '-- Neomezovat --',                
             ],
 
         ],

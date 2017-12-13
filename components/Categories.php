@@ -30,7 +30,7 @@ class Categories extends ComponentBase
                 'title' => 'janvince.smallrecords::lang.components.categories.properties.area',
                 'description' => 'janvince.smallrecords::lang.components.categories.properties.area_description',
                 'type'  => 'dropdown',
-                'default' => false,
+                'default' => null,
             ],
             'categorySlug'    => [
                 'title'       => 'janvince.smallrecords::lang.components.records.properties.category',
@@ -44,6 +44,12 @@ class Categories extends ComponentBase
                 'type'        => 'checkbox',
                 'default'     => true,
             ],
+            'rootOnly'      => [
+                'title'       => 'janvince.smallrecords::lang.components.categories.properties.root_only',
+                'description' => 'janvince.smallrecords::lang.components.categories.properties.root_only_description',
+                'type'        => 'checkbox',
+                'default'     => false,
+            ],
         ];
 
     }
@@ -54,7 +60,7 @@ class Categories extends ComponentBase
 
         $areas = Area::isActive()->orderBy('name')->lists('name', 'slug');;
 
-        $emptyOption = [0 => e(trans('janvince.smallrecords::lang.areas.import.area_id_empty_option')) ];
+        $emptyOption = [0 => e(trans('janvince.smallrecords::lang.components.categories.properties.area_id_empty_option')) ];
 
         return $emptyOption + $areas;
 
@@ -99,6 +105,13 @@ class Categories extends ComponentBase
             });
 
         }
+
+        /**
+         *  Filter root only
+         */
+         if( $this->property('rootOnly') ) {
+             $categories->whereNull('parent_id');
+         }
 
         /**
          *  Filter active only
