@@ -33,3 +33,5 @@
     - Fixed default Tag slug for Records component
 1.4.0:
     - Added Categories component property to get only root categories. Fixed some translations.
+1.4.1:
+    - Added some more sorting columns (and check for allowed column types)

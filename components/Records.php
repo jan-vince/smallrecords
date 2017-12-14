@@ -103,11 +103,15 @@ class Records extends ComponentBase
     public function getOrderByOptions()
     {
         return [
-            'date' => e(trans('janvince.smallrecords::lang.common.columns.date')),
+            'id' => e(trans('janvince.smallrecords::lang.common.columns.id')),
             'name' => e(trans('janvince.smallrecords::lang.common.columns.name')),
             'url' =>  e(trans('janvince.smallrecords::lang.common.columns.url')),
+            'slug' =>  e(trans('janvince.smallrecords::lang.common.columns.slug')),
+            'date' => e(trans('janvince.smallrecords::lang.common.columns.date')),
             'active' => e(trans('janvince.smallrecords::lang.common.columns.active')),
             'favourite' => e(trans('janvince.smallrecords::lang.common.columns.favourite')),
+            'created_at' => e(trans('janvince.smallrecords::lang.common.columns.created_at')),
+            'updated_at' => e(trans('janvince.smallrecords::lang.common.columns.updated_at')),
         ];
     }
 
@@ -180,7 +184,23 @@ class Records extends ComponentBase
          *  Order
          */
          if( $this->property('orderBy')  ) {
-             $records->orderBy($this->property('orderBy'), $this->property('orderByDirection'));
+
+             $allowedColumns = $this->getOrderByOptions();
+
+            if( !empty( $allowedColumns[$this->property('orderBy')] ) ) {
+                $orderByColumn = $this->property('orderBy');
+            } else {
+                $orderByColumn = 'date';
+            }
+
+            if( in_array( strtoupper($this->property('orderByDirection')), ['ASC', 'DESC'])) {
+                $orderByDirection = strtoupper($this->property('orderByDirection'));
+            } else {
+                $orderByDirection = 'DESC';
+            }
+
+            $records->orderBy($orderByColumn, $orderByDirection);
+
          }
 
         /**
@@ -189,9 +209,6 @@ class Records extends ComponentBase
          if( $this->property('allowLimit') and  $this->property('limit') ) {
              $records->limit($this->property('limit'));
          }
-
-
-
 
         return $records->get();
 
