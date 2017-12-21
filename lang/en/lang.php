@@ -43,7 +43,7 @@
             'description' => 'Description',
             'content' => 'Content',
             'preview_image' => 'Preview image',
-            'preview_image_media' => 'Preview image (from Media manager)',
+            'preview_image_media' => 'Media preview',
             'images' => 'Images',
             'attached_images_count' => 'Images',
             'area' => 'List',

@@ -44,7 +44,7 @@
             'description' => 'Popisek',
             'content' => 'Obsah',
             'preview_image' => 'Náhled',
-            'preview_image_media' => 'Náhled (ze Správce médií)',
+            'preview_image_media' => 'Náhled média',
             'images' => 'Obrázky',
             'attached_images_count' => 'Obrázků',
             'area' => 'Seznam',
