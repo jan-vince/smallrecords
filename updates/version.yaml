@@ -35,3 +35,6 @@
     - Added Categories component property to get only root categories. Fixed some translations.
 1.4.1:
     - Added some more sorting columns (and check for allowed column types)
+1.5.0:
+    - Added option for Preview image selected from Media manager.
+    - sr-update-03.php

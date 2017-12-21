@@ -5,6 +5,7 @@ namespace JanVince\SmallRecords;
 use Backend;
 use BackendAuth;
 use Controller;
+use Config;
 use System\Classes\PluginBase;
 use Event;
 use JanVince\SmallRecords\Models\Settings;
@@ -185,6 +186,8 @@ class Plugin extends PluginBase
     public function registerListColumnTypes()
     {
 
+        $mediaPath = url(Config::get('cms.storage.media.path'));
+
         return [
             'strong' => function($value) { return '<strong>'. $value . '</strong>'; },
             'text_preview' => function($value) { $content = mb_substr(strip_tags($value), 0, 150); if(count($content) > 150) { return ($content . '...'); } else { return $content; } },
@@ -198,6 +201,15 @@ class Plugin extends PluginBase
                 $height = Settings::get('records_list_preview_height', 50);
 
                 if($value){ return "<img src='".$value->getThumb($width, $height)."' style='width: auto; height: auto; max-width: ".$width."px; max-height: ".$height."px'>"; }
+            },
+            'record_image_preview_media' => function($value) use ($mediaPath) {
+                $width = Settings::get('records_list_preview_width', 50);
+                $height = Settings::get('records_list_preview_height', 50);
+
+                if($value) 
+                { 
+                    return "<img src='".$mediaPath.$value."' style='width: auto; height: auto; max-width: ".$width."px; max-height: ".$height."px'>"; 
+                }
             },
             'tags_names' => function($values){ $names = []; if( $values->count() > 0 ) { foreach($values as $value) { $names[] = $value->name; } } return implode(', ', $names); },
         ];

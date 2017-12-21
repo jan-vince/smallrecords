@@ -39,6 +39,7 @@ tabs:
             options:
                 category: 'janvince.smallrecords::lang.common.columns.category'
                 preview_image: 'janvince.smallrecords::lang.common.columns.preview_image'
+                preview_image_media: 'janvince.smallrecords::lang.common.columns.preview_image_media'
                 description: 'janvince.smallrecords::lang.common.columns.description'
                 date: 'janvince.smallrecords::lang.common.columns.date'
                 url: 'janvince.smallrecords::lang.common.columns.url'

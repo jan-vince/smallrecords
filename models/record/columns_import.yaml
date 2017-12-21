@@ -29,6 +29,10 @@ columns:
         label: 'janvince.smallrecords::lang.common.columns.date'
         type: datetime
 
+    preview_image_media:
+        label: 'janvince.smallrecords::lang.common.columns.preview_image_media'
+        type: string
+
     url:
         label: 'janvince.smallrecords::lang.common.columns.url'
         type: text

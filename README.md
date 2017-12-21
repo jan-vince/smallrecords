@@ -19,27 +19,26 @@ Just look for 'Small Records' in search field in:
 
 You can set permissions to access each of a plugin parts.
 
-
 ### Settings
 
-Right now just to set list's preview image height and width.
+Right now you can only set list's preview image height and width.
 
 
 ## Records
 
-Main idea behind this is to have a place where I can easily collect records in several lists (like portfolio, partners, sliders and their images, simple photo galleries, etc.).
+> Main idea behind this is to have a place where I can easily collect records in several lists (like portfolio, partners, sliders and their images, simple photo galleries, etc.).
 
 ### Records lists
 
-Here you can add and edit lists and choose which data (and form fields) will be available.
+Create one or more lists of records and assign form fields that you want to be visible in the list.
 
 *Created list will be appended to the top of the side menu in Records administration.*
 
 ### Categories
 
-You can add one main and several secondary categories to your records.
-
 Here you can set up categories hierarchy (it is a nested tree).
+
+*There are components ready to use for categories listing in Twig.*
 
 ### Tags
 
@@ -61,10 +60,8 @@ If you assigned one or more attributes to any record, you can iterate through th
     {{ attribute.name }} : {{ attribute.value }}
 
 {% endfor %}
-
 ````
 Or there are functions to get a specific attribute (or attribute's value) by slug like:
-
 ````
 
     {{ record.getAttributeBySlug('my-attribute-slug') }}
@@ -72,7 +69,6 @@ Or there are functions to get a specific attribute (or attribute's value) by slu
     {{ record.getAttributeValueBySlug('my-attribute-slug') }}
 
 ````
-
 
 
 ## Import and Export
@@ -90,7 +86,7 @@ You can add a Records component to a page, layout or partial.
 
 You can access all properties in twig like: ````{{records.property('detailPageSlug')}}````
 
-#### Record
+#### Record detail
 
 You can add a record detail to yout page, layout or partial.
 

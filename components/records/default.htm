@@ -6,6 +6,10 @@
             <img alt="{{ record.name }}" src="{{ record.preview_image.getPath }}" />
         {% endif %}
 
+        {% if record.preview_image_media %}
+            <img alt="{{ record.name }}" src="{{ record.preview_image_media|media }}" />
+        {% endif %}
+
         <h3>
             <a href="{{ record.url }}">
                 {{ record.name }}

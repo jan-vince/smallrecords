@@ -19,6 +19,13 @@ columns:
         cssClass: text-center
         invisible: true
 
+    preview_image_media:
+        label: 'janvince.smallrecords::lang.common.columns.preview_image_media'
+        type: record_image_preview_media
+        width: 30px
+        cssClass: text-center
+        invisible: true
+
     name:
         label: 'janvince.smallrecords::lang.common.columns.name'
         type: strong
