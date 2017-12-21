@@ -181,7 +181,7 @@ tabs:
                 fields:
                     testimonial_title:
                         label: 'janvince.smallrecords::lang.records.testimonials.title'
-                        type: mltext
+                        type: text
                         span: left
                     testimonial_image:
                         label: 'janvince.smallrecords::lang.records.testimonials.image'
@@ -192,7 +192,7 @@ tabs:
                         imageWidth: 260
                     testimonial_author:
                         label: 'janvince.smallrecords::lang.records.testimonials.author'
-                        type: mltext
+                        type: text
                         span: left
                     testimonial_date:
                         label: 'janvince.smallrecords::lang.records.testimonials.date'
@@ -200,6 +200,6 @@ tabs:
                         span: left
                     testimonial_content:
                         label: 'janvince.smallrecords::lang.records.testimonials.content'
-                        type: mlricheditor
+                        type: richeditor
                         span: left
                         size: huge
