@@ -58,6 +58,14 @@ columns:
         sortable: true
         width: 60px
 
+    sort_order:
+        label: 'janvince.smallrecords::lang.common.columns.sort_order'
+        type: number
+        cssClass: text-center
+        sortable: true
+        width: 60px
+        invisible: true
+
     favourite:
         label: 'janvince.smallrecords::lang.common.columns.favourite'
         type: switch_extended

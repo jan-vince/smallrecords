@@ -112,6 +112,7 @@ class Records extends ComponentBase
             'favourite' => e(trans('janvince.smallrecords::lang.common.columns.favourite')),
             'created_at' => e(trans('janvince.smallrecords::lang.common.columns.created_at')),
             'updated_at' => e(trans('janvince.smallrecords::lang.common.columns.updated_at')),
+            'sort_order' => e(trans('janvince.smallrecords::lang.common.columns.sort_order')),
         ];
     }
 

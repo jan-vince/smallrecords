@@ -22,6 +22,7 @@ class Records extends Controller
     'Backend\Behaviors\ListController',
     'Backend\Behaviors\FormController',
     'Backend.Behaviors.RelationController',
+    'Backend.Behaviors.ReorderController',
     ];
 
     public $listConfig = [
@@ -69,6 +70,26 @@ class Records extends Controller
     public function create($area_id) {
 
         parent::create($area_id);
+
+        if ( !$this->user->hasAccess([('janvince.smallrecords.access_area_'.$area_id)]) ) {
+            \Flash::error( e(trans('janvince.smallrecords::lang.permissions.access_denied')) );
+            return Redirect::to(Backend::url('/'));
+        }
+
+        $this->area_id = $area_id;
+
+        $area = Area::find($area_id);
+        if ($area) {
+            $this->areaName = $area->name;
+        }
+
+        BackendMenu::setContext('JanVince.SmallRecords', 'smallrecords', ('rec' . $area_id) );
+
+    }
+
+    public function reorder($area_id) {
+
+        parent::reorder($area_id);
 
         if ( !$this->user->hasAccess([('janvince.smallrecords.access_area_'.$area_id)]) ) {
             \Flash::error( e(trans('janvince.smallrecords::lang.permissions.access_denied')) );

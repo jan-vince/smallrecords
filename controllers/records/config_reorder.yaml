@@ -9,7 +9,7 @@ title: janvince.smallrecords::lang.forms.reorder
 nameFrom: name
 
 # Model Class name
-modelClass: JanVince\SmallRecords\Models\Category
+modelClass: JanVince\SmallRecords\Models\Record
 
 # Toolbar widget configuration
 toolbar:

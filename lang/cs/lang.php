@@ -60,6 +60,7 @@
             'testimonials_prompt' => 'Přidat novou položku ...',
             'created_at' => 'Vytvořeno',
             'updated_at' => 'Aktualizováno',
+            'sort_order' => 'Vlastní pořadí',
         ],
 
         'fields' => [
@@ -100,6 +101,9 @@
 
     'records' => [
         'menu_label' => 'Záznamy',
+        'return_to_records' => 'Zpět na Záznamy',
+        'reordering_description' => 'V nastavení komponenty Records použijte volbu "Vlastní pořadí".',
+        'reorder' => 'Vlastní řazení',
 
         'repeater' => [
             'repeater_prompt' => 'Přidat položku ...',
@@ -259,7 +263,7 @@
                 'area_description' => 'Vybrat pouze kategorie se záznamy z tohoto seznamu',
                 'root_only' => 'Pouze nejvyšší kategorie',
                 'root_only_description' => 'Vrátí pouze kategorie nejvyšší úrovně',
-                'area_id_empty_option' => '-- Neomezovat --',                
+                'area_id_empty_option' => '-- Neomezovat --',
             ],
 
         ],

@@ -40,3 +40,6 @@
     - sr-update-03.php
 1.5.1:
     - Fixed incorrectly defined testimonials repeater fields
+1.6.0:
+    - Added optional custom sorting of records
+    - sr-update-04.php

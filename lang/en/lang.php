@@ -59,6 +59,7 @@
             'testimonials_prompt' => 'Add new record ...',
             'created_at' => 'Created',
             'updated_at' => 'Updated',
+            'sort_order' => 'Custom order',
         ],
 
         'fields' => [
@@ -99,6 +100,9 @@
 
     'records' => [
         'menu_label' => 'Records',
+        'return_to_records' => 'Return to Records',
+        'reordering_description' => 'Use "Custom order" in components\'s sorting option.',
+        'reorder' => 'Custom order',
 
         'repeater' => [
             'repeater_prompt' => 'Add item ...',

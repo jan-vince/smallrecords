@@ -16,10 +16,13 @@ use JanVince\SmallRecords\Models\Settings;
 class Record extends Model
 {
     use \October\Rain\Database\Traits\Validation;
+    use \October\Rain\Database\Traits\Sortable;
 
     public $table = 'janvince_smallrecords_records';
 
-    public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
+    public $implement = [
+        '@RainLab.Translate.Behaviors.TranslatableModel',
+    ];
 
     public $timestamps = true;
 
