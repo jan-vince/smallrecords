@@ -69,6 +69,8 @@
         'buttons' => [
             'reorder' => 'Reorder',
             'back_to_list' => 'Back to list',
+            'create_and_new' => 'Create and NEW',
+            'update_and_new' => 'Save and NEW',
         ],
 
         'import_settings' => [

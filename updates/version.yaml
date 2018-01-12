@@ -43,3 +43,7 @@
 1.6.0:
     - Added optional custom sorting of records
     - sr-update-04.php
+1.6.1:
+    - Added button to add new item after create or update.
+    - Fixed Cancel button URL
+    - Added autofocus for first form field

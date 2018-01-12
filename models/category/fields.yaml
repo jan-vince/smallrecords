@@ -9,6 +9,8 @@ fields:
         span: left
         require: true
         type: text
+        attributes:
+            autofocus: ''        
 
     slug:
         label: janvince.smallrecords::lang.common.columns.slug

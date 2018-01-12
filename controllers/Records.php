@@ -46,6 +46,22 @@ class Records extends Controller
 
     }
 
+    public function create_onSaveNew($context = null)
+    {
+        parent::create_onSave($context);
+
+        return Backend::url('janvince/smallrecords/records/create', ['area_id' => $this->area_id]);
+
+    }
+
+    public function update_onSaveNew($context = null)
+    {
+        parent::update_onSave($context);
+
+        return Backend::url('janvince/smallrecords/records/create', ['area_id' => $this->area_id]);
+
+    }
+
     public function index($area_id) {
 
         if ( !$this->user->hasAccess([('janvince.smallrecords.access_area_'.$area_id)]) ) {

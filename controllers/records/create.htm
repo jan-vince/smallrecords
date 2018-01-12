@@ -25,6 +25,16 @@
                 </button>
                 <button
                     type="button"
+                    data-request="onSaveNew"
+                    data-request-data="close:1"
+                    data-hotkey="ctrl+alt+enter, cmd+alt+enter"
+                    data-load-indicator="<?= e(trans('backend::lang.form.saving')) ?>"
+                    data-request-redirect="<?= Backend::url('janvince/smallrecords/records/create', ['area_id' => $this->area_id]) ?>"
+                    class="btn btn-default">
+                    <?= e(trans('janvince.smallrecords::lang.common.buttons.create_and_new')) ?>
+                </button>
+                <button
+                    type="button"
                     data-request="onSave"
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
@@ -33,7 +43,7 @@
                     <?= e(trans('backend::lang.form.create_and_close')) ?>
                 </button>
                 <span class="btn-text">
-                    <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('janvince/smallrecords/records') ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
+                    <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('janvince/smallrecords/records/index', ['area_id' => $this->area_id]) ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
                 </span>
             </div>
         </div>

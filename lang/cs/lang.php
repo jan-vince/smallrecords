@@ -70,6 +70,8 @@
         'buttons' => [
             'reorder' => 'Změnit pořadí',
             'back_to_list' => 'Zpět na seznam',
+            'create_and_new' => 'Vytvořit a NOVÝ',
+            'update_and_new' => 'Uložit a NOVÝ',
         ],
 
         'import_settings' => [
