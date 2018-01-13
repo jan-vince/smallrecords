@@ -26,16 +26,6 @@
                 </button>
                 <button
                     type="button"
-                    data-request="onSaveNew"
-                    data-request-data="close:1"
-                    data-hotkey="ctrl+alt+enter, cmd+alt+enter"
-                    data-load-indicator="<?= e(trans('backend::lang.form.saving')) ?>"
-                    data-request-redirect="<?= Backend::url('janvince/smallrecords/records/create', ['area_id' => $this->area_id]) ?>"
-                    class="btn btn-default">
-                    <?= e(trans('janvince.smallrecords::lang.common.buttons.update_and_new')) ?>
-                </button>
-                <button
-                    type="button"
                     data-request="onSave"
                     data-request-data="close:1, area_id:<?= $this->area_id ?>"
                     data-request-redirect="<?= Backend::url('janvince/smallrecords/records/index', ['area_id' => $this->area_id]); ?>"
@@ -43,6 +33,16 @@
                     data-load-indicator="<?= e(trans('backend::lang.form.saving')) ?>"
                     class="btn btn-default">
                     <?= e(trans('backend::lang.form.save_and_close')) ?>
+                </button>
+                <button
+                    type="button"
+                    data-request="onSaveNew"
+                    data-request-data="close:1"
+                    data-hotkey="ctrl+alt+enter, cmd+alt+enter"
+                    data-load-indicator="<?= e(trans('backend::lang.form.saving')) ?>"
+                    data-request-redirect="<?= Backend::url('janvince/smallrecords/records/create', ['area_id' => $this->area_id]) ?>"
+                    class="btn btn-default">
+                    <?= e(trans('janvince.smallrecords::lang.common.buttons.update_and_new')) ?>
                 </button>
 
                 <? if ( $this->area_id && !empty( $this->area->allowed_fields) && in_array('images', $this->area->allowed_fields) ): ?>
@@ -68,13 +68,13 @@
                 </button>
 
 
-                <? if($this->nextRecord) : ?>
+                <? if($this->nextRecord and $this->area_id) : ?>
                     <a	href="<?= Backend::url('janvince/smallrecords/records/update', ['id' => $this->nextRecord, 'area_id' => $this->area_id]) ?>"
                         class="oc-icon-arrow-right btn-icon info pull-right"
                         title="Next record">
                     </a>
                 <? endif ?>
-                <? if($this->previousRecord) : ?>
+                <? if($this->previousRecord and $this->area_id) : ?>
                     <a	href="<?= Backend::url('janvince/smallrecords/records/update', ['id' => $this->previousRecord, 'area_id' => $this->area_id]) ?>"
                         class="oc-icon-arrow-left btn-icon info pull-right"
                         title="Previous record">

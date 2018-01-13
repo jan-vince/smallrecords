@@ -156,7 +156,6 @@ class Records extends Controller
             $this->previousRecord = $record->getPreviousRecordByDate();
         }
 
-
     }
 
     public function onDeleteAttachedImages($recordId, $context = ''){

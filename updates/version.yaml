@@ -47,3 +47,5 @@
     - Added button to add new item after create or update.
     - Fixed Cancel button URL
     - Added autofocus for first form field
+1.6.2:
+    - Changed order of Create and NEW button. Fixed prev/next arrows in records.
