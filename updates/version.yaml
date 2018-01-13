@@ -49,3 +49,5 @@
     - Added autofocus for first form field
 1.6.2:
     - Changed order of Create and NEW button. Fixed prev/next arrows in records.
+1.6.3:
+    - Fixed records filter (Active)
