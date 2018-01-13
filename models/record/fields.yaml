@@ -46,8 +46,6 @@ tabs:
             type: fileupload
             mode: image
             span: right
-            imageHeight: 260
-            imageWidth: 260
             tab: 'janvince.smallrecords::lang.common.tabs.info'
 
         preview_image_media:
@@ -55,8 +53,6 @@ tabs:
             type: mediafinder
             mode: image
             span: right
-            imageHeight: 260
-            imageWidth: 260
             tab: 'janvince.smallrecords::lang.common.tabs.info'
 
         description:
@@ -104,6 +100,30 @@ tabs:
             mode: image
             span: full
             tab: 'janvince.smallrecords::lang.common.tabs.images'
+
+        images_media:
+            type: repeater
+            prompt: 'janvince.smallrecords::lang.common.columns.repeater_prompt'
+            tab: 'janvince.smallrecords::lang.common.tabs.images'
+            form:
+                fields:
+                    image_title:
+                        label: 'janvince.smallrecords::lang.records.images_media.title'
+                        type: text
+                        span: left
+                    image:
+                        label: 'janvince.smallrecords::lang.records.images_media.image'
+                        type: mediafinder
+                        mode: image
+                        span: right
+                    image_description:
+                        label: 'janvince.smallrecords::lang.records.images_media.description'
+                        type: textarea
+                        size: medium
+                        span: left
+                    image_section:
+                        type: section
+
 
         tags:
             # label: 'janvince.smallrecords::lang.tags.tabs.tags'

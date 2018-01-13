@@ -7,7 +7,7 @@ fields:
         required: true
         attributes:
             autofocus: ''
-        
+
     slug:
         label: 'janvince.smallrecords::lang.common.columns.slug'
         span: right
@@ -49,6 +49,7 @@ tabs:
                 favourite: 'janvince.smallrecords::lang.common.columns.favourite'
                 content: 'janvince.smallrecords::lang.common.columns.content'
                 images: 'janvince.smallrecords::lang.common.columns.images'
+                images_media: 'janvince.smallrecords::lang.common.columns.images_media'
                 tags: 'janvince.smallrecords::lang.common.columns.tags'
                 attributes: 'janvince.smallrecords::lang.common.columns.attributes'
                 files: 'janvince.smallrecords::lang.common.columns.files'

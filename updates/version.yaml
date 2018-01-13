@@ -51,3 +51,6 @@
     - Changed order of Create and NEW button. Fixed prev/next arrows in records.
 1.6.3:
     - Fixed records filter (Active)
+1.7.0:
+    - Added option to add images from Media Manager (with repeater) along with fileupload
+    - sr-update-05.php

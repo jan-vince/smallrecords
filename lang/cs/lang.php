@@ -46,6 +46,7 @@
             'preview_image' => 'Náhled',
             'preview_image_media' => 'Náhled média',
             'images' => 'Obrázky',
+            'images_media' => 'Obrázky (z Médií)',
             'attached_images_count' => 'Obrázků',
             'area' => 'Seznam',
             'category' => 'Kategorie',
@@ -106,6 +107,12 @@
         'return_to_records' => 'Zpět na Záznamy',
         'reordering_description' => 'V nastavení komponenty Records použijte volbu "Vlastní pořadí".',
         'reorder' => 'Vlastní řazení',
+
+        'images_media' => [
+            'image' => 'Obrázek',
+            'title' => 'Název (title)',
+            'description' => 'Popis (description)',
+        ],
 
         'repeater' => [
             'repeater_prompt' => 'Přidat položku ...',

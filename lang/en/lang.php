@@ -45,6 +45,7 @@
             'preview_image' => 'Preview image',
             'preview_image_media' => 'Media preview',
             'images' => 'Images',
+            'images_media' => 'Images (from Media)',
             'attached_images_count' => 'Images',
             'area' => 'List',
             'category' => 'Category',
@@ -105,6 +106,12 @@
         'return_to_records' => 'Return to Records',
         'reordering_description' => 'Use "Custom order" in components\'s sorting option.',
         'reorder' => 'Custom order',
+
+        'images_media' => [
+            'image' => 'Image',
+            'title' => 'Title',
+            'description' => 'Description',
+        ],
 
         'repeater' => [
             'repeater_prompt' => 'Add item ...',

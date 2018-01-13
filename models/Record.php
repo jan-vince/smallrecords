@@ -28,7 +28,7 @@ class Record extends Model
 
     protected $guarded = [];
 
-    protected $jsonable = ['repeater', 'testimonials'];
+    protected $jsonable = ['repeater', 'testimonials', 'images_media'];
 
     protected $dates = [
         'created_at',
@@ -52,6 +52,7 @@ class Record extends Model
         'url',
         'repeater',
         'testimonials',
+        'images_media'
     ];
 
     /**
