@@ -56,4 +56,5 @@
     - sr-update-05.php
 1.7.1:
     - Added option to specify detail page slug (for records component)
-    -  
+1.7.2:
+    - Fixed param type
