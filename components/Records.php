@@ -79,7 +79,7 @@ class Records extends ComponentBase
                 'title'       => 'janvince.smallrecords::lang.components.records.properties.detail_page_param',
                 'description' => 'janvince.smallrecords::lang.components.records.properties.detail_page_param_description',
                 'type'        => 'string',
-                'default'     => 'slug',
+                'default'     => '{{ :slug }}',
                 'group'       => 'janvince.smallrecords::lang.components.records.properties.groups.links',
             ],
             'orderBy'   => [

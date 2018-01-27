@@ -58,3 +58,5 @@
     - Added option to specify detail page slug (for records component)
 1.7.2:
     - Fixed param type
+1.7.3:
+    - Updated RecordDetail component partial
