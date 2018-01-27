@@ -75,6 +75,13 @@ class Records extends ComponentBase
                 'default'     => 'records/detail',
                 'group'       => 'janvince.smallrecords::lang.components.records.properties.groups.links',
             ],
+            'detailPageParam'   => [
+                'title'       => 'janvince.smallrecords::lang.components.records.properties.detail_page_param',
+                'description' => 'janvince.smallrecords::lang.components.records.properties.detail_page_param_description',
+                'type'        => 'text',
+                'default'     => 'slug',
+                'group'       => 'janvince.smallrecords::lang.components.records.properties.groups.links',
+            ],
             'orderBy'   => [
                 'title'       => 'janvince.smallrecords::lang.components.records.properties.sort_by',
                 'type'        => 'dropdown',
@@ -132,6 +139,7 @@ class Records extends ComponentBase
          */
         $this->page['cssClass'] = $this->property('cssClass');
         $this->page['detailPageSlug'] = $this->property('detailPageSlug');
+        $this->page['detailPageParam'] = $this->property('detailPageParam');
 
     }
 

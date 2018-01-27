@@ -238,6 +238,8 @@
                 'favourite_only_description' => 'Get only favourite records (unchecked will get all records)',
                 'detail_page_slug' => 'Detail page slug',
                 'detail_page_slug_description' => 'Enter a slug of CMS page where you want to render a record\'s details',
+                'detail_page_param' => 'Parameter used on detail page',
+                'detail_page_param_description' => 'Enter a URL parameter name used on record detail page (eg. "slug" when URL is /records/detail/:slug)',
                 'sort_by' => 'Sort by',
                 'sort_by_direction' => 'Sort direction',
                 'allow_limit' => 'Limit number or records',

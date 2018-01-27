@@ -234,6 +234,8 @@
                 'favourite_only_description' => 'Vybere pouze záznamy označené jako oblíbené (Pokud není zaškrtnuto, vybere všechny záznamy)',
                 'detail_page_slug' => 'Slug stránky detailu záznamu',
                 'detail_page_slug_description' => 'Vložte slug CMS stránky, na které chcete zobrazit detail vybraného záznamu',
+                'detail_page_param' => 'Parameter použitý na stránce detailu',
+                'detail_page_param_description' => 'Vložte parametr URL adresy použité na stránce s detailem záznamu (např. "slug", pokud URL je /records/detail/:slug)',
                 'sort_by' => 'Řadit podle',
                 'sort_by_direction' => 'Směr řazení',
                 'allow_limit' => 'Omezit počet záznamů',
