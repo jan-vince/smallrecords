@@ -60,3 +60,5 @@
     - Fixed param type
 1.7.3:
     - Updated RecordDetail component partial
+1.7.4:
+    - Temporary page reload solution to correctly refresh list after item(s) delete
