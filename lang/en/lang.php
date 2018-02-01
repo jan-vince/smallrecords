@@ -30,6 +30,7 @@
             'attachments' => 'Attachments',
             'secondary_categories' => 'Categories',
             'testimonials' => 'Testimonials',
+            'content_blocks' => 'Content blocks',
         ],
 
         'columns' => [
@@ -128,6 +129,20 @@
             'author' => 'Author',
             'date' => 'Date',
             'content' => 'Content',
+        ],
+
+        'content_blocks' => [
+            'title' => 'Title',
+            'subtitle' => 'Subtitle',
+            'image' => 'Image',
+            'author' => 'Author',
+            'date' => 'Date',
+            'content' => 'Content',
+            'preview_image' => 'Preview image',
+            'description' => 'Description',
+            'code' => 'Code',
+            'disable' => 'Disable',
+            'favourite' => 'Favourite',
         ],
 
         'scoreboard' => [

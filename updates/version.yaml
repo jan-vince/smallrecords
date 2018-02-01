@@ -62,3 +62,6 @@
     - Updated RecordDetail component partial
 1.7.4:
     - Temporary page reload solution to correctly refresh list after item(s) delete
+1.8.0:
+    - Added new repeater tab Content blocks (specifically for website page builder blocks)
+    - sr-update-06.php

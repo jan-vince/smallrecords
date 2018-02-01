@@ -31,6 +31,7 @@
             'attachments' => 'Přílohy',
             'secondary_categories' => 'Kategorie',
             'testimonials' => 'Testimonialy',
+            'content_blocks' => 'Bloky obsahu',
         ],
 
         'columns' => [
@@ -129,6 +130,20 @@
             'author' => 'Autor',
             'date' => 'Datum',
             'content' => 'Obsah',
+        ],
+
+        'content_blocks' => [
+            'title' => 'Titulek',
+            'subtitle' => 'Podtitul',
+            'image' => 'Obrázek',
+            'author' => 'Autor',
+            'date' => 'Datum',
+            'content' => 'Obsah',
+            'preview_image' => 'Náhled',
+            'description' => 'Popisek',
+            'code' => 'Code',
+            'disable' => 'Zakázat',
+            'favourite' => 'Oblíbené',
         ],
 
         'scoreboard' => [

@@ -225,3 +225,52 @@ tabs:
                         type: richeditor
                         span: left
                         size: huge
+
+        content_blocks:
+            type: repeater
+            prompt: 'janvince.smallrecords::lang.common.columns.repeater_prompt'
+            tab: 'janvince.smallrecords::lang.common.tabs.content_blocks'
+            trigger:
+                action: hide
+                field: id
+                condition: value[]
+            form:
+                fields:
+                    content_block_title:
+                        label: 'janvince.smallrecords::lang.records.content_blocks.title'
+                        type: text
+                        span: left
+                    content_block_preview_image:
+                        label: 'janvince.smallrecords::lang.records.content_blocks.preview_image'
+                        type: mediafinder
+                        span: right
+                        mode: image
+                    content_block_subtitle:
+                        label: 'janvince.smallrecords::lang.records.content_blocks.subtitle'
+                        type: text
+                        span: left
+                    content_block_code:
+                        label: 'janvince.smallrecords::lang.records.content_blocks.code'
+                        type: text
+                        span: left
+                    content_block_content:
+                        label: 'janvince.smallrecords::lang.records.content_blocks.content'
+                        type: richeditor
+                        span: left
+                        size: giant
+                    content_block_description:
+                        label: 'janvince.smallrecords::lang.records.content_blocks.description'
+                        type: richeditor
+                        span: right
+                    content_block_disable:
+                        label: 'janvince.smallrecords::lang.records.content_blocks.disable'
+                        type: checkbox
+                        span: right
+                        default: false
+                    content_block_favourite:
+                        label: 'janvince.smallrecords::lang.records.content_blocks.favourite'
+                        type: checkbox
+                        span: right
+                        default: false
+                    content_block_section_content:
+                        type: section

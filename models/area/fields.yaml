@@ -56,6 +56,7 @@ tabs:
                 categories: 'janvince.smallrecords::lang.common.columns.categories'
                 repeater: 'janvince.smallrecords::lang.common.columns.repeater'
                 testimonials: 'janvince.smallrecords::lang.common.columns.testimonials'
+                content_blocks: 'janvince.smallrecords::lang.common.tabs.content_blocks'
 
         active:
             label: 'janvince.smallrecords::lang.common.columns.active'
