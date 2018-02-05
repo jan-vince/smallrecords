@@ -190,7 +190,7 @@ class Plugin extends PluginBase
 
         return [
             'strong' => function($value) { return '<strong>'. $value . '</strong>'; },
-            'text_preview' => function($value) { $content = mb_substr(strip_tags($value), 0, 150); if(count($content) > 150) { return ($content . '...'); } else { return $content; } },
+            'text_preview' => function($value) { $content = mb_substr(strip_tags($value), 0, 150); if(mb_strlen($content) > 150) { return ($content . '...'); } else { return $content; } },
             'array_preview' => function($value) { $content = mb_substr(strip_tags( implode(' --- ', $value) ), 0, 150); if(count($content) > 150) { return ($content . '...'); } else { return $content; } },
             'switch_icon_star' => function($value) { return '<div class="text-center"><span class="'. ($value==1 ? 'oc-icon-circle text-success' : 'text-muted oc-icon-circle text-draft') .'">' . ($value==1 ? e(trans('janvince.smallcontactform::lang.models.message.columns.new')) : e(trans('janvince.smallcontactform::lang.models.message.columns.read')) ) . '</span></div>'; },
             'switch_extended_input' => function($value) { if($value){return '<input type="checkbox" checked>';} else { return '<input type="checkbox">';} },
@@ -206,9 +206,9 @@ class Plugin extends PluginBase
                 $width = Settings::get('records_list_preview_width', 50);
                 $height = Settings::get('records_list_preview_height', 50);
 
-                if($value) 
-                { 
-                    return "<img src='".$mediaPath.$value."' style='width: auto; height: auto; max-width: ".$width."px; max-height: ".$height."px'>"; 
+                if($value)
+                {
+                    return "<img src='".$mediaPath.$value."' style='width: auto; height: auto; max-width: ".$width."px; max-height: ".$height."px'>";
                 }
             },
             'tags_names' => function($values){ $names = []; if( $values->count() > 0 ) { foreach($values as $value) { $names[] = $value->name; } } return implode(', ', $names); },
