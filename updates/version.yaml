@@ -65,3 +65,5 @@
 1.8.0:
     - Added new repeater tab Content blocks (specifically for website page builder blocks)
     - sr-update-06.php
+1.8.1:
+    - Changed count() to mb_strlen() function in custom list type definition
