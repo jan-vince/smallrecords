@@ -21,7 +21,9 @@ You can set permissions to access each of a plugin parts.
 
 ### Settings
 
-Right now you can only set list's preview image height and width.
+* You can configure connection between (Rainlab) Blog posts and Records.
+
+* You can set list's preview image height and width.
 
 
 ## Records
