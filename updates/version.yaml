@@ -72,3 +72,5 @@
     - sr-update-07.php
 1.9.1:
     - Fixed settings dropdown definition
+1.9.2:
+    - Fixed Lists order in settings

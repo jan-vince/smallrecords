@@ -28,6 +28,8 @@ class Settings extends Model
 
         $areas[0] = Lang::trans('janvince.smallrecords::lang.common.fields.empty_option');
 
+        ksort($areas);
+
         return $areas;
 
     }
