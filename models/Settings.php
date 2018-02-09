@@ -3,6 +3,8 @@
 namespace JanVince\SmallRecords\Models;
 
 use Model;
+use Lang;
+use JanVince\SmallRecords\Models\Area;
 
 class Settings extends Model
 {
@@ -19,5 +21,29 @@ class Settings extends Model
     public $settingsFields = 'fields.yaml';
 
     protected $jsonable = [];
+
+    public function getAreaOptions() {
+
+        $areas = Area::lists('name', 'id');
+
+        $emptyOption = [
+            '0' => Lang::trans('janvince.smallrecords::lang.common.fields.empty_option'),
+        ];
+
+        return array_merge($emptyOption, $areas);
+
+    }
+
+    public function getAllowRecordsInBlogPostsAreaOptions() {
+
+        return $this->getAreaOptions();
+
+    }
+
+    public function getAllowRecordsInPagesAreaOptions() {
+
+        return $this->getAreaOptions();
+
+    }
 
 }

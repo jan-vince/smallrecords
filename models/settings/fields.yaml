@@ -7,6 +7,50 @@ fields:
 tabs:
     fields:
 
+        connections_section_blog:
+            label: 'janvince.smallrecords::lang.settings.fields.connections_section_blog'
+            type: section
+            tab: 'janvince.smallrecords::lang.settings.tabs.connections'
+
+        allow_records_in_blog_posts:
+            label: 'janvince.smallrecords::lang.settings.fields.allow_records_in_blog_posts'
+            span: left
+            type: checkbox
+            tab: 'janvince.smallrecords::lang.settings.tabs.connections'
+
+        allow_records_in_blog_posts_area:
+            label: 'janvince.smallrecords::lang.settings.fields.allow_records_in_blog_posts_area'
+            span: left
+            type: dropdown
+            tab: 'janvince.smallrecords::lang.settings.tabs.connections'
+            cssClass: 'field-indent'
+            trigger:
+                action: show
+                field: allow_records_in_blog_posts
+                condition: checked
+        #
+        # connections_section_pages:
+        #     label: 'janvince.smallrecords::lang.settings.fields.connections_section_pages'
+        #     type: section
+        #     tab: 'janvince.smallrecords::lang.settings.tabs.connections'
+        #
+        # allow_records_in_pages:
+        #     label: 'janvince.smallrecords::lang.settings.fields.allow_records_in_pages'
+        #     span: left
+        #     type: checkbox
+        #     tab: 'janvince.smallrecords::lang.settings.tabs.connections'
+        #
+        # allow_records_in_pages_area:
+        #     label: 'janvince.smallrecords::lang.settings.fields.allow_records_in_pages_area'
+        #     span: left
+        #     type: dropdown
+        #     tab: 'janvince.smallrecords::lang.settings.tabs.connections'
+        #     cssClass: 'field-indent'
+        #     trigger:
+        #         action: show
+        #         field: allow_records_in_pages
+        #         condition: checked
+
         records_list_preview_width:
             label: 'janvince.smallrecords::lang.settings.fields.preview_width'
             span: left
@@ -20,7 +64,3 @@ tabs:
             type: number
             default: 50
             tab: 'janvince.smallrecords::lang.settings.tabs.lists'
-
-
-secondaryTabs:
-    fields:

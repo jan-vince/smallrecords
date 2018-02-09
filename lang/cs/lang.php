@@ -32,6 +32,7 @@
             'secondary_categories' => 'Kategorie',
             'testimonials' => 'Testimonialy',
             'content_blocks' => 'Bloky obsahu',
+            'records' => 'Záznamy',
         ],
 
         'columns' => [
@@ -324,11 +325,24 @@
 
         'tabs' => [
             'lists' => 'Seznamy',
+            'connections' => 'Propojení',
         ],
 
         'fields' => [
             'preview_width' => 'Šířka náhledového obrázku v seznamu',
             'preview_height' => 'Výška náhledového obrázku v seznamu',
+
+            'connections_section_blog' => '(Rainlab) Blog',
+            'connections_section_pages' => '(Rainlab) Statické stránky',
+
+            'allow_records_in_blog_posts' => 'Povolit Záznamy v příspěvcích Blogu',
+            'allow_records_in_blog_posts_comment' => 'Zobrazí seznam záznamů v příspěvku Blogu (musí být nainstalován plugin Rainlab.Blog)',
+            'allow_records_in_blog_posts_area' => 'Zobrazit záznamy ze Seznamu',
+
+            'allow_records_in_pages' => 'Povolit Záznamy ve Statických stránkách',
+            'allow_records_in_pages_comment' => 'Zobrazá seznam záznamů v nastavení Statické stránky (musí být nainstalován plugin Rainlab.Pages)',
+            'allow_records_in_pages_area' => 'Zobrazit záznamy ze Seznamu',
+
         ],
 
     ]

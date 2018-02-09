@@ -7,9 +7,12 @@ use BackendAuth;
 use Controller;
 use Config;
 use System\Classes\PluginBase;
+use System\Classes\PluginManager;
 use Event;
 use JanVince\SmallRecords\Models\Settings;
 use JanVince\SmallRecords\Models\Area;
+use JanVince\SmallRecords\Models\Record;
+
 
 class Plugin extends PluginBase
 {
@@ -213,6 +216,74 @@ class Plugin extends PluginBase
             },
             'tags_names' => function($values){ $names = []; if( $values->count() > 0 ) { foreach($values as $value) { $names[] = $value->name; } } return implode(', ', $names); },
         ];
+    }
+
+    public function boot() {
+
+
+        if(Settings::get('allow_records_in_blog_posts')) {
+
+            /**
+             * Add relation
+             */
+
+            // Check for Rainlab.Blog plugin
+            $pluginManager = PluginManager::instance()->findByIdentifier('Rainlab.Blog');
+
+            if ($pluginManager && !$pluginManager->disabled) {
+
+                \RainLab\Blog\Models\Post::extend(function($model) {
+
+
+                    $relationDefinition = [
+                        'JanVince\SmallRecords\Models\Record',
+                        'table' => 'janvince_smallrecords_records_posts',
+                        'delete' => 'true',
+                        'key' => 'post_id',
+                        'otherKey' => 'record_id',
+                    ];
+
+                    if(Settings::get('allow_records_in_blog_posts_area', null)) {
+                        $relationDefinition['conditions'] = ('area_id = ' . Settings::get('allow_records_in_blog_posts_area'));
+                    }
+
+                    $model->belongsToMany['records'] = $relationDefinition;
+
+                });
+
+                Event::listen('backend.form.extendFields', function($widget) {
+
+                    if (!$widget->getController() instanceof \RainLab\Blog\Controllers\Posts) {
+                    return;
+                    }
+
+                    if (!$widget->model instanceof \RainLab\Blog\Models\Post) {
+                    return;
+                    }
+
+                    if( $widget->isNested ) {
+                      return;
+                    }
+
+                      $records = [
+                        'label' => 'janvince.smallrecords::lang.records.menu_label',
+                        'type' => 'relation',
+                        'span' => 'left',
+                        'deferredBinding' => 'true',
+                        'nameFrom' => 'name',
+                        'tab' => 'janvince.smallrecords::lang.common.tabs.records'
+                      ];
+
+                      $widget->addSecondaryTabFields([
+                        'records' => $records
+                      ]);
+
+                });
+
+            }
+
+        }
+
     }
 
 }
