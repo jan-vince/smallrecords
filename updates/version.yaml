@@ -70,3 +70,5 @@
 1.9.0:
     - Added option to connect Rainlab.Blog posts and Records
     - sr-update-07.php
+1.9.1:
+    - Fixed settings dropdown definition

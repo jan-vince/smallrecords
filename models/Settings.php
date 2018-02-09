@@ -26,11 +26,9 @@ class Settings extends Model
 
         $areas = Area::lists('name', 'id');
 
-        $emptyOption = [
-            '0' => Lang::trans('janvince.smallrecords::lang.common.fields.empty_option'),
-        ];
+        $areas[0] = Lang::trans('janvince.smallrecords::lang.common.fields.empty_option');
 
-        return array_merge($emptyOption, $areas);
+        return $areas;
 
     }
 
