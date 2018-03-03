@@ -242,6 +242,25 @@ class Records extends ComponentBase
 
     }
 
+     /**
+     * Get tags from records
+     * array @paramOverride Array of parameters names and values to override
+     * return @array
+     */
+    public function tags($paramOverride = []) {
+
+        $records = $this->items($paramOverride);
+
+        $records->each( function($record, $key) use($records) {
+            if (!is_array($record->tags) or !count($record->tags)) {
+                $records->forget($key);
+            }
+        });
+
+        return $records;
+
+    }
+
     /**
      * Change property
      */
