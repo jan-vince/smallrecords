@@ -74,3 +74,5 @@
     - Fixed settings dropdown definition
 1.9.2:
     - Fixed Lists order in settings
+1.9.3:
+    - Chanded input custom list column type for switch to prevent interaction with toolbar JS
