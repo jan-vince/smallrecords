@@ -76,3 +76,5 @@
     - Fixed Lists order in settings
 1.9.3:
     - Chanded input custom list column type for switch to prevent interaction with toolbar JS
+1.9.4:
+    - Fixed Records component

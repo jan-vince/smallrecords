@@ -139,7 +139,7 @@ class Records extends ComponentBase
          */
         $this->page['cssClass'] = $this->property('cssClass');
         $this->page['detailPageSlug'] = $this->property('detailPageSlug');
-        $this->page['detailPageParam'] = $this->property('detailPageParam');
+        $this->page['detailPageParam'] = $this->propertyName('detailPageParam');
 
     }
 
