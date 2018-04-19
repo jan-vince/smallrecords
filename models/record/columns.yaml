@@ -40,6 +40,22 @@ columns:
         sortable: true
         searchable: true
 
+    description:
+        label: 'janvince.smallrecords::lang.common.columns.description'
+        type: html_text_preview
+        select: description
+        searchable: true
+        sortable: true
+        invisible: true        
+
+    content:
+        label: 'janvince.smallrecords::lang.common.columns.content'
+        type: html_text_preview
+        select: content
+        searchable: true
+        sortable: true
+        invisible: true
+
     tags:
         label: 'janvince.smallrecords::lang.common.columns.tags'
         type: tags_names

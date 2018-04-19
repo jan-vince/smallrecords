@@ -78,3 +78,6 @@
     - Chanded input custom list column type for switch to prevent interaction with toolbar JS
 1.9.4:
     - Fixed Records component
+1.9.5:
+    - Added records columns for description and content. 
+    - Added html_text_preview column type.
