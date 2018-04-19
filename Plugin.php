@@ -158,7 +158,7 @@ class Plugin extends PluginBase
         ];
 
         $areas = Area::get();
-        $customPermissions = null;
+        $customPermissions = [];
 
         foreach( $areas as $area ) {
 
