@@ -50,6 +50,20 @@ class Categories extends ComponentBase
                 'type'        => 'checkbox',
                 'default'     => false,
             ],
+            'allowLimit'   => [
+                'title'       => 'janvince.smallrecords::lang.components.categories.properties.allow_limit',
+                'description' => 'janvince.smallrecords::lang.components.categories.properties.allow_limit_description',
+                'type'        => 'checkbox',
+                'default'     => 'false',
+                'group'       => 'janvince.smallrecords::lang.components.categories.properties.groups.limit',
+            ],
+            'limit'   => [
+                'title'       => 'janvince.smallrecords::lang.components.categories.properties.limit',
+                'description' => 'janvince.smallrecords::lang.components.categories.properties.limit_description',
+                'type'        => 'string',
+                'default'     => 10,
+                'group'       => 'janvince.smallrecords::lang.components.categories.properties.groups.limit',
+            ],
         ];
 
     }
@@ -119,6 +133,13 @@ class Categories extends ComponentBase
          if( $this->property('activeOnly') ) {
              $categories->isActive();
          }
+
+        /**
+         *  Limit
+         */
+        if( $this->property('allowLimit') and  $this->property('limit') ) {
+            $categories->limit($this->property('limit'));
+        }
 
         return $categories->get();
 

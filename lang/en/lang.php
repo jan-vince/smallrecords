@@ -296,6 +296,16 @@
                 'root_only' => 'Root categories only',
                 'root_only_description' => 'Return only root categories',
                 'area_id_empty_option' => '-- Do not limit to --',
+
+                'allow_limit' => 'Limit number or categories',
+                'allow_limit_description' => 'If checked, only required number of categories will be returned',
+                'limit' => 'Categories count',
+                'limit_description' => 'How many categories will be returned',
+
+                'groups' => [
+                    'limit' => 'Limit',
+                ],
+                
             ],
 
         ],

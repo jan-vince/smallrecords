@@ -81,3 +81,5 @@
 1.9.5:
     - Added records columns for description and content. 
     - Added html_text_preview column type.
+1.9.6:
+    - Added limit to categories component

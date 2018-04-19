@@ -262,6 +262,7 @@
                 'groups' => [
                     'links' => 'Odkazy',
                     'sort' => 'Řazení',
+                    'limit' => 'Omezení',
                 ],
 
             ],
@@ -291,6 +292,15 @@
                 'root_only' => 'Pouze nejvyšší kategorie',
                 'root_only_description' => 'Vrátí pouze kategorie nejvyšší úrovně',
                 'area_id_empty_option' => '-- Neomezovat --',
+
+                'allow_limit' => 'Omezit počet vrácených kategorií',
+                'allow_limit_description' => 'Pokud je zaškrtnuto, vrátí pouze uvedený počet kategorií',
+                'limit' => 'Počet kategorií',
+                'limit_description' => 'Kolik kategorií má být vráceno',
+
+                'groups' => [
+                    'limit' => 'Omezení',
+                ],                
             ],
 
         ],
