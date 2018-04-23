@@ -198,27 +198,6 @@ class Record extends Model
 
     }
 
-    public function getPreviousRecordByDate($activeOnly = true){
-
-        if( empty($this->date) ) {
-            return null;
-        }
-
-        $record = Record::whereDate('date', '>', $this->date)
-                            ->where('id', '<>', $this->id)
-                            ->orderBy('date', 'asc');
-
-        /**
-         *  Filter active only
-         */
-         if( $activeOnly ) {
-             $record->isActive();
-         }
-
-        return $record->first();
-
-    }
-
     /**
      * Get specific attribute by slug
      */

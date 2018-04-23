@@ -148,14 +148,6 @@ class Records extends Controller
             $this->vars['record'] = $record;
         }
 
-        if($record ) {
-            $this->nextRecord = $record->getNextRecordByDate();
-        }
-
-        if($record) {
-            $this->previousRecord = $record->getPreviousRecordByDate();
-        }
-
     }
 
     public function onDeleteAttachedImages($recordId, $context = ''){
@@ -234,6 +226,17 @@ class Records extends Controller
 
         }
 
+    }
+
+    public function reorderExtendQuery($query) {
+        
+        $segments = Request::segments(); 
+        
+        $area_id = end($segments);
+
+        if( !empty($area_id) ) {
+            $query->where('area_id', $area_id);
+        } 
     }
 
 }

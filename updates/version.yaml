@@ -83,3 +83,7 @@
     - Added html_text_preview column type.
 1.9.6:
     - Added limit to categories component
+1.9.7:
+    - Removed Prev & Next buttons in Records update form (as it never worked reliable)
+1.9.8:
+    - Fixed custom reordering of records to show only selected Area records
