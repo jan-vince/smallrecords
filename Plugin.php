@@ -233,8 +233,24 @@ class Plugin extends PluginBase
 
             if ($pluginManager && !$pluginManager->disabled) {
 
-                \RainLab\Blog\Models\Post::extend(function($model) {
+                \JanVince\SmallRecords\Models\Record::extend(function($model) {
 
+                    if(Settings::get('allow_records_in_blog_posts')) {
+
+                        $relationDefinition = [
+                            '\RainLab\Blog\Models\Post',
+                            'table' => 'janvince_smallrecords_records_posts',
+                            'delete' => 'true',
+                            'key' => 'record_id',
+                            'otherKey' => 'post_id',
+                        ];
+
+                        $model->belongsToMany['blog_posts'] = $relationDefinition;
+
+                    }
+                });
+
+                \RainLab\Blog\Models\Post::extend(function($model) {
 
                     $relationDefinition = [
                         'JanVince\SmallRecords\Models\Record',

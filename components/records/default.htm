@@ -11,7 +11,7 @@
         {% endif %}
 
         <h3>
-            <a href="{{ detailPageSlug|page( { (detailPageParam): record.slug } ) }}">
+            <a href="{{detailPageSlug|page({(detailPageParam):record.slug})}}">
                 {{ record.name }}
             </a>
         </h3>

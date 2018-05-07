@@ -8,4 +8,18 @@
         {{ __SELF__.recordDetail.name }}
     </h3>
 
+    {% if __SELF__.recordDetail.blog_posts %}
+
+        <ul>
+
+            {% for blogPost in __SELF__.recordDetail.blog_posts %}
+
+                <li>{{ blogPost.title }}</li>
+
+            {% endfor %}
+        
+        </ul>
+
+    {% endif %}
+
 </div>

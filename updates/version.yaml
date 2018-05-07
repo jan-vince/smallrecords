@@ -87,3 +87,6 @@
     - Removed Prev & Next buttons in Records update form (as it never worked reliable)
 1.9.8:
     - Fixed custom reordering of records to show only selected Area records
+1.10.0:
+    - Added reverse relation 'blog_posts' to record object to allow related blog posts listing
+    - Fixed Records component params

@@ -138,9 +138,16 @@ class Records extends ComponentBase
          *  Allow some varibles from component
          */
         $this->page['cssClass'] = $this->property('cssClass');
-        $this->page['detailPageSlug'] = $this->property('detailPageSlug');
-        $this->page['detailPageParam'] = $this->propertyName('detailPageParam');
+    }
 
+    public function onRun()
+    {
+
+        /**
+         *  Allow some varibles from component
+         */
+        $this->page['detailPageSlug'] = $this->property('detailPageSlug');
+        $this->page['detailPageParam'] = $this->property('detailPageParam');
     }
 
     /**
@@ -250,7 +257,5 @@ class Records extends ComponentBase
         if($this->propertyExists($propertyName)) {
             $this->setProperty($propertyName, $propertyValue);
         }
-
     }
-
 }
