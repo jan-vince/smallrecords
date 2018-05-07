@@ -90,3 +90,5 @@
 1.10.0:
     - Added reverse relation 'blog_posts' to record object to allow related blog posts listing
     - Fixed Records component params
+1.10.1:
+    - Added sorting to record's related blog posts

@@ -243,6 +243,7 @@ class Plugin extends PluginBase
                             'delete' => 'true',
                             'key' => 'record_id',
                             'otherKey' => 'post_id',
+                            'order' => 'published_at desc'
                         ];
 
                         $model->belongsToMany['blog_posts'] = $relationDefinition;
