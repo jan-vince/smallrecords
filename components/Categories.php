@@ -50,6 +50,12 @@ class Categories extends ComponentBase
                 'type'        => 'checkbox',
                 'default'     => false,
             ],
+            'useMultiCategories'      => [
+                'title'       => 'janvince.smallrecords::lang.components.categories.properties.use_multicategories',
+                'description' => 'janvince.smallrecords::lang.components.categories.properties.use_multicategories_description',
+                'type'        => 'checkbox',
+                'default'     => false,
+            ],
             'allowLimit'   => [
                 'title'       => 'janvince.smallrecords::lang.components.categories.properties.allow_limit',
                 'description' => 'janvince.smallrecords::lang.components.categories.properties.allow_limit_description',
@@ -101,23 +107,40 @@ class Categories extends ComponentBase
      */
     public function items() {
 
-        $categories = Category::with('records');
+        if( $this->property('useMultiCategories') ) {
+            $categories = Category::with('records_multicategories');
+        } else {
+            $categories = Category::with('records');
+        }
 
         /**
          *  Filter category records by area
          */
         if( $this->property('areaSlug') ) {
 
-            $categories->whereHas('records', function ($query) {
 
-                $query->whereHas('area', function ($query2) {
+            if( $this->property('useMultiCategories') ) {
 
-                    $query2->where('slug', '=', $this->property('areaSlug'));
+                $categories->whereHas('records_multicategories', function ($query2) {
 
+                        $query2->whereHas('area', function ($query3) {
+    
+                            $query3->where('slug', '=', $this->property('areaSlug'));
+        
+                        });
                 });
 
-            });
+            } else {
 
+                $categories->whereHas('records', function ($query) {
+
+                    $query->whereHas('area', function ($query2) {
+    
+                        $query2->where('slug', '=', $this->property('areaSlug'));
+    
+                    });
+                });
+            }
         }
 
         /**
@@ -141,7 +164,9 @@ class Categories extends ComponentBase
             $categories->limit($this->property('limit'));
         }
 
-        return $categories->get();
+        $categories = $categories->get();
+
+        return $categories;
 
     }
 

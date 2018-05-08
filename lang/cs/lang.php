@@ -259,6 +259,9 @@
                 'limit' => 'Počet záznamů',
                 'limit_description' => 'Kolik záznamů má být vráceno',
 
+                'use_multicategories' => 'Použít multi-kategorie',
+                'use_multicategories_description' => 'Místo (jedné) hlavní kategorie použít multi-kategorie, nastavené na záložce Kategorie.',
+
                 'groups' => [
                     'links' => 'Odkazy',
                     'sort' => 'Řazení',

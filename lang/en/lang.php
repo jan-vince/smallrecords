@@ -301,6 +301,8 @@
                 'allow_limit_description' => 'If checked, only required number of categories will be returned',
                 'limit' => 'Categories count',
                 'limit_description' => 'How many categories will be returned',
+                'use_multicategories' => 'Use multi-categories',
+                'use_multicategories_description' => 'Use multi-categories defined on Categories tab instead of one main category on Info tab.',
 
                 'groups' => [
                     'limit' => 'Limit',
