@@ -58,7 +58,7 @@ class Records extends ComponentBase
                 'title'       => 'janvince.smallrecords::lang.components.records.properties.allow_limit',
                 'description' => 'janvince.smallrecords::lang.components.records.properties.allow_limit_description',
                 'type'        => 'checkbox',
-                'default'     => 'false',
+                'default'     => false,
                 'group'       => 'janvince.smallrecords::lang.components.records.properties.groups.limit',
             ],
             'limit'   => [

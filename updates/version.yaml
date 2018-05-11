@@ -94,3 +94,5 @@
     - Added sorting to record's related blog posts
 1.11.0:
     - Added multi-categories checkbox to Categories component. Added categories column to records list.
+1.11.1:
+    - Fixed allowLimit default false state in components

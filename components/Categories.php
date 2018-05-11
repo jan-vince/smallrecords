@@ -60,7 +60,7 @@ class Categories extends ComponentBase
                 'title'       => 'janvince.smallrecords::lang.components.categories.properties.allow_limit',
                 'description' => 'janvince.smallrecords::lang.components.categories.properties.allow_limit_description',
                 'type'        => 'checkbox',
-                'default'     => 'false',
+                'default'     => false,
                 'group'       => 'janvince.smallrecords::lang.components.categories.properties.groups.limit',
             ],
             'limit'   => [
