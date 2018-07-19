@@ -36,6 +36,12 @@ class Records extends ComponentBase
                 'type'        => 'string',
                 'default'     => '{{ :category }}',
             ],
+            'useMultiCategories'      => [
+                'title'       => 'janvince.smallrecords::lang.components.categories.properties.use_multicategories',
+                'description' => 'janvince.smallrecords::lang.components.categories.properties.use_multicategories_description',
+                'type'        => 'checkbox',
+                'default'     => false,
+            ],
             'tagSlug'    => [
                 'title'       => 'janvince.smallrecords::lang.components.records.properties.tag',
                 'description' => 'janvince.smallrecords::lang.components.records.properties.tag_description',
@@ -168,9 +174,18 @@ class Records extends ComponentBase
          *  Filter category
          */
         if( $this->property('categorySlug') ) {
-            $records->whereHas('category', function ($query) {
-                $query->where('slug', '=', $this->property('categorySlug'));
-            });
+
+            if( $this->property('useMultiCategories') ) {
+
+                $records->whereHas('categories', function ($query) {
+                    $query->where('slug', '=', $this->property('categorySlug'));
+                });
+            } else {
+
+                $records->whereHas('category', function ($query) {
+                    $query->where('slug', '=', $this->property('categorySlug'));
+                });
+            }
         }
 
         /**

@@ -96,3 +96,5 @@
     - Added multi-categories checkbox to Categories component. Added categories column to records list.
 1.11.1:
     - Fixed allowLimit default false state in components
+1.12.0:
+    - Added useMultiCategories property to Records component to allow filtering by categories selected in Categories tab
