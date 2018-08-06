@@ -1,7 +1,7 @@
 <div class="record-box {{ cssClass }}">
 
     {% if __SELF__.recordDetail.preview_image %}
-        <img alt="{{ __SELF__.name }}" src="{{ __SELF__.preview_image.getPath }}" />
+        <img alt="{{ __SELF__.recordDetail.name }}" src="{{ __SELF__.recordDetail.preview_image.getPath() }}" />
     {% endif %}
 
     <h3 class="record-box-title">
