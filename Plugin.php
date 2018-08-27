@@ -240,7 +240,6 @@ class Plugin extends PluginBase
                         $relationDefinition = [
                             '\RainLab\Blog\Models\Post',
                             'table' => 'janvince_smallrecords_records_posts',
-                            'delete' => 'true',
                             'key' => 'record_id',
                             'otherKey' => 'post_id',
                             'order' => 'published_at desc'
@@ -256,7 +255,6 @@ class Plugin extends PluginBase
                     $relationDefinition = [
                         'JanVince\SmallRecords\Models\Record',
                         'table' => 'janvince_smallrecords_records_posts',
-                        'delete' => 'true',
                         'key' => 'post_id',
                         'otherKey' => 'record_id',
                     ];
