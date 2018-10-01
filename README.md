@@ -38,6 +38,14 @@ Create one or more lists of records and assign form fields that you want to be v
 
 *Created list will be appended to the top of the side menu in Records administration.*
 
+#### Custom repeater fields
+
+When creating a new list you can allow predefined form fields or you can **create your own form** definition (based on repeater).
+
+On tab `Custom repeater` allow its use, set basic settings and **add new fields**.
+
+*Look inside a default `Record detail` component partial to see how to work with custom repeater data.*
+
 ## Categories
 
 Here you can set up categories hierarchy (it is a nested tree).
@@ -155,6 +163,21 @@ There are many component's parameters you can use to customize the list of recor
 #### **Record detail**
 
 >You can add a RecordDetail component to a page, layout or partial.
+
+Put default partial `{{ component 'recordDetail' }}` in your layout/page/partial to inspect how to work with records lists.
+
+There are many component's parameters you can use to customize the detail of the record.
+
+* **Active only** - get data only on Active record
+* **Record slug** - set a slug used on detail page to find a specific record
+* **List** - get record only from selected list
+* With categories
+  * **Category slug** - URL slug used to filter (eg. :category)
+  * **With main category records** - this will return only records with selected category as Main category (on Info tab of record's form)
+  * **With secondary categories records** - this will return only records with selected category as Secondary category (on Categories tab of record's form)
+    * *If both main and secondary categories checkboxes are checked, only records that has selected category as main AND secondary will be returned!*
+* Links
+  * **404 error on invalid slug** - throw 404 error when record is not found
 
 ----
 

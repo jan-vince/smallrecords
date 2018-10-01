@@ -79,6 +79,7 @@ class RecordDetail extends ComponentBase
                 'description' => 'janvince.smallrecords::lang.components.record.properties.throw404_description',
                 'type'        => 'checkbox',
                 'default'     => false,
+                'group'         => 'janvince.smallrecords::lang.components.records.properties.groups.links',
             ],
         ];
 
