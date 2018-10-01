@@ -112,3 +112,5 @@
     - Fixed Records component record detail slug. Updated docs.
 2.0.5:
     - Removed dumps from component.
+2.0.6:
+    - Tags are now ordered by name in Record form.
