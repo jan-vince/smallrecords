@@ -12,14 +12,18 @@
 
             <ul class="list-group">
                                 
-                <li class="list-group-item">Filter by records in list: <strong>{{__SELF__.property('areaSlug') ? __SELF__.property('areaSlug') : 'Not set'}}</strong></li>
+                <li class="list-group-item">Limit records to list: <strong>{{__SELF__.property('areaSlug') ? __SELF__.property('areaSlug') : 'Not set'}}</strong></li>
                 
                 {% if __SELF__.property('activeRecordsOnly') %}
-                    <li class="list-group-item">Filter active records only: <strong><span class="glyphicon {{__SELF__.property('activeRecordsOnly') ? 'glyphicon-check' : 'glyphicon-unchecked'}}"></span></strong></li>
+                    <li class="list-group-item">Limit records to active only: <strong><span class="glyphicon {{__SELF__.property('activeRecordsOnly') ? 'glyphicon-check' : 'glyphicon-unchecked'}}"></span></strong></li>
                 {% endif %}
 
-                {% if __SELF__.property('areaSlug') %}
-                    <li class="list-group-item">Use records category: <strong>{{__SELF__.property('useMainCategory') ? 'Main category'}}{{__SELF__.property('useMultiCategories') ? 'Secondary categories'}}{{ (__SELF__.property('useMainCategory') == false) and (__SELF__.property('useMultiCategories') == false) ? 'Filter not active! Select filtering for Main or Secondary categories first.' }}</strong></li>
+                {% if __SELF__.property('useMainCategory') %}
+                    <li class="list-group-item">Only categories with records as Main category: <strong><span class="glyphicon glyphicon-check"></span></strong></li>
+                {% endif %}
+
+                {% if __SELF__.property('useMultiCategories') %}
+                    <li class="list-group-item">Only categories with records as Secondary category: <strong><span class="glyphicon glyphicon-check"></span></strong></li>
                 {% endif %}
 
                 {% if __SELF__.property('categorySlug') %}
