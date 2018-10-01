@@ -100,3 +100,7 @@
     - Added useMultiCategories property to Records component to allow filtering by categories selected in Categories tab
 1.12.1:
     - Fixed optional relationship with Blog post
+2.0.0: !!! Updated default Records and Categories components partials and params - please test them before update in production!
+2.0.1:
+    - Added custom repeater form builder for lists and its records
+    - sr-update-08.php

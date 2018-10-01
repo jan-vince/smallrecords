@@ -12,6 +12,7 @@ use Event;
 use JanVince\SmallRecords\Models\Settings;
 use JanVince\SmallRecords\Models\Area;
 use JanVince\SmallRecords\Models\Record;
+use JanVince\SmallRecords\Controllers\Records;
 
 
 class Plugin extends PluginBase
@@ -220,7 +221,6 @@ class Plugin extends PluginBase
     }
 
     public function boot() {
-
 
         if(Settings::get('allow_records_in_blog_posts')) {
 

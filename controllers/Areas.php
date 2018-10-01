@@ -29,7 +29,6 @@ class Areas extends Controller
         parent::__construct();
 
         BackendMenu::setContext('JanVince.SmallRecords', 'smallrecords', 'areas');
-
     }
 
 }

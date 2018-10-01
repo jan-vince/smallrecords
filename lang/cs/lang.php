@@ -100,6 +100,43 @@
         'columns' => [
             'allowed_fields' => 'Povolené formulářové prvky',
             'allowed_fields_comment' => 'Označené položky budou viditelné ve formuláři při editaci záznamu. Položek je hodně, proto skrolujte dolů.<br><em>Některá pole formuláře budou viditelná až ve chvíli, kdy uložíte záznam (jsou závislá na ID záznamu)!</em>',
+
+            'custom_repeater_allow' => 'Povolit zobrazení vlastního repeateru',
+            'custom_repeater_tab_title' => 'Název záložky vlastního repeateru',
+            'custom_repeater_prompt' => 'Vlastní popisek pro "Přidat novou položku"',
+            'custom_repeater_min_items' => 'Minimální vyžadovaný počet položek repeateru',
+            'custom_repeater_max_items' => 'Maximální povolený počet položek repeateru',
+
+            'custom_repeater' => [
+                'repeater_prompt' => 'Přidat pole',
+                'field_type' => 'Typ pole',
+                'field_name' => 'Název pole',
+                'field_name_comment' => 'Např.: my_record_name. Název pole se používá v Twigu pro přístup k uložené hodnotě.',
+                'field_label' => 'Popisek pole',
+                'field_span' => 'Zarovnání pole (span)',
+                'field_mode' => 'Mód zobrazení (mode)',
+                'field_size' => 'Velikost pole',
+                'options' => [
+                    'text' => 'Text',
+                    'textarea' => 'Textová oblast (textarea)',
+                    'richeditor' => 'Richtext editor',
+                    'number' => 'Číslo',
+                    'checkbox' => 'Zaškrtávací pole (checkbox)',
+                    'mediafinder' => 'Mediafinder',
+                    'section' => 'Oddíl (section)',
+                    'left' => 'Vlevo',
+                    'right' => 'V pravo',
+                    'full' => 'Na celou šířku',
+                    'file' => 'Soubor',
+                    'image' => 'Obrázek',
+                    'tiny' => 'Drobný (tiny)',
+                    'small' => 'Malý (small)',
+                    'large' => 'Velký (large)',
+                    'huge' => 'Obrovský (huge)',
+                    'giant' => 'Gigantický (giant)',
+                    'empty_option' => 'Vyberte ...'
+                ]
+            ],
         ],
 
     ],
@@ -235,7 +272,7 @@
 
         'records' => [
             'name' => 'Záznamy',
-            'description' => 'Získá záznamy z vybraného seznamu záznamů',
+            'description' => 'Získá seznam záznamů',
 
             'properties' => [
                 'area' => 'Seznam',
@@ -262,10 +299,14 @@
                 'use_multicategories' => 'Použít multi-kategorie',
                 'use_multicategories_description' => 'Místo (jedné) hlavní kategorie použít multi-kategorie, nastavené na záložce Kategorie.',
 
+                'empty_option' => 'Nevybráno',
+
                 'groups' => [
                     'links' => 'Odkazy',
                     'sort' => 'Řazení',
                     'limit' => 'Omezení',
+                    'with_categories' => 'S kategoriemi',
+                    'with_tags' => 'Se štítky',
                 ],
 
             ],
@@ -287,13 +328,23 @@
 
         'categories' => [
             'name' => 'Kategorie',
-            'description' => 'Získá kategorie',
+            'description' => 'Získá seznam kategorií',
 
             'properties' => [
                 'area' => 'Se záznamy ze seznamu:',
                 'area_description' => 'Vybrat pouze kategorie se záznamy z tohoto seznamu',
+                'category_slug' => 'Slug kategorie',
+                'category_slug_description' => 'Category slug (dynamic like :category or manually entered)',
+                'category_page' => 'Stránka kategorií',
+                'category_page_description' => 'CMS stránka, která používá slug kategorií v URL (např. /kategorie/:category?).',
+                'parent_category_slug' => 'Slug nadřazené kategorie',
+                'parent_category_slug_description' => 'Zobrazit pouze potomky této kategorie',
+                'active_only' => 'Pouze aktivní kategories',
+                'active_only_description' => 'Vybere pouze kategorie označené jako aktivní (Pokud není zaškrtnuto, vybere všechny záznamy)',
                 'root_only' => 'Pouze nejvyšší kategorie',
                 'root_only_description' => 'Vrátí pouze kategorie nejvyšší úrovně',
+                'with_records_only' => 'Pouze se záznamy',
+                'with_records_only_description' => 'Vrátí pouze ty kategorie, které jsou přiřazené k nějakým záznamům',
                 'area_id_empty_option' => '-- Neomezovat --',
 
                 'allow_limit' => 'Omezit počet vrácených kategorií',
@@ -301,8 +352,17 @@
                 'limit' => 'Počet kategorií',
                 'limit_description' => 'Kolik kategorií má být vráceno',
 
+                'use_main_category' => 'Se záznamy hlavní kategorie',
+                'use_main_category_description' => 'Vybere pouze ty kategorie, které mají záznamy používající je jako hlavní kategorii (na záložce Info)',
+                'use_multicategories' => 'Se záznamy sekundární kategorie',
+                'use_multicategories_description' => 'Vybere pouze ty kategorie, které mají záznamy používající je jako sekundární kategorii (na záložce Kategorie)',
+
+                'empty_option' => 'Nevybráno',
+
                 'groups' => [
+                    'links' => 'Odkazy',
                     'limit' => 'Omezení',
+                    'with_records' => 'Pouze se záznamy z',
                 ],                
             ],
 

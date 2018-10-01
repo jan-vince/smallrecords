@@ -239,4 +239,58 @@ class Records extends Controller
         } 
     }
 
+    public function formExtendFields($form){
+
+        $params = $this->params;
+
+        if(empty($params[1])) {
+            return;
+        }
+
+        $areaId = $params[1];
+        $area = Area::find($areaId);
+
+        if(empty($area)) {
+            return;
+        }
+
+        $fields = [];
+        $counter = 0;
+
+        foreach($area->custom_repeater_fields as $field) {
+            
+            if(empty($field['custom_repeater_field_name'])) {
+                $fieldName = 'field' . $counter;
+            } else {
+                $fieldName = $field['custom_repeater_field_name'];
+            }
+
+            $fields[$fieldName] = [
+                'type' => $field['custom_repeater_field_type'],
+                'label' => $field['custom_repeater_field_label'],
+                'span' => $field['custom_repeater_field_span'],
+            ];
+
+            if(!empty($field['custom_repeater_field_mode'])) {
+                $fields[$fieldName]['mode'] = $field['custom_repeater_field_mode'];
+            }
+
+            if(!empty($field['custom_repeater_field_size'])) {
+                $fields[$fieldName]['size'] = $field['custom_repeater_field_size'];
+            }
+        }
+
+        $form->addTabFields([
+            'custom_repeater' => [
+                'type' => 'repeater',
+                'prompt' => ($area->custom_repeater_prompt ? $area->custom_repeater_prompt : '+'),
+                'minItems' => ($area->custom_repeater_min_items ? $area->custom_repeater_min_items : 1),
+                'maxItems' => ($area->custom_repeater_max_items ? $area->custom_repeater_max_items : false),
+                'tab' => ($area->custom_repeater_tab_title ? $area->custom_repeater_tab_title : 'Custom repeater'),
+                'form' => [
+                    'fields' => $fields,
+                ]
+            ],
+        ]);
+    }
 }

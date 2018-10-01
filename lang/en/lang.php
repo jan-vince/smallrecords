@@ -99,7 +99,48 @@
         'columns' => [
             'allowed_fields' => 'Available records fields',
             'allowed_fields_comment' => 'Checked fields will be visible in records editing form. This list is long so scroll down! <br><em>Some field will be visible after you create a record (they are dependent on record\'s ID)!</em>',
+
+            'custom_repeater_allow' => 'Allow custom repeater form field',
+            'custom_repeater_tab_title' => 'Custom repeater tab title',
+            'custom_repeater_prompt' => 'Custom repeater "Add new item" custom prompt',
+            'custom_repeater_min_items' => 'Custom repeater minimum required items',
+            'custom_repeater_max_items' => 'Custom repeater maximum allowed items',
+
+            'custom_repeater' => [
+                'repeater_prompt' => 'Add field',
+                'field_type' => 'Field type',
+                'field_name' => 'Field name',
+                'field_name_comment' => 'Field name like: my_record_name. You will use this in Twig to access field value.',
+                'field_label' => 'Field label',
+                'field_span' => 'Field span',
+                'field_mode' => 'Mode',
+                'field_size' => 'Size',
+                'options' => [
+                    'text' => 'Text',
+                    'textarea' => 'Text area',
+                    'richeditor' => 'Richtext editor',
+                    'number' => 'Number',
+                    'checkbox' => 'Checkbox',
+                    'mediafinder' => 'Mediafinder',
+                    'section' => 'Section',
+                    'left' => 'Left',
+                    'right' => 'Right',
+                    'full' => 'Full',
+                    'file' => 'File',
+                    'image' => 'Image',
+                    'tiny' => 'Tiny',
+                    'small' => 'Small',
+                    'large' => 'Large',
+                    'huge' => 'Huge',
+                    'giant' => 'Giant',
+                    'empty_option' => 'Select ...'
+                ]
+            ],
         ],
+
+        'tabs' => [
+            'custom_repeater' => 'Custom repeater',
+        ]
 
     ],
 
@@ -239,7 +280,7 @@
 
         'records' => [
             'name' => 'Records',
-            'description' => 'Get records of selected records list',
+            'description' => 'Get list of records',
 
             'properties' => [
                 'area' => 'List',
@@ -260,13 +301,17 @@
                 'sort_by_direction' => 'Sort direction',
                 'allow_limit' => 'Limit number or records',
                 'allow_limit_description' => 'If checked, only required number of records will be returned',
-                'limit' => 'Records count',
+                'limit' => 'Number of records',
                 'limit_description' => 'How many records will be returned',
+
+                'empty_option' => 'Not selected',
 
                 'groups' => [
                     'links' => 'Links',
                     'sort' => 'Sorting',
                     'limit' => 'Limit',
+                    'with_categories' => 'With categories',
+                    'with_tags' => 'With tags',
                 ],
 
             ],
@@ -288,24 +333,41 @@
 
         'categories' => [
             'name' => 'Categories',
-            'description' => 'Get categories of records',
+            'description' => 'Get list of categories',
 
             'properties' => [
-                'area' => 'Only with records in list',
-                'area_description' => 'Select only categories with records in this list',
+                'area' => 'Only with records from list',
+                'area_description' => 'Select only categories with records from this list',
+                'category_slug' => 'Category slug',
+                'category_slug_description' => 'Category slug (dynamic like :category or manually entered)',
+                'parent_category_slug' => 'Parent category slug',
+                'parent_category_slug_description' => 'Only children of this category will be listed',
+                'category_page' => 'Categories page',
+                'category_page_description' => 'CMS page where category slug is used in URL (like /category/:category?).',
+                'active_only' => 'Active categories only',
+                'active_only_description' => 'Get only active categories (unchecked will get all categories)',
                 'root_only' => 'Root categories only',
                 'root_only_description' => 'Return only root categories',
+                'with_records_only' => 'With records only',
+                'with_records_only_description' => 'Return only categories with records',
                 'area_id_empty_option' => '-- Do not limit to --',
 
                 'allow_limit' => 'Limit number or categories',
                 'allow_limit_description' => 'If checked, only required number of categories will be returned',
-                'limit' => 'Categories count',
+                'limit' => 'Number of categories',
                 'limit_description' => 'How many categories will be returned',
-                'use_multicategories' => 'Use multi-categories',
-                'use_multicategories_description' => 'Use multi-categories defined on Categories tab instead of one main category on Info tab.',
+
+                'use_main_category' => 'With main category records',
+                'use_main_category_description' => 'Get only those categories that have records using them as main (on tab Info)',
+                'use_multicategories' => 'With secondary categories records',
+                'use_multicategories_description' => 'Get only those categories that have records using them as secondary (on tab Categories)',
+
+                'empty_option' => 'Not selected',
 
                 'groups' => [
+                    'links' => 'Links',
                     'limit' => 'Limit',
+                    'with_records' => 'With records from',
                 ],
                 
             ],
@@ -320,10 +382,7 @@
                 'throw404' => '404 error on invalid slug',
                 'throw404_description' => 'Return 404 error when slug is invalid',
             ],
-
         ],
-
-
     ],
 
     'permissions' => [
@@ -360,7 +419,5 @@
             'allow_records_in_pages_comment' => 'Show records list in static page (Rainlab.Pages plugin must be installed)',
             'allow_records_in_pages_area' => 'Show records from List',
         ],
-
     ]
-
 ];

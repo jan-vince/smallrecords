@@ -64,3 +64,117 @@ tabs:
             type: checkbox
             default: true
             tab: 'janvince.smallrecords::lang.common.tabs.info'
+
+        custom_repeater_allow:
+            label: 'janvince.smallrecords::lang.areas.columns.custom_repeater_allow'
+            span: left
+            type: checkbox
+            default: false
+            tab: 'janvince.smallrecords::lang.areas.tabs.custom_repeater'
+
+        custom_repeater_tab_title:
+            label: 'janvince.smallrecords::lang.areas.columns.custom_repeater_tab_title'
+            span: left
+            type: text
+            tab: 'janvince.smallrecords::lang.areas.tabs.custom_repeater'
+            trigger:
+                action: hide
+                field: custom_repeater_allow
+                condition: unchecked
+
+        custom_repeater_prompt:
+            label: 'janvince.smallrecords::lang.areas.columns.custom_repeater_prompt'
+            span: right
+            type: text
+            tab: 'janvince.smallrecords::lang.areas.tabs.custom_repeater'
+            trigger:
+                action: hide
+                field: custom_repeater_allow
+                condition: unchecked
+
+        custom_repeater_min_items:
+            label: 'janvince.smallrecords::lang.areas.columns.custom_repeater_min_items'
+            span: left
+            type: number
+            default: 1
+            tab: 'janvince.smallrecords::lang.areas.tabs.custom_repeater'
+            trigger:
+                action: hide
+                field: custom_repeater_allow
+                condition: unchecked
+
+        custom_repeater_max_items:
+            label: 'janvince.smallrecords::lang.areas.columns.custom_repeater_max_items'
+            span: right
+            type: number
+            default: 1
+            tab: 'janvince.smallrecords::lang.areas.tabs.custom_repeater'
+            trigger:
+                action: hide
+                field: custom_repeater_allow
+                condition: unchecked
+
+        custom_repeater_fields:
+            type: repeater
+            prompt: 'janvince.smallrecords::lang.areas.columns.custom_repeater.repeater_prompt'
+            tab: 'janvince.smallrecords::lang.areas.tabs.custom_repeater'
+            trigger:
+                action: hide
+                field: custom_repeater_allow
+                condition: unchecked
+            form:
+                fields:
+                    custom_repeater_field_name:
+                        label: 'janvince.smallrecords::lang.areas.columns.custom_repeater.field_name'
+                        comment: 'janvince.smallrecords::lang.areas.columns.custom_repeater.field_name_comment'
+                        type: text
+                        span: left
+                    custom_repeater_field_label:
+                        label: 'janvince.smallrecords::lang.areas.columns.custom_repeater.field_label'
+                        type: text
+                        span: right
+                    custom_repeater_section_1:
+                        type: section
+                    custom_repeater_field_type:
+                        label: 'janvince.smallrecords::lang.areas.columns.custom_repeater.field_type'
+                        type: dropdown
+                        span: left
+                        options:
+                            text: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.text'
+                            textarea: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.textarea'
+                            number: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.number'
+                            checkbox: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.checkbox'
+                            mediafinder: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.mediafinder'
+                            richeditor: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.richeditor'
+                            section: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.section'
+                    custom_repeater_field_mode:
+                        label: 'janvince.smallrecords::lang.areas.columns.custom_repeater.field_mode'
+                        type: dropdown
+                        span: right
+                        emptyOption: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.empty_option'
+                        options:
+                            file: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.file'
+                            image: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.image'
+                        trigger:
+                            action: show
+                            field: custom_repeater_field_type
+                            condition: value[mediafinder]
+                    custom_repeater_field_span:
+                        label: 'janvince.smallrecords::lang.areas.columns.custom_repeater.field_span'
+                        type: dropdown
+                        span: left
+                        options:
+                            full: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.full'
+                            left: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.left'
+                            right: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.right'
+                    custom_repeater_field_size:
+                        label: 'janvince.smallrecords::lang.areas.columns.custom_repeater.field_size'
+                        type: dropdown
+                        span: right
+                        emptyOption: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.empty_option'
+                        options:
+                            tiny: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.tiny'
+                            small: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.small'
+                            large: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.large'
+                            huge: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.huge'
+                            giant: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.giant'

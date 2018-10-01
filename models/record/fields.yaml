@@ -121,9 +121,6 @@ tabs:
                         type: textarea
                         size: medium
                         span: left
-                    image_section:
-                        type: section
-
 
         tags:
             # label: 'janvince.smallrecords::lang.tags.tabs.tags'
@@ -272,5 +269,3 @@ tabs:
                         type: checkbox
                         span: right
                         default: false
-                    content_block_section_content:
-                        type: section

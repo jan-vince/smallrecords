@@ -19,7 +19,7 @@ class Area extends Model
 
     protected $guarded = [];
 
-    protected $jsonable = ['allowed_fields'];
+    protected $jsonable = ['allowed_fields', 'custom_repeater_fields'];
 
     protected $dates = [
         'created_at',
@@ -36,7 +36,10 @@ class Area extends Model
 
     public $translatable = [
         'name',
-        ['slug', 'index' => true]
+        ['slug', 'index' => true],
+        'custom_repeater_tab_title',
+        'custom_repeater_fields',
+        'custom_repeater_prompt',
     ];
 
 

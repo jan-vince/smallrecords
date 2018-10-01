@@ -15,20 +15,22 @@ git clone https://github.com/jan-vince/smallrecords.git
 Just look for 'Small Records' in search field in:
 > Settings > Updates&Plugins > Install plugins
 
-### Permissions
+## Permissions
 
-You can set permissions to access each of a plugin parts.
+You can set permissions to access each of a plugin's part and also each of created lists.
 
-### Settings
+## Settings
+> Settings > Small Plugins > Small records
 
 * You can configure connection between (Rainlab) Blog posts and Records.
 
 * You can set list's preview image height and width.
 
+----
 
 ## Records
 
-> Main idea behind this is to have a place where I can easily collect records in several lists (like portfolio, partners, sliders and their images, simple photo galleries, etc.).
+> Main idea behind this plugin is to have a place where I can easily collect records in several lists (like portfolio, partners, sliders and their images, simple photo galleries, etc.).
 
 ### Records lists
 
@@ -36,23 +38,23 @@ Create one or more lists of records and assign form fields that you want to be v
 
 *Created list will be appended to the top of the side menu in Records administration.*
 
-### Categories
+## Categories
 
 Here you can set up categories hierarchy (it is a nested tree).
 
 *There are components ready to use for categories listing in Twig.*
 
-### Tags
+## Tags
 
 Simple list of tags that can be assigned to records.
 
-### Attributes
+## Attributes
 
-If you need a specific information for your records, here you can define a name of an attribute and it's type (string, text, number, switch).
+If you need to store a specific information for your records, that is not covered by fields in record's form, here you can define a name of an attribute and it's type (string, text, number, switch).
 
-If Attributes are allowed in Records list, you can select an attribute and add a custom content to it.
+If Attributes are allowed in Records list, you can select an attribute and add a value.
 
-#### Access attributes in Twig
+### Access attributes in Twig
 
 If you assigned one or more attributes to any record, you can iterate through them with Twig code like:
 
@@ -72,29 +74,161 @@ Or there are functions to get a specific attribute (or attribute's value) by slu
 
 ````
 
-
 ## Import and Export
 
-You can export and import data to Categories and to Records (Records through Import/Export buttons in Lists toolbar).
+There are buttons ready in Records and Categories lists.
 
+----
 
 ## Components
 
-### Records
+There are components and default partials ready to use in your Layout, Page or Partial.
 
-You can add a Records component to a page, layout or partial.
+Component's default partials are meant as templates - you should customize them to your needs as these can change in a future!
 
-*There are several parameters - only Records list slug is required.*
+Best way to customize them is to copy them to yout theme folder like:
 
-You can access all properties in twig like: ````{{records.property('detailPageSlug')}}````
+`/themes/my-theme/partials/records/default.htm`
 
-#### Record detail
+*Folder `records` should be named after component's alias name. See more details in [OctoberCMS docs](https://octobercms.com/docs/cms/components#overriding-partials).*
 
-You can add a record detail to yout page, layout or partial.
+### **Categories component**
 
-*Record list and record slug is required.*
+>You can add a Categories component to a page, layout or partial.
+
+Just start with putting default partial `{{ component 'categories' }}` in your layout/page/partial to inspect how to work with categories lists.
+
+There are many component's parameters you can use to customize the list of categories.
+
+* **Active categories only**
+* **Root categories only** - get list of categories from highest level
+* **Parent category slug** - get only children of this category
+* Only with records from
+  * **Only with records from list** - you can select a specific records list and returned categories list will be limited to those used with records in this list
+  * **With main category records** - this will return only categories used in records as Main category (on Info tab of record's form)
+  * **With secondary categories records** - this will return only categories used in records as Secondary category (on Categories tab of record's form)
+    * *If both main and secondary categories checkboxes are checked, only categories that are used as main AND secondary category in records will be returned!*
+* Links
+  * **Category slug** - URL slug used to filter (eg. :category)
+  * **Categories page** - CMS page with used Category slug (page with URL like /records/:category?)
+* Limit
+  * **Limit number of categories** - allows limiting number of returned categories
+  * **Number of categories** - how many categories will be returned if 'Limit number of categories' checkbox is checked
+
+#### Twig
+
+Look inside of `/plugins/janvince/smallrecords/components/categories/default.htm` to learn how you can work with returned categories in Twig.
+
+Copy it to: `/themes/my-theme/partials/records/default.htm` to make changes.
+
+*See more details in [OctoberCMS docs](https://octobercms.com/docs/cms/components#overriding-partials).*
 
 
+### **Records component**
+
+>You can add a Records component to a page, layout or partial.
+
+Just start with putting default partial `{{ component 'records' }}` in your layout/page/partial to inspect how to work with records lists.
+
+There are many component's parameters you can use to customize the list of records.
+
+* **Active records only** - get list of active records
+* **Favourite records only** - get list of favourite records
+* **Lists** - get records only from selected list
+* With categories
+  * **Category slug** - URL slug used to filter (eg. :category)
+  * **With main category records** - this will return only records with selected category as Main category (on Info tab of record's form)
+  * **With secondary categories records** - this will return only records with selected category as Secondary category (on Categories tab of record's form)
+    * *If both main and secondary categories checkboxes are checked, only records that has selected category as main AND secondary will be returned!*
+* With tags
+  * **Tag slug** - URL slug used to filter (eg. :tag)
+* Sorting
+  * **Sort by** - select column to be used for sorting
+  * **Sort direction** - ascending or descending order
+* Links
+  * **Detail page slug** - CMS page with RecordDetail component (eg. /record-detail)
+  * **Parameter used on detail page** - URL slug used on detail page (eg. :slug)
+* Limit
+  * **Limit number of records** - allows limiting number of returned records
+  * **Number of records** - how many records will be returned if 'Limit number of records' checkbox is checked
+
+#### **Record detail**
+
+>You can add a RecordDetail component to a page, layout or partial.
+
+----
+
+## Basic use case
+
+Install Small Records plugin.
+
+In OctoberCMS backend go to Records and create list Products.
+
+Add some records, categories, tags, attributes - whatever you want to test.
+
+Create CMS layout file '/themes/my-theme/layouts/default.htm' with content:
+
+```
+description = "Default layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Records</title>
+        <meta name="title" content="Records">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        {% styles %}
+    </head>
+    <body>
+
+        {% page %}
+
+    </body>
+</html>
+```
+
+
+Create CMS page `/themes/my-theme/layouts/records.htm` with content:
+
+```
+title = "Records"
+url = "/records/:category?"
+layout = "default"
+is_hidden = 0
+
+[categories]
+activeOnly = 1
+rootOnly = 0
+parentCategorySlug = "products"
+categorySlug = "{{ :category }}"
+categoryPage = "records"
+areaSlug = 0
+useMainCategory = 0
+useMultiCategories = 0
+allowLimit = 0
+limit = 10
+
+[records]
+areaSlug = "products"
+categorySlug = "{{ :category }}"
+useMultiCategories = 1
+tagSlug = "{{ :tag }}"
+activeOnly = 1
+allowLimit = 0
+limit = 10
+detailPageSlug = "record-detail"
+detailPageParam = "record"
+orderBy = "name"
+orderByDirection = "ASC"
+==
+{% component 'categories' %}
+
+{% component 'records' %}
+```
+
+Visit page `/records' to see a result :)
 
 ----
 > Special thanks goes to:    
