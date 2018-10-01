@@ -181,8 +181,6 @@ class Records extends ComponentBase
          */
         $this->page['detailPageSlug'] = $this->property('detailPageSlug');
         $this->page['detailPageParam'] = $this->paramName('detailPageParam');
-        dump($this->paramName('detailPageParam'));
-        dump($this->property('detailPageParam'));
     }
 
     /**
