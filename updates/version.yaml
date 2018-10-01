@@ -118,3 +118,5 @@
     - Fixed bug in Record controller.
 2.1.0:
     - Added pagination to Records component when limit is allowed (Length aware paginator is used).
+2.1.1:
+    - Changed the logic of filtering records and categories in Categories component.

@@ -338,7 +338,7 @@
             'description' => 'Get list of categories',
 
             'properties' => [
-                'area' => 'Only with records from list',
+                'area' => 'Filter records by list',
                 'area_description' => 'Select only categories with records from this list',
                 'category_slug' => 'Category slug',
                 'category_slug_description' => 'Category slug (dynamic like :category or manually entered)',
@@ -354,22 +354,25 @@
                 'with_records_only_description' => 'Return only categories with records',
                 'area_id_empty_option' => '-- Do not limit to --',
 
+                'active_records_only' => 'Filter active records only',
+                'active_records_only_description' => 'Get categories with active records only.',
+
                 'allow_limit' => 'Limit number or categories',
                 'allow_limit_description' => 'If checked, only required number of categories will be returned',
                 'limit' => 'Number of categories',
                 'limit_description' => 'How many categories will be returned',
 
-                'use_main_category' => 'With main category records',
-                'use_main_category_description' => 'Get only those categories that have records using them as main (on tab Info)',
-                'use_multicategories' => 'With secondary categories records',
-                'use_multicategories_description' => 'Get only those categories that have records using them as secondary (on tab Categories)',
+                'use_main_category' => 'Filter by main category records',
+                'use_main_category_description' => 'Return only main categories of filtered records',
+                'use_multicategories' => 'Filter by secondary categories records',
+                'use_multicategories_description' => 'Return only secondary categories of filtered records',
 
                 'empty_option' => 'Not selected',
 
                 'groups' => [
                     'links' => 'Links',
                     'limit' => 'Limit',
-                    'with_records' => 'With records from',
+                    'with_records' => 'With records filtered by',
                 ],
                 
             ],

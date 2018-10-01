@@ -111,11 +111,11 @@ There are many component's parameters you can use to customize the list of categ
 * **Active categories only**
 * **Root categories only** - get list of categories from highest level
 * **Parent category slug** - get only children of this category
-* Only with records from
-  * **Only with records from list** - you can select a specific records list and returned categories list will be limited to those used with records in this list
-  * **With main category records** - this will return only categories used in records as Main category (on Info tab of record's form)
-  * **With secondary categories records** - this will return only categories used in records as Secondary category (on Categories tab of record's form)
-    * *If both main and secondary categories checkboxes are checked, only categories that are used as main AND secondary category in records will be returned!*
+* With records filtered by
+  * **Filter records by list** - Filter categories with records in specific list
+  * **Filter active records only** - Filter categories with active records
+  * **Use filters for main category** - If set only categories acting as `Main category` of filtered records will be returned
+  * **Use filters for secondary categories** - If set only categories acting as `Secondary categories` of filtered records will be returned
 * Links
   * **Category slug** - URL slug used to filter (eg. :category)
   * **Categories page** - CMS page with used Category slug (page with URL like /records/:category?)

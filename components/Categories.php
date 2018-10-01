@@ -52,6 +52,13 @@ class Categories extends ComponentBase
                 'default'       => false,
                 'group'         => 'janvince.smallrecords::lang.components.categories.properties.groups.with_records',
             ],
+            'activeRecordsOnly'      => [
+                'title'       => 'janvince.smallrecords::lang.components.categories.properties.active_records_only',
+                'description' => 'janvince.smallrecords::lang.components.categories.properties.active_records_only_description',
+                'type'        => 'checkbox',
+                'default'     => false,
+                'group'       => 'janvince.smallrecords::lang.components.categories.properties.groups.with_records',
+            ],
             'useMainCategory'      => [
                 'title'       => 'janvince.smallrecords::lang.components.categories.properties.use_main_category',
                 'description' => 'janvince.smallrecords::lang.components.categories.properties.use_main_category_description',
@@ -165,41 +172,79 @@ class Categories extends ComponentBase
         /**
          *  Get only categories with one or more "main category" records
          */
+        
+        $categories->with(['records' => function($query) {
+            
+            if( $this->property('areaSlug') ) {
+                
+                $query->whereHas('area', function ($query2) {
+                    
+                    $query2->where('slug', '=', $this->property('areaSlug'));    
+                });
+            }    
+            
+            if( $this->property('activeRecordsOnly') ) {
+                
+                $query->where('active', '=', true);    
+            }    
+        }]);
+        
         if( $this->property('useMainCategory') ) {
 
-            $categories->with('records');
-
-            if( $this->property('areaSlug') ) {
-
-                $categories->whereHas('records', function ($query) {
-
+            $categories->whereHas('records', function ($query) {
+            
+                if( $this->property('areaSlug') ) {
+       
                     $query->whereHas('area', function ($query2) {
-    
-                        $query2->where('slug', '=', $this->property('areaSlug'));
-    
+
+                        $query2->where('slug', '=', $this->property('areaSlug'));    
                     });
-                });
-            }
+                }    
+
+                if( $this->property('activeRecordsOnly') ) {
+
+                    $query->where('active', '=', true);    
+                }    
+            });
         }
 
         /**
          *  Get only categories with one or more "secondary categories" records
          */
+        
+        $categories->with(['records_multicategories' => function($query) {
+            
+            if( $this->property('areaSlug') ) {
+                
+                $query->whereHas('area', function ($query2) {
+                    
+                    $query2->where('slug', '=', $this->property('areaSlug'));    
+                });
+            }    
+            
+            if( $this->property('activeRecordsOnly') ) {
+                
+                $query->where('active', '=', true);    
+            }    
+        }]);
+        
         if( $this->property('useMultiCategories') ) {
             
-            $categories->with('records_multicategories');
-
-            if( $this->property('areaSlug') ) {
-
-                $categories->whereHas('records_multicategories', function ($query) {
-
+            $categories->whereHas('records_multicategories', function ($query) {
+            
+                if( $this->property('areaSlug') ) {
+       
                     $query->whereHas('area', function ($query2) {
 
-                        $query2->where('slug', '=', $this->property('areaSlug'));
-
+                        $query2->where('slug', '=', $this->property('areaSlug'));    
                     });
-                });
-            }
+                }    
+
+                if( $this->property('activeRecordsOnly') ) {
+
+                    $query->where('active', '=', true);    
+                }    
+            });
         }
 
         /**

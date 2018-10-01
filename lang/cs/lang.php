@@ -333,7 +333,7 @@
             'description' => 'Získá seznam kategorií',
 
             'properties' => [
-                'area' => 'Se záznamy ze seznamu:',
+                'area' => 'Filtrovat podle seznamu',
                 'area_description' => 'Vybrat pouze kategorie se záznamy z tohoto seznamu',
                 'category_slug' => 'Slug kategorie',
                 'category_slug_description' => 'Category slug (dynamic like :category or manually entered)',
@@ -349,15 +349,18 @@
                 'with_records_only_description' => 'Vrátí pouze ty kategorie, které jsou přiřazené k nějakým záznamům',
                 'area_id_empty_option' => '-- Neomezovat --',
 
+                'active_records_only' => 'Filtrovat pouze aktivní záznamy',
+                'active_records_only_description' => 'Vybrat kategorie pouze s aktivními záznamy.',
+
                 'allow_limit' => 'Omezit počet vrácených kategorií',
                 'allow_limit_description' => 'Pokud je zaškrtnuto, vrátí pouze uvedený počet kategorií',
                 'limit' => 'Počet kategorií',
                 'limit_description' => 'Kolik kategorií má být vráceno',
 
-                'use_main_category' => 'Se záznamy hlavní kategorie',
-                'use_main_category_description' => 'Vybere pouze ty kategorie, které mají záznamy používající je jako hlavní kategorii (na záložce Info)',
-                'use_multicategories' => 'Se záznamy sekundární kategorie',
-                'use_multicategories_description' => 'Vybere pouze ty kategorie, které mají záznamy používající je jako sekundární kategorii (na záložce Kategorie)',
+                'use_main_category' => 'Použít podle hlavní kategorie',
+                'use_main_category_description' => 'Zobrazit pouze hlavní kategorie filtrovaných záznamů.',
+                'use_multicategories' => 'Použít podle sekundární kategorie',
+                'use_multicategories_description' => 'Zobrazit pouze sekundární kategorie filtrovaných záznamů.',
 
                 'empty_option' => 'Nevybráno',
 
