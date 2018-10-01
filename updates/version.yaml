@@ -108,3 +108,5 @@
     - Fixed custom repeater fields definition. Updated Record detail component.
 2.0.3:
     - Updated Record detail component. Updated documentation in README.txt file.
+2.0.4:
+    - Fixed Records component record detail slug. Updated docs.

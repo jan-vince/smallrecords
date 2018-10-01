@@ -185,15 +185,15 @@ There are many component's parameters you can use to customize the detail of the
 
 Install Small Records plugin.
 
-In OctoberCMS backend go to Records and create list Products.
+In OctoberCMS backend click in main menu on **Records** and then in left pane on **Lists**. Create a new list **Products**.
 
-Add some records, categories, tags, attributes - whatever you want to test.
+Add some records to this list, add some categories, tags and attributes (and assign them to some of your records).
 
-Create CMS layout file '/themes/my-theme/layouts/default.htm' with content:
+### **Layout file**
+
+Go to a CMS part of backend and **create a layout file Default** with content:
 
 ```
-description = "Default layout"
-==
 <!DOCTYPE html>
 <html>
     <head>
@@ -212,46 +212,58 @@ description = "Default layout"
 </html>
 ```
 
+### **Record detail page**
 
-Create CMS page `/themes/my-theme/layouts/records.htm` with content:
+Create a CMS page `Record detail` with URL `/records/detail/:slug`.
+
+Select its layout `Default`.
+
+From left pane add a Record  component to the page content:
+
+* Small Records > Record
+   * List: `Products`
+   * Only with records from: `Products`
+
+Save a file.
+
+The content of a page should be:
 
 ```
-title = "Records"
-url = "/records/:category?"
-layout = "default"
-is_hidden = 0
+{% component 'recordDetail' %}
+```
 
-[categories]
-activeOnly = 1
-rootOnly = 0
-parentCategorySlug = "products"
-categorySlug = "{{ :category }}"
-categoryPage = "records"
-areaSlug = 0
-useMainCategory = 0
-useMultiCategories = 0
-allowLimit = 0
-limit = 10
+### **Records page**
 
-[records]
-areaSlug = "products"
-categorySlug = "{{ :category }}"
-useMultiCategories = 1
-tagSlug = "{{ :tag }}"
-activeOnly = 1
-allowLimit = 0
-limit = 10
-detailPageSlug = "record-detail"
-detailPageParam = "record"
-orderBy = "name"
-orderByDirection = "ASC"
-==
+Create a CMS page `Records` with URL `/records/:category?`.
+
+Select its layout `Default`.
+
+From left pane add components to the page content:
+
+* Small Records > Categories
+   * Active only: `checked`
+   * Only with records from: `Products`
+   * Category slug: `:category`
+   * Categories page: `Records` (you have to save the page and reload to be able to select it)
+   * Detail page slug: `record-detail`
+
+* Small Records > Records
+   * List: `Products`
+
+Save a file;
+
+The content of a page should be:
+
+```
 {% component 'categories' %}
 
 {% component 'records' %}
 ```
 
-Visit page `/records' to see a result :)
+
+>Go to frontend to a page `/records' to see the records list. You should be able to filter by category a and to click on product to see a detail.
+
+
 
 ----
 > Special thanks goes to:    

@@ -180,7 +180,9 @@ class Records extends ComponentBase
          *  Allow some varibles from component
          */
         $this->page['detailPageSlug'] = $this->property('detailPageSlug');
-        $this->page['detailPageParam'] = $this->property('detailPageParam');
+        $this->page['detailPageParam'] = $this->paramName('detailPageParam');
+        dump($this->paramName('detailPageParam'));
+        dump($this->property('detailPageParam'));
     }
 
     /**
