@@ -116,6 +116,13 @@ class Records extends ComponentBase
                 'default'     => 10,
                 'group'       => 'janvince.smallrecords::lang.components.records.properties.groups.limit',
             ],            
+            'paginationSlug'   => [
+                'title'       => 'janvince.smallrecords::lang.components.records.properties.pagination_slug',
+                'description' => 'janvince.smallrecords::lang.components.records.properties.pagination_slug_description',
+                'type'        => 'string',
+                'default'     => '{{ :page }}',
+                'group'       => 'janvince.smallrecords::lang.components.records.properties.groups.limit',
+            ],
         ];
 
     }
@@ -284,7 +291,7 @@ class Records extends ComponentBase
          */
          if( $this->property('allowLimit') and  $this->property('limit') ) {
 
-            $records->limit($this->property('limit'));
+            return $records->paginate($this->property('limit'), $this->property('paginationSlug', 1));
          }
 
         return $records->get();

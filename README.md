@@ -159,6 +159,9 @@ There are many component's parameters you can use to customize the list of recor
 * Limit
   * **Limit number of records** - allows limiting number of returned records
   * **Number of records** - how many records will be returned if 'Limit number of records' checkbox is checked
+  * **Pagination slug** - URL slug to be used for pagination (eg.: {{ :page }})
+
+*When `Limit number of records` is allowed, items are returned as Length aware paginator.*
 
 #### **Record detail**
 

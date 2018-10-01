@@ -295,6 +295,8 @@
                 'allow_limit_description' => 'Pokud je zaškrtnuto, vrátí pouze uvedený počet záznamů',
                 'limit' => 'Počet záznamů',
                 'limit_description' => 'Kolik záznamů má být vráceno',
+                'pagination_slug' => 'Slug stránky pro stránkování',
+                'pagination_slug_description' => 'Vložte parametr URL adresy, který chcete použít pro stránkování',
 
                 'use_multicategories' => 'Použít multi-kategorie',
                 'use_multicategories_description' => 'Místo (jedné) hlavní kategorie použít multi-kategorie, nastavené na záložce Kategorie.',

@@ -116,3 +116,5 @@
     - Tags are now ordered by name in Record form.
 2.0.7:
     - Fixed bug in Record controller.
+2.1.0:
+    - Added pagination to Records component when limit is allowed (Length aware paginator is used).

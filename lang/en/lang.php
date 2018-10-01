@@ -303,6 +303,8 @@
                 'allow_limit_description' => 'If checked, only required number of records will be returned',
                 'limit' => 'Number of records',
                 'limit_description' => 'How many records will be returned',
+                'pagination_slug' => 'Pagination slug',
+                'pagination_slug_description' => 'Enter a slug to use for pagination records',
 
                 'empty_option' => 'Not selected',
 

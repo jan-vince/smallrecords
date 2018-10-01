@@ -126,6 +126,16 @@
 
             </table>
 
+            {% if __SELF__.property('allowLimit') %}
+            
+                <div>
+
+                    {{ __SELF__.items.render|raw }}
+                
+                </div>      
+            
+            {% endif %}
+
         </div>
 
     </div>
