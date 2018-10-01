@@ -114,3 +114,5 @@
     - Removed dumps from component.
 2.0.6:
     - Tags are now ordered by name in Record form.
+2.0.7:
+    - Fixed bug in Record controller.

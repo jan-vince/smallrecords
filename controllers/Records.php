@@ -250,7 +250,7 @@ class Records extends Controller
         $areaId = $params[1];
         $area = Area::find($areaId);
 
-        if(empty($area)) {
+        if(empty($area->custom_repeater_fields)) {
             return;
         }
 
