@@ -124,21 +124,27 @@ tabs:
                 condition: unchecked
             form:
                 fields:
+                    custom_repeater_field_label:
+                        label: 'janvince.smallrecords::lang.areas.columns.custom_repeater.field_label'
+                        type: text
+                        span: left
+                        required: true
                     custom_repeater_field_name:
                         label: 'janvince.smallrecords::lang.areas.columns.custom_repeater.field_name'
                         comment: 'janvince.smallrecords::lang.areas.columns.custom_repeater.field_name_comment'
                         type: text
-                        span: left
-                    custom_repeater_field_label:
-                        label: 'janvince.smallrecords::lang.areas.columns.custom_repeater.field_label'
-                        type: text
                         span: right
+                        required: true
+                        preset: 
+                            field: custom_repeater_field_label
+                            type: camel
                     custom_repeater_section_1:
                         type: section
                     custom_repeater_field_type:
                         label: 'janvince.smallrecords::lang.areas.columns.custom_repeater.field_type'
                         type: dropdown
                         span: left
+                        required: true
                         options:
                             text: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.text'
                             textarea: 'janvince.smallrecords::lang.areas.columns.custom_repeater.options.textarea'

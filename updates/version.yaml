@@ -104,3 +104,5 @@
 2.0.1:
     - Added custom repeater form builder for lists and its records
     - sr-update-08.php
+2.0.2:
+    - Fixed custom repeater fields definition. Updated Record detail component.

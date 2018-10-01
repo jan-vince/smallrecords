@@ -445,6 +445,8 @@
                                         <img width="100%" class="thumbnail" src="{{ value|media }}" alt="{{ customRepeaterField.custom_repeater_field_label }}">
                                     {% elseif customRepeaterFieldDefinition.custom_repeater_field_type == 'richeditor' %}
                                         {{ value|raw }}
+                                    {% elseif customRepeaterFieldDefinition.custom_repeater_field_type == 'checkbox' %}
+                                        <span class="glyphicon {{value ? 'glyphicon-check' : 'glyphicon-unchecked'}}"></span>
                                     {% else %}
                                         {{ value }}
                                     {% endif %}
