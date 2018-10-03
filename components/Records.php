@@ -57,7 +57,7 @@ class Records extends ComponentBase
                 'title'       => 'janvince.smallrecords::lang.components.common.properties.use_main_category',
                 'description' => 'janvince.smallrecords::lang.components.common.properties.use_main_category_description',
                 'type'        => 'checkbox',
-                'default'     => true,
+                'default'     => false,
                 'group'         => 'janvince.smallrecords::lang.components.common.groups.filter_category',
             ],
             'useMultiCategories'      => [
