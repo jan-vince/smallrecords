@@ -119,23 +119,21 @@
 
                     {% for record in __SELF__.categoryDetail.records %}
 
-                        <li class="list-group-item">{{ record.name }} [{{record.area.name}}]</li>
+                        <li class="list-group-item">
+
+                            {% if __SELF__.property('recordPage') %}
+                                <a href="{{__SELF__.property('recordPage')|page({(__SELF__.paramName('recordPageSlug')):record.slug})}}">
+                            {% endif %}
+                            
+                                {{ record.name }} [{{record.area.name}}]
+                            
+                            {% if __SELF__.property('recordPage') %}
+                                </a>
+                            {% endif %}
+
+                        </li>
 
                     {% endfor %}
-
-                    <li class="list-group-item">
-
-                        {% if __SELF__.property('recordPage') %}
-                            <a href="{{__SELF__.property('recordPage')|page({(__SELF__.paramName('recordPageSlug')):record.slug})}}">
-                        {% endif %}
-                        
-                            {{ record.name }} [{{record.area.name}}]
-                        
-                        {% if __SELF__.property('recordPage') %}
-                            </a>
-                        {% endif %}
-
-                    </li>
 
                 </ul>
 

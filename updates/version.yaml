@@ -127,3 +127,5 @@
 3.0.0: !!! This is a breaking change update! I have unified components parameters naming and translation strings. Please review your code and change affected parameters! Look in components default partials for help and examples.
 3.0.1:
     - Changed default values for Records component
+3.0.2:
+    - Updated default Category detail component partial
