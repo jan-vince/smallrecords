@@ -38,7 +38,15 @@
                 
                 <tr>
                     <th>Main category</th>
-                    <td>{{__SELF__.recordDetail.category ? __SELF__.recordDetail.category.name : 'Not set'}}</td>                
+                    <td>
+                        {% if __SELF__.recordDetail.category %}
+                            <a href="{{__SELF__.property('categoryPage')|page({(__SELF__.paramName('categoryPageSlug')):__SELF__.recordDetail.category.slug})}}">
+                        {% endif %}
+                            {{__SELF__.recordDetail.category ? __SELF__.recordDetail.category.name : 'Not set'}}
+                        {% if __SELF__.recordDetail.category %}
+                            </a>
+                        {% endif %}
+                    </td>                
                 </tr>
 
                 <tr>
@@ -242,7 +250,19 @@
                     
                     {% for secondaryCategory in __SELF__.recordDetail.categories %}
 
-                        <li class="list-group-item">{{ secondaryCategory.name }}</li>
+                        <li class="list-group-item">
+                        
+                            {% if __SELF__.recordDetail.category %}
+                                <a href="{{__SELF__.property('categoryPage')|page({(__SELF__.paramName('categoryPageSlug')):secondaryCategory.slug})}}">
+                            {% endif %}
+                            
+                                {{ secondaryCategory.name }}
+                            
+                            {% if __SELF__.recordDetail.category %}
+                                </a>
+                            {% endif %}
+                        
+                        </li>
 
                     {% endfor %}
 
@@ -441,7 +461,7 @@
                                 <th>{{ customRepeaterFieldDefinition.custom_repeater_field_label }}</th>
                                 <td>
                                 
-                                    {% if customRepeaterFieldDefinition.custom_repeater_field_type == 'mediafinder' %}
+                                    {% if customRepeaterFieldDefinition.custom_repeater_field_type == 'mediafinder' and value %}
                                         <img width="100%" class="thumbnail" src="{{ value|media }}" alt="{{ customRepeaterField.custom_repeater_field_label }}">
                                     {% elseif customRepeaterFieldDefinition.custom_repeater_field_type == 'richeditor' %}
                                         {{ value|raw }}

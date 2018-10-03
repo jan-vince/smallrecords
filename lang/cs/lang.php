@@ -273,114 +273,21 @@
         'records' => [
             'name' => 'Záznamy',
             'description' => 'Získá seznam záznamů',
-
-            'properties' => [
-                'area' => 'Seznam',
-                'area_description' => 'Vyberte seznam, ze kterého chcete získat záznamy',
-                'category' => 'Parametr kategorie (slug)',
-                'category_description' => 'Záznamy můžete omezit na vybranou kategorie (dynamicky parametrem např. ":category" nebo zadáním ručně)',
-                'tag' => 'Parametr štítku (slug)',
-                'tag_description' => 'Záznamy můžete omezit na vybraný štítek (dynamicky parametrem např. ":tag" nebo zadáním ručně)',
-                'active_only' => 'Pouze aktivní záznamy',
-                'active_only_description' => 'Vybere pouze záznamy označené jako aktivní (Pokud není zaškrtnuto, vybere všechny záznamy)',
-                'favourite_only' => 'Pouze oblíbené záznamy',
-                'favourite_only_description' => 'Vybere pouze záznamy označené jako oblíbené (Pokud není zaškrtnuto, vybere všechny záznamy)',
-                'detail_page_slug' => 'Slug stránky detailu záznamu',
-                'detail_page_slug_description' => 'Vložte slug CMS stránky, na které chcete zobrazit detail vybraného záznamu',
-                'detail_page_param' => 'Parameter použitý na stránce detailu',
-                'detail_page_param_description' => 'Vložte parametr URL adresy použité na stránce s detailem záznamu (např. "slug", pokud URL je /records/detail/:slug)',
-                'sort_by' => 'Řadit podle',
-                'sort_by_direction' => 'Směr řazení',
-                'allow_limit' => 'Omezit počet záznamů',
-                'allow_limit_description' => 'Pokud je zaškrtnuto, vrátí pouze uvedený počet záznamů',
-                'limit' => 'Počet záznamů',
-                'limit_description' => 'Kolik záznamů má být vráceno',
-                'pagination_slug' => 'Slug stránky pro stránkování',
-                'pagination_slug_description' => 'Vložte parametr URL adresy, který chcete použít pro stránkování',
-
-                'use_multicategories' => 'Použít multi-kategorie',
-                'use_multicategories_description' => 'Místo (jedné) hlavní kategorie použít multi-kategorie, nastavené na záložce Kategorie.',
-
-                'empty_option' => 'Nevybráno',
-
-                'groups' => [
-                    'links' => 'Odkazy',
-                    'sort' => 'Řazení',
-                    'limit' => 'Omezení',
-                    'with_categories' => 'S kategoriemi',
-                    'with_tags' => 'Se štítky',
-                ],
-
-            ],
-
         ],
 
         'record' => [
             'name' => 'Jeden záznam',
             'description' => 'Získá jeden konkrétní záznam',
-
-            'properties' => [
-                'record_slug' => 'Slug záznamu',
-                'record_slug_description' => 'Vložte slug vybraného záznamu',
-                'throw404' => 'Zobrazit chybu 404',
-                'throw404_description' => 'Vrátí chybu 404, pokud je neplatný slug',
-            ],
-
         ],
 
         'categories' => [
             'name' => 'Kategorie',
             'description' => 'Získá seznam kategorií',
-
-            'properties' => [
-                'area' => 'Filtrovat podle seznamu',
-                'area_description' => 'Vybrat pouze kategorie se záznamy z tohoto seznamu',
-                'category_slug' => 'Slug kategorie',
-                'category_slug_description' => 'Category slug (dynamic like :category or manually entered)',
-                'category_page' => 'Stránka kategorií',
-                'category_page_description' => 'CMS stránka, která používá slug kategorií v URL (např. /kategorie/:category?).',
-                'parent_category_slug' => 'Slug nadřazené kategorie',
-                'parent_category_slug_description' => 'Zobrazit pouze potomky této kategorie',
-                'active_only' => 'Pouze aktivní kategories',
-                'active_only_description' => 'Vybere pouze kategorie označené jako aktivní (Pokud není zaškrtnuto, vybere všechny záznamy)',
-                'root_only' => 'Pouze nejvyšší kategorie',
-                'root_only_description' => 'Vrátí pouze kategorie nejvyšší úrovně',
-                'with_records_only' => 'Pouze se záznamy',
-                'with_records_only_description' => 'Vrátí pouze ty kategorie, které jsou přiřazené k nějakým záznamům',
-                'area_id_empty_option' => '-- Neomezovat --',
-
-                'active_records_only' => 'Filtrovat pouze aktivní záznamy',
-                'active_records_only_description' => 'Vybrat kategorie pouze s aktivními záznamy.',
-
-                'allow_limit' => 'Omezit počet vrácených kategorií',
-                'allow_limit_description' => 'Pokud je zaškrtnuto, vrátí pouze uvedený počet kategorií',
-                'limit' => 'Počet kategorií',
-                'limit_description' => 'Kolik kategorií má být vráceno',
-
-                'use_main_category' => 'Použít podle hlavní kategorie',
-                'use_main_category_description' => 'Zobrazit pouze hlavní kategorie filtrovaných záznamů.',
-                'use_multicategories' => 'Použít podle sekundární kategorie',
-                'use_multicategories_description' => 'Zobrazit pouze sekundární kategorie filtrovaných záznamů.',
-
-                'empty_option' => 'Nevybráno',
-
-                'groups' => [
-                    'links' => 'Odkazy',
-                    'limit' => 'Omezení',
-                    'with_records' => 'Pouze se záznamy z',
-                ],                
-            ],
-
         ],
 
         'category' => [
             'name' => 'Jedna kategorie',
             'description' => 'Získá jednu konkrétní kategorii',
-
-            'properties' => [
-                'throw404' => 'Zobrazit chybu 404',
-                'throw404_description' => 'Vrátí chybu 404, pokud je neplatný slug',
-            ],
         ],
 
     ],
@@ -420,9 +327,6 @@
             'allow_records_in_pages' => 'Povolit Záznamy ve Statických stránkách',
             'allow_records_in_pages_comment' => 'Zobrazá seznam záznamů v nastavení Statické stránky (musí být nainstalován plugin Rainlab.Pages)',
             'allow_records_in_pages_area' => 'Zobrazit záznamy ze Seznamu',
-
         ],
-
     ]
-
 ];

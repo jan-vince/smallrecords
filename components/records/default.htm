@@ -59,7 +59,7 @@
                         </th>
 
                         <td>
-                            <a href="{{detailPageSlug|page({(detailPageParam):record.slug})}}">
+                            <a href="{{__SELF__.property('recordPage') ? __SELF__.property('recordPage')|page({(__SELF__.paramName('recordPageSlug')):(record.slug)})}}">
                                 {{ record.name }}
                             </a>
                         </td>

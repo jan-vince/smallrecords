@@ -26,8 +26,8 @@
                     <li class="list-group-item">Only categories with records as Secondary category: <strong><span class="glyphicon glyphicon-check"></span></strong></li>
                 {% endif %}
 
-                {% if __SELF__.property('categorySlug') %}
-                    <li class="list-group-item">Current category slug: <strong>{{__SELF__.property('categorySlug')}}</strong></li>
+                {% if __SELF__.property('categoriesPageSlug') %}
+                    <li class="list-group-item">Current category slug: <strong>{{__SELF__.property('categoriesPageSlug')}}</strong></li>
                 {% endif %}
 
             </ul>
@@ -40,9 +40,9 @@
         
             <ul class="nav nav-pills">
 
-                <li role="presentation" class="{{ __SELF__.property('categorySlug') == category.slug ? 'active'}}">
+                <li role="presentation" class="{{ __SELF__.property('categoriesPageSlug') == category.slug ? 'active'}}">
 
-                    <a href="{{__SELF__.getProperties.categoryPage ? __SELF__.property('categoryPage')|page({(__SELF__.paramName('categorySlug')):(category.slug)})}}">
+                    <a href="{{__SELF__.property('categoriesPage') ? __SELF__.property('categoriesPage')|page({(__SELF__.paramName('categoriesPageSlug')):(category.slug)})}}">
                 
                         All
 
@@ -52,9 +52,9 @@
 
                 {% for category in __SELF__.items %}
 
-                    <li role="presentation" class="{{ __SELF__.property('categorySlug') == category.slug ? 'active'}}">
+                    <li role="presentation" class="{{ __SELF__.property('categoriesPageSlug') == category.slug ? 'active'}}">
 
-                        <a href="{{__SELF__.getProperties.categoryPage ? __SELF__.property('categoryPage')|page({(__SELF__.paramName('categorySlug')):(category.slug)})}}">
+                        <a href="{{__SELF__.property('categoriesPage') ? __SELF__.property('categoriesPage')|page({(__SELF__.paramName('categoriesPageSlug')):(category.slug)})}}">
                     
                             {{ category.name }} 
 
@@ -81,6 +81,7 @@
                     <th>Preview image</th>
                     <th>Name</th>
                     <th>Parent category</th>
+                    <th>Child categories</th>
                     <th>Records (main category)</th>
                     <th>Records (secondary categories)</th>
                 
@@ -99,11 +100,35 @@
                         </th>
 
                         <td>
-                            {{ category.name }}
+                            <a href="{{__SELF__.property('categoryPage') ? __SELF__.property('categoryPage')|page({(__SELF__.paramName('categoriesPageSlug')):(category.slug)})}}">
+                                {{ category.name }}
+                            </a>
                         </td>
 
                         <td>
                             {{ category.parent.name }}
+                        </td>
+
+                        <td>
+
+                            {% if category.children|length %}
+
+                            <ul>
+
+                                {% for child in category.children %}
+
+                                    <li>
+                                        <a href="{{__SELF__.property('categoryPage') ? __SELF__.property('categoryPage')|page({(__SELF__.paramName('categoriesPageSlug')):(child.slug)})}}">
+                                            {{ child.name }}
+                                        </a>
+                                    </li>
+
+                                {% endfor %}
+
+                            </ul>
+
+                            {% endif %}
+
                         </td>
 
                         <td>

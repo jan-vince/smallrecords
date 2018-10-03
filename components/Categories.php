@@ -27,81 +27,97 @@ class Categories extends ComponentBase
 
         return [
             'activeOnly'      => [
-                'title'       => 'janvince.smallrecords::lang.components.categories.properties.active_only',
-                'description' => 'janvince.smallrecords::lang.components.categories.properties.active_only_description',
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.active_only',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.active_only_description',
                 'type'        => 'checkbox',
                 'default'     => true,
             ],
             'rootOnly'      => [
-                'title'       => 'janvince.smallrecords::lang.components.categories.properties.root_only',
-                'description' => 'janvince.smallrecords::lang.components.categories.properties.root_only_description',
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.root_categories_only',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.root_categories_only_description',
                 'type'        => 'checkbox',
                 'default'     => false,
             ],
+
             'parentCategorySlug'  => [
-                'title'         => 'janvince.smallrecords::lang.components.categories.properties.parent_category_slug',
-                'description'   => 'janvince.smallrecords::lang.components.categories.properties.parent_category_slug_description',
+                'title'         => 'janvince.smallrecords::lang.components.common.properties.parent_category_slug',
+                'description'   => 'janvince.smallrecords::lang.components.common.properties.parent_category_slug_description',
                 'type'          => 'dropdown',
                 'default'       => false,
+                'group'         => 'janvince.smallrecords::lang.components.common.groups.filter_category',
             ],
 
             'areaSlug'  => [
-                'title'         => 'janvince.smallrecords::lang.components.categories.properties.area',
-                'description'   => 'janvince.smallrecords::lang.components.categories.properties.area_description',
+                'title'         => 'janvince.smallrecords::lang.components.common.properties.area_slug',
+                'description'   => 'janvince.smallrecords::lang.components.common.properties.area_slug_description',
                 'type'          => 'dropdown',
                 'default'       => false,
-                'group'         => 'janvince.smallrecords::lang.components.categories.properties.groups.with_records',
+                'group'         => 'janvince.smallrecords::lang.components.common.groups.filter_records',
             ],
             'activeRecordsOnly'      => [
-                'title'       => 'janvince.smallrecords::lang.components.categories.properties.active_records_only',
-                'description' => 'janvince.smallrecords::lang.components.categories.properties.active_records_only_description',
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.active_records_only',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.active_records_only_description',
                 'type'        => 'checkbox',
                 'default'     => false,
-                'group'       => 'janvince.smallrecords::lang.components.categories.properties.groups.with_records',
+                'group'       => 'janvince.smallrecords::lang.components.common.groups.filter_records',
             ],
             'useMainCategory'      => [
-                'title'       => 'janvince.smallrecords::lang.components.categories.properties.use_main_category',
-                'description' => 'janvince.smallrecords::lang.components.categories.properties.use_main_category_description',
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.use_main_category',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.use_main_category_description',
                 'type'        => 'checkbox',
                 'default'     => false,
-                'group'       => 'janvince.smallrecords::lang.components.categories.properties.groups.with_records',
+                'group'       => 'janvince.smallrecords::lang.components.common.groups.filter_records',
             ],
             'useMultiCategories'      => [
-                'title'       => 'janvince.smallrecords::lang.components.categories.properties.use_multicategories',
-                'description' => 'janvince.smallrecords::lang.components.categories.properties.use_multicategories_description',
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.use_multicategories',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.use_multicategories_description',
                 'type'        => 'checkbox',
                 'default'     => false,
-                'group'       => 'janvince.smallrecords::lang.components.categories.properties.groups.with_records',
+                'group'       => 'janvince.smallrecords::lang.components.common.groups.filter_records',
             ],
 
-            'categorySlug'    => [
-                'title'       => 'janvince.smallrecords::lang.components.categories.properties.category_slug',
-                'description' => 'janvince.smallrecords::lang.components.categories.properties.category_slug_description',
+            'categoriesPage' => [
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.categories_page',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.categories_page_description',
+                'type'        => 'dropdown',
+                'default'     => 'records',
+                'group'         => 'janvince.smallrecords::lang.components.common.groups.links',
+            ],
+            'categoriesPageSlug' => [
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.categories_page_slug',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.categories_page_slug_description',
                 'type'        => 'string',
                 'default'     => '{{ :category }}',
-                'group'         => 'janvince.smallrecords::lang.components.categories.properties.groups.links',
+                'group'         => 'janvince.smallrecords::lang.components.common.groups.links',
             ],
             'categoryPage' => [
-                'title'       => 'janvince.smallrecords::lang.components.categories.properties.category_page',
-                'description' => 'janvince.smallrecords::lang.components.categories.properties.category_page_description',
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.category_page',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.category_page_description',
                 'type'        => 'dropdown',
-                'default'     => false,
-                'group'         => 'janvince.smallrecords::lang.components.categories.properties.groups.links',
+                'default'     => 'category',
+                'group'         => 'janvince.smallrecords::lang.components.common.groups.links',
+            ],
+            'categoryPageSlug' => [
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.category_page_slug',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.category_page_slug_description',
+                'type'        => 'string',
+                'default'     => '{{ :category }}',
+                'group'         => 'janvince.smallrecords::lang.components.common.groups.links',
             ],
 
             'allowLimit'   => [
-                'title'       => 'janvince.smallrecords::lang.components.categories.properties.allow_limit',
-                'description' => 'janvince.smallrecords::lang.components.categories.properties.allow_limit_description',
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.allow_limit',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.allow_limit_description',
                 'type'        => 'checkbox',
                 'default'     => false,
-                'group'       => 'janvince.smallrecords::lang.components.categories.properties.groups.limit',
+                'group'       => 'janvince.smallrecords::lang.components.common.groups.limit',
             ],
             'limit'   => [
-                'title'       => 'janvince.smallrecords::lang.components.categories.properties.limit',
-                'description' => 'janvince.smallrecords::lang.components.categories.properties.limit_description',
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.limit',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.limit_description',
                 'type'        => 'string',
                 'default'     => 10,
-                'group'       => 'janvince.smallrecords::lang.components.categories.properties.groups.limit',
+                'group'       => 'janvince.smallrecords::lang.components.common.groups.limit',
             ],
         ];
 
@@ -113,42 +129,46 @@ class Categories extends ComponentBase
 
         $areas = Area::isActive()->orderBy('name')->lists('name', 'slug');
 
-        $emptyOption = [0 => e(trans('janvince.smallrecords::lang.components.categories.properties.empty_option')) ];
+        $emptyOption = [0 => e(trans('janvince.smallrecords::lang.components.common.forms.empty_option')) ];
 
         return $emptyOption + $areas;
-
     }
 
-    // TODO: Get all parents not only root ones
-    public function getParentcategorySlugOptions() {
+    public function getParentCategorySlugOptions() {
 
         $categories = [];
 
         $categories = Category::whereNull('parent_id')->orderBy('name')->lists('name', 'slug');
 
-        $emptyOption = [0 => e(trans('janvince.smallrecords::lang.components.categories.properties.empty_option')) ];
+        $emptyOption = [0 => e(trans('janvince.smallrecords::lang.components.common.forms.empty_option')) ];
 
         return $emptyOption + $categories;
+    }
 
+    public function getCategoriesPageOptions(){
+
+        $pages = Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
+
+        $emptyOption = [0 => e(trans('janvince.smallrecords::lang.components.common.forms.empty_option')) ];
+
+        return $emptyOption + $pages;
     }
 
     public function getCategoryPageOptions(){
 
-        $pages = Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
-
-        $emptyOption = [0 => e(trans('janvince.smallrecords::lang.components.categories.properties.empty_option')) ];
-
-        return $emptyOption + $pages;
-
+        return $this->getCategoriesPageOptions();
     }
 
-    public function getDetailPageSlugOptions(){
+    public function onRun()
+    {
 
-        $pages = Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
-
-        $emptyOption = [0 => e(trans('janvince.smallrecords::lang.components.categories.properties.empty_option')) ];
-
-        return $emptyOption + $pages;
+        /**
+         *  Pass variables to templates
+         */
+        $this->page['categoryPage'] = $this->property('categoryPage');
+        $this->page['categoryPageSlug'] = $this->paramName('categoryPageSlug');
+        $this->page['categoriesPage'] = $this->property('categoriesPage');
+        $this->page['categoriesPageSlug'] = $this->paramName('categoriesPageSlug');
     }
 
     public function onRender()
@@ -158,7 +178,6 @@ class Categories extends ComponentBase
          *  Allow some varibles from component
          */
         $this->page['cssClass'] = $this->property('cssClass');
-
     }
 
     /**

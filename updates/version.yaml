@@ -122,3 +122,6 @@
     - Changed the logic of filtering records and categories in Categories component.
 2.1.2:
     - Updated Categories component default partial.
+2.2.0:
+    - Added Record detail default component partial. Added new Record detail parameters.
+3.0.0: !!! This is a breaking change update! I have unified components parameters naming and translation strings. Please review your code and change affected parameters! Look in components default partials for help and examples.
