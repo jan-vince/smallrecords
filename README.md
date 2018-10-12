@@ -45,11 +45,11 @@ Lists are groups of records. They can be eg. Products, Photo albums, Logos, ...
 
 Created list will be appended to the top of the left side menu.
 
-### Create custom records form
+### Add custom records form fields
 
 When creating a new list you can allow predefined form fields or you can **create your own form** definition (based on repeater).
 
-When creating or editing a *List*, open tab `Custom repeater` and allow its use.
+When creating or editing a *List*, open tab `Custom form fields` and allow its use.
 
 Set basic settings and **add new fields** to your custom form.
 

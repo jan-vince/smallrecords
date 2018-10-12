@@ -101,11 +101,11 @@
             'allowed_fields' => 'Povolené formulářové prvky',
             'allowed_fields_comment' => 'Označené položky budou viditelné ve formuláři při editaci záznamu. Položek je hodně, proto skrolujte dolů.<br><em>Některá pole formuláře budou viditelná až ve chvíli, kdy uložíte záznam (jsou závislá na ID záznamu)!</em>',
 
-            'custom_repeater_allow' => 'Povolit zobrazení vlastního repeateru',
-            'custom_repeater_tab_title' => 'Název záložky vlastního repeateru',
+            'custom_repeater_allow' => 'Povolit zobrazení vlastních formulářových polí',
+            'custom_repeater_tab_title' => 'Název záložky vlastních formulářových polí',
             'custom_repeater_prompt' => 'Vlastní popisek pro "Přidat novou položku"',
-            'custom_repeater_min_items' => 'Minimální vyžadovaný počet položek repeateru',
-            'custom_repeater_max_items' => 'Maximální povolený počet položek repeateru',
+            'custom_repeater_min_items' => 'Minimální vyžadovaný počet položek',
+            'custom_repeater_max_items' => 'Maximální povolený počet položek',
 
             'custom_repeater' => [
                 'repeater_prompt' => 'Přidat pole',
@@ -139,6 +139,9 @@
             ],
         ],
 
+        'tabs' => [
+            'custom_repeater' => 'Vlastní formulářová pole',
+        ]
     ],
 
     'records' => [

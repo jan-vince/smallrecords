@@ -100,11 +100,11 @@
             'allowed_fields' => 'Available records fields',
             'allowed_fields_comment' => 'Checked fields will be visible in records editing form. This list is long so scroll down! <br><em>Some field will be visible after you create a record (they are dependent on record\'s ID)!</em>',
 
-            'custom_repeater_allow' => 'Allow custom repeater form field',
-            'custom_repeater_tab_title' => 'Custom repeater tab title',
-            'custom_repeater_prompt' => 'Custom repeater "Add new item" custom prompt',
-            'custom_repeater_min_items' => 'Custom repeater minimum required items',
-            'custom_repeater_max_items' => 'Custom repeater maximum allowed items',
+            'custom_repeater_allow' => 'Allow custom form fields blocks',
+            'custom_repeater_tab_title' => 'Custom form fields tab title',
+            'custom_repeater_prompt' => 'Custom form fields "Add new item" custom prompt',
+            'custom_repeater_min_items' => 'Custom form fields minimum required items',
+            'custom_repeater_max_items' => 'Custom form fields maximum allowed items',
 
             'custom_repeater' => [
                 'repeater_prompt' => 'Add field',
@@ -139,9 +139,8 @@
         ],
 
         'tabs' => [
-            'custom_repeater' => 'Custom repeater',
+            'custom_repeater' => 'Custom form fields',
         ]
-
     ],
 
     'records' => [

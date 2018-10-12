@@ -129,3 +129,5 @@
     - Changed default values for Records component
 3.0.2:
     - Updated default Category detail component partial
+3.0.3:
+    - Changed naming - Custom repeater -> Custom form fields
