@@ -125,6 +125,13 @@ class Records extends ComponentBase
                 'default'     => 'ASC',
                 'group'       => 'janvince.smallrecords::lang.components.common.groups.order',
             ],
+            'orderAsCollection'   => [
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.order_as_collection',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.order_as_collection_description',
+                'type'        => 'checkbox',
+                'default'     => false,
+                'group'       => 'janvince.smallrecords::lang.components.common.groups.order',
+            ],
         ];
     }
 
@@ -283,8 +290,26 @@ class Records extends ComponentBase
                 $orderByDirection = 'DESC';
             }
 
-            $records->orderBy($orderByColumn, $orderByDirection);
+            if( $this->property('orderAsCollection') ) {
+            
+                $collection = $records->get();
 
+                if($orderByDirection == 'ASC') {
+                    $sortedCollection = $collection->sortBy(function($card) use ($orderByColumn) {
+                        return iconv('UTF-8', 'ASCII//TRANSLIT', $card->{$orderByColumn}); }
+                    );
+                } else {
+                    $sortedCollection = $collection->sortByDesc(function($card) use ($orderByColumn) {
+                        return iconv('UTF-8', 'ASCII//TRANSLIT', $card->{$orderByColumn}); }
+                    );
+                }
+    
+                return $sortedCollection;
+
+            } else {
+
+                $records->orderBy($orderByColumn, $orderByDirection);
+            }
          }
 
         /**

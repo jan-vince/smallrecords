@@ -323,6 +323,8 @@
 
                 'order_by' => 'Order by',
                 'order_by_direction' => 'Order by direction',
+                'order_as_collection' => 'Order as collection',
+                'order_as_collection_description' => 'Get all data in collection and sort it. Usefull when database cannot order data correctly in current locale.',
 
                 'allow_limit' => 'Limit number or records',
                 'allow_limit_description' => 'If checked, only required number of records will be returned. Also a pagination will be allowed.',
