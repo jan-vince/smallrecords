@@ -133,3 +133,5 @@
     - Changed naming - Custom repeater -> Custom form fields
 3.1.0:
     - Added option to order records as Collection (useful for SQL(ite) database records ordering in different locale)
+3.1.1:
+    - Fixed translations for Custom repeater 

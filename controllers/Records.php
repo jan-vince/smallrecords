@@ -1,6 +1,7 @@
 <?php namespace JanVince\SmallRecords\Controllers;
 
 use Backend\Classes\Controller;
+use System\Classes\PluginManager;
 use BackendMenu;
 use Flash;
 use Lang;
@@ -280,13 +281,24 @@ class Records extends Controller
             }
         }
 
+        /*
+         * Check the Rainlab.Translate plugin is installed
+         */
+        $repeaterType = 'repeater';
+
+        $pluginManager = PluginManager::instance()->findByIdentifier('Rainlab.Translate');
+
+        if ($pluginManager && !$pluginManager->disabled) {
+          $repeaterType = 'mlrepeater';
+        }
+
         $form->addTabFields([
             'custom_repeater' => [
-                'type' => 'repeater',
+                'type' => $repeaterType,
                 'prompt' => ($area->custom_repeater_prompt ? $area->custom_repeater_prompt : '+'),
                 'minItems' => ($area->custom_repeater_min_items ? $area->custom_repeater_min_items : 1),
                 'maxItems' => ($area->custom_repeater_max_items ? $area->custom_repeater_max_items : false),
-                'tab' => ($area->custom_repeater_tab_title ? $area->custom_repeater_tab_title : 'Custom repeater'),
+                'tab' => ($area->custom_repeater_tab_title ? $area->custom_repeater_tab_title : 'Data'),
                 'form' => [
                     'fields' => $fields,
                 ]
