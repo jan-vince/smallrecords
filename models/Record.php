@@ -9,6 +9,8 @@ use October\Rain\Router\Helper as RouterHelper;
 use Cms\Classes\Page as CmsPage;
 use Cms\Classes\Theme;
 use JanVince\SmallRecords\Models\Settings;
+use BackendAuth;
+use Log;
 
 /**
  * Model
@@ -61,6 +63,7 @@ class Record extends Model
      * @var array Relations
      */
     public $belongsToMany = [
+
         'categories' => [
             'JanVince\SmallRecords\Models\Category',
             'table' => 'janvince_smallrecords_records_categories',
@@ -90,24 +93,37 @@ class Record extends Model
             'pivot' => ['value_text', 'value_number', 'value_boolean', 'value_string'],
             'timestamps' => true,
         ]
-
     ];
 
     public $belongsTo = [
+        
         'area' => [
             'JanVince\SmallRecords\Models\Area',
         ],
         'category' => [
             'JanVince\SmallRecords\Models\Category',
-        ],
 
+        ],
+        'author' => [
+            '\Backend\Models\User',
+            'key' => 'created_by',
+            'otherKey' => 'id',
+        ],
+        'editor' => [
+            '\Backend\Models\User',
+            'key' => 'updated_by',
+            'otherKey' => 'id',
+        ],
     ];
 
     public $attachOne = [
+
         'preview_image' => ['System\Models\File'],
         'image' => ['System\Models\File'],
     ];
+
     public $attachMany = [
+
         'images' => ['System\Models\File', 'delete' => true],
         'files'    => ['System\Models\File', 'delete' => true],
     ];
@@ -116,6 +132,7 @@ class Record extends Model
      *  SCOPES
      */
     public function scopeIsActive($query) {
+
         return $query->where('active', '=', true);
     }
 
@@ -123,6 +140,7 @@ class Record extends Model
      *  SCOPES
      */
     public function scopeIsFavourite($query) {
+
         return $query->where('favourite', '=', true);
     }
 
@@ -245,8 +263,25 @@ class Record extends Model
         }
 
         return false;
-
     }
 
+    /**
+     * Save creator of the record
+     * 
+     * @return void
+     */
+    public function beforeCreate() {
 
+        $this->created_by = BackendAuth::getUser()->id;
+    }
+
+    /**
+     * Save editor of the record
+     *
+     * @return void
+     */
+    public function beforeSave() {
+
+        $this->updated_by = BackendAuth::getUser()->id;
+    }
 }

@@ -63,6 +63,8 @@
             'testimonials_prompt' => 'Přidat novou položku ...',
             'created_at' => 'Vytvořeno',
             'updated_at' => 'Aktualizováno',
+            'created_by' => 'Vytvořil',
+            'updated_by' => 'Aktualizoval',
             'sort_order' => 'Vlastní pořadí',
         ],
 

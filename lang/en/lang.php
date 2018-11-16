@@ -60,8 +60,10 @@
             'repeater_prompt' => 'Add new record ...',
             'testimonials' => 'Testimonials',
             'testimonials_prompt' => 'Add new record ...',
-            'created_at' => 'Created',
-            'updated_at' => 'Updated',
+            'created_at' => 'Created at',
+            'updated_at' => 'Updated at',
+            'created_by' => 'Created by',
+            'updated_by' => 'Updated by',
             'sort_order' => 'Custom order',
         ],
 

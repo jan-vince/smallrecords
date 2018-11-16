@@ -135,3 +135,7 @@
     - Added option to order records as Collection (useful for SQL(ite) database records ordering in different locale)
 3.1.1:
     - Fixed translations for Custom repeater 
+3.2.0:
+    - Added relation to Backend administrator in the Record, so autor/editor od the record can be displayed
+    - Added created_at and updated_at columns to all lists
+    - sr-update-09.php

@@ -17,3 +17,13 @@ columns:
     value_type:
         label: janvince.smallrecords::lang.attributes.columns.value_type
         searchable: true
+
+    created_at:
+        label: janvince.smallrecords::lang.common.columns.created_at
+        type: datetime
+        invisible: true
+
+    updated_at:
+        label: janvince.smallrecords::lang.common.columns.updated_at
+        type: datetime
+        invisible: true
