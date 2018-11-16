@@ -139,3 +139,5 @@
     - Added relation to Backend administrator in the Record, so autor/editor od the record can be displayed
     - Added created_at and updated_at columns to all lists
     - sr-update-09.php
+3.2.1:
+    - Changes beforeSave to beforeUpdate method

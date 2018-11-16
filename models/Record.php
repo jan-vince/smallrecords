@@ -280,7 +280,7 @@ class Record extends Model
      *
      * @return void
      */
-    public function beforeSave() {
+    public function beforeUpdate() {
 
         $this->updated_by = BackendAuth::getUser()->id;
     }
