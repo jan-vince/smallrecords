@@ -136,7 +136,8 @@ class RecordDetail extends ComponentBase
         $this->recordDetail = $this->page['recordDetail'] = $this->getRecord();
 
         if( $this->property('recordSlug') and !$this->recordDetail ){
-            abort(404, 'Record not found!');
+            $this->setStatusCode(404);
+            return $this->controller->run('404');
         }
 
         if( $this->property('setPageMeta') and $this->recordDetail ){
