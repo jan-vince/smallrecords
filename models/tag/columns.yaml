@@ -37,3 +37,13 @@ columns:
         type: attached_images_count
         sortable: true
         invisible: true
+
+    created_at:
+        label: janvince.smallrecords::lang.common.columns.created_at
+        type: datetime
+        invisible: true
+
+    updated_at:
+        label: janvince.smallrecords::lang.common.columns.updated_at
+        type: datetime
+        invisible: true

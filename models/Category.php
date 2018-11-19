@@ -41,7 +41,14 @@ class Category extends Model
     /**
      * @var array Relations
      */
-    public $hasMany = [
+    public $belongsToMany = [
+        'records_multicategories' => [
+            'JanVince\SmallRecords\Models\Record',
+            'table' => 'janvince_smallrecords_records_categories',
+        ],
+    ];
+
+     public $hasMany = [
         'records' => [
             'JanVince\SmallRecords\Models\Record'
         ]

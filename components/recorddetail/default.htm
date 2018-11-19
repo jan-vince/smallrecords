@@ -1,11 +1,493 @@
-<div class="record-box {{ cssClass }}">
+<div class="container {{ cssClass }}">
 
-    {% if __SELF__.recordDetail.preview_image %}
-        <img alt="{{ __SELF__.name }}" src="{{ __SELF__.preview_image.getPath }}" />
-    {% endif %}
+    <div class="row">
 
-    <h3 class="record-box-title">
-        {{ __SELF__.recordDetail.name }}
-    </h3>
+        <div class="col-xs-12">
+
+            <h1>Record detail</h1>
+
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+
+            <ul class="list-group">
+                
+                <li class="list-group-item">Record from list: <strong>{{__SELF__.getProperties.areaSlug ? __SELF__.getProperties.areaSlug : 'Not set'}}</strong></li>
+
+                {% if __SELF__.property('areaSlug') %}
+                    <li class="list-group-item">Records filtered by category used as: <strong>{{__SELF__.property('useMultiCategories') ? 'Secondary categories' : 'Main category'}}</strong></li>
+                {% endif %}
+
+                {% if __SELF__.property('categorySlug') %}
+                    <li class="list-group-item">Records filtered by category: <strong>{{__SELF__.property('categorySlug')}}</strong></li>
+                {% endif %}
+
+            </ul>
+
+        </div>
+
+        <div class="col-xs-12"><hr></div>
+
+        <div class="col-xs-12 col-sm-8">
+
+            <h3><strong>{{ __SELF__.recordDetail.name }}</strong></h3>
+        
+            <h4>Info</h4>
+
+            <table class="table table-striped table-hover table-bordered">
+                
+                <tr>
+                    <th>Main category</th>
+                    <td>
+                        {% if __SELF__.recordDetail.category %}
+                            <a href="{{__SELF__.property('categoryPage')|page({(__SELF__.paramName('categoryPageSlug')):__SELF__.recordDetail.category.slug})}}">
+                        {% endif %}
+                            {{__SELF__.recordDetail.category ? __SELF__.recordDetail.category.name : 'Not set'}}
+                        {% if __SELF__.recordDetail.category %}
+                            </a>
+                        {% endif %}
+                    </td>                
+                </tr>
+
+                <tr>
+                    <th>Description</th>
+                    <td>{{__SELF__.recordDetail.description}}</td>
+                </tr>
+
+                <tr>
+                    <th>Is active</th>
+                    <td><span class="glyphicon {{__SELF__.recordDetail.active ? 'glyphicon-check' : 'glyphicon-unchecked'}}"></span></td>
+                </tr>
+
+                <tr>
+                    <th>Is favourite</th>
+                    <td><span class="glyphicon {{__SELF__.recordDetail.favourite ? 'glyphicon-check' : 'glyphicon-unchecked'}}"></span></td>
+                </tr>
+
+                <tr>
+                    <th>Date</th>
+                    <td>{{__SELF__.recordDetail.date|date(j.n.Y)}}</td>
+                </tr>
+
+                <tr>
+                    <th>URL</th>
+                    <td>{{__SELF__.recordDetail.url}}</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+
+            {% if __SELF__.recordDetail.preview_image %}
+                <img class="thumbnail" alt="{{ __SELF__.recordDetail.name }}" src="{{ __SELF__.recordDetail.preview_image.getPath }}" width="100%" />
+            {% elseif __SELF__.recordDetail.preview_image_media %}
+                <img class="thumbnail" alt="{{ __SELF__.recordDetail.name }}" src="{{ __SELF__.recordDetail.preview_image_media|media }}" width="100%" />
+            {% endif %}            
+
+        </div>
+
+        <div class="col-xs-12">
+        
+            <h4>Content</h4>
+
+            <div class="well">{{__SELF__.recordDetail.content|raw}}</div>
+
+        </div>
+        
+        <div class="col-xs-12">
+
+            <h4>Images</h4>
+
+            {% if __SELF__.recordDetail.images|length %}
+            
+                <h5><strong>Images (uploaded)</strong></h4>
+
+                <div class="row">
+
+                    {% for image in __SELF__.recordDetail.images %}
+
+                        <div class="col-xs-12 col-sm-4 col-md-3 col-md-2">
+                        
+                            <a target="_blank" href="{{image.getPath}}">
+                                <img class="thumbnail" style="max-width: 100%;" src="{{image.getThumb(300,300)}}" alt="{{image.title ? image.title : __SELF__.recordDetail.name}}">
+                            </a>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <p>No uploaded images found.</p>
+
+            {% endif %}
+
+            {% if __SELF__.recordDetail.images_media|length %}
+
+                <h5><strong>Images (from Media)</strong></h5>
+                
+                <div class="row">
+
+                    {% for mediaImage in __SELF__.recordDetail.images_media %}
+
+                        <div class="col-xs-12 col-sm-4 col-md-3 col-md-2">
+                        
+                            <a target="_blank" href="{{mediaImage.image|media}}">
+                                <img class="thumbnail" style="max-width: 100%;" src="{{mediaImage.image|media}}" alt="{{mediaImage.image_title ? mediaImage.image_title : __SELF__.recordDetail.name}}">
+                            </a>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <p>No media images found.</p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+
+            <h4>Tags</h4>
+
+            {% if __SELF__.recordDetail.tags|length %}
+
+                <ul class="list-group">
+                    
+                    {% for tag in __SELF__.recordDetail.tags %}
+
+                        <li class="list-group-item">{{ tag.name }}</li>
+
+                    {% endfor %}
+
+                </ul>
+
+            {% else %}
+
+                <p>No Tags assigned.</p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="col-xs-12"></div>
+
+        <div class="col-xs-12 col-sm-6">
+
+            <h4>Attributes</h4>
+
+            {% if __SELF__.recordDetail.attributes|length %}
+
+                <table class="table table-striped table-hover table-bordered">
+                    
+                    {% for attribute in __SELF__.recordDetail.attributes %}
+
+                        <tr>
+                        
+                            <th>{{ attribute.name }}</th>
+                            <td><em>{{ attribute.value_type }}</em></td>
+                            <td>{{ attribute.value }}</td>
+                        
+                        </tr>
+
+                    {% endfor %}
+
+                </table>
+
+            {% else %}
+
+                <p>No Attributes assigned.</p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="col-xs-12"></div>
+
+        <div class="col-xs-12 col-sm-6">
+
+            <h4>Attachments</h4>
+
+            {% if __SELF__.recordDetail.files|length %}
+
+                <ul class="list-group">
+                    
+                    {% for file in __SELF__.recordDetail.files %}
+
+                        <li class="list-group-item">
+                            <a href="{{ file.getPath }}" target="_blank">{{file.file_name}}</a>
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            {% else %}
+
+                <p>No Attachments found.</p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="col-xs-12"></div>
+
+        <div class="col-xs-12 col-sm-6">
+
+            <h4>Categories (secondary)</h4>
+
+            {% if __SELF__.recordDetail.categories|length %}
+
+                <ul class="list-group">
+                    
+                    {% for secondaryCategory in __SELF__.recordDetail.categories %}
+
+                        <li class="list-group-item">
+                        
+                            {% if __SELF__.recordDetail.category %}
+                                <a href="{{__SELF__.property('categoryPage')|page({(__SELF__.paramName('categoryPageSlug')):secondaryCategory.slug})}}">
+                            {% endif %}
+                            
+                                {{ secondaryCategory.name }}
+                            
+                            {% if __SELF__.recordDetail.category %}
+                                </a>
+                            {% endif %}
+                        
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            {% else %}
+
+                <p>No Categories found.</p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="col-xs-12"></div>
+
+        <div class="col-xs-12 col-sm-6">
+
+            <h4>Notes</h4>
+
+            {% if __SELF__.recordDetail.repeater|length %}
+
+                <table class="table table-striped table-hover table-bordered">
+                    
+                    {% for note in __SELF__.recordDetail.repeater %}
+
+                        <tr>
+                            <th>Value 1</th>
+                            <td>{{ note.repeater_value1 }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Value 2</th>
+                            <td>{{ note.repeater_value2 }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Value 3</th>
+                            <td>{{ note.repeater_value3 }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Value 4</th>
+                            <td>{{ note.repeater_value4 }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Text</th>
+                            <td>{{ note.repeater_text|raw }}</td>
+                        </tr>
+
+                    {% endfor %}
+
+                </table>
+
+            {% else %}
+
+                <p>No Notes found.</p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="col-xs-12"></div>
+
+        <div class="col-xs-12 col-sm-6">
+
+            <h4>Testimonials</h4>
+
+            {% if __SELF__.recordDetail.testimonials|length %}
+
+                <table class="table table-striped table-hover table-bordered">
+                    
+                    {% for testimonial in __SELF__.recordDetail.testimonials %}
+
+                        <tr>
+                            <th>Title</th>
+                            <td>{{ testimonial.testimonial_title }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Image</th>
+                            <td><img width="100%" class="thumbnail" src="{{ testimonial.testimonial_image|media }}" alt="{{testimonial.testimonial_author}}"></td>
+                        </tr>
+
+                        <tr>
+                            <th>Author</th>
+                            <td>{{ testimonial.testimonial_author }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Date</th>
+                            <td>{{ testimonial.testimonial_date|date('j.n.Y') }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Content</th>
+                            <td>{{ testimonial.testimonial_content|raw }}</td>
+                        </tr>
+
+                    {% endfor %}
+
+                </table>
+
+            {% else %}
+
+                <p>No Testimonials found.</p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="col-xs-12"></div>
+
+        <div class="col-xs-12 col-sm-6">
+
+            <h4>Content blocks</h4>
+
+            {% if __SELF__.recordDetail.content_blocks|length %}
+
+                <table class="table table-striped table-hover table-bordered">
+                    
+                    {% for block in __SELF__.recordDetail.content_blocks %}
+
+                        <tr>
+                            <th>Title</th>
+                            <td>{{ block.content_block_title }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Image</th>
+                            {% if block.content_block_preview_image %}
+                                <td><img width="100%" class="thumbnail" src="{{ block.content_block_preview_image ? block.content_block_preview_image|media : 'No image' }}" alt="{{block.content_block_title}}"></td>
+                            {% else %}
+                                <td><em>No image ...</em></td>
+                            {% endif %}
+                        </tr>
+
+                        <tr>
+                            <th>Subtitle</th>
+                            <td>{{ block.content_block_subtitle }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Code</th>
+                            <td>{{ block.content_block_code }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Content</th>
+                            <td>{{ block.content_block_content|raw }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Description</th>
+                            <td>{{ block.content_block_description|raw }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Is disabled</th>
+                            <td><span class="glyphicon {{block.content_block_disable ? 'glyphicon-check' : 'glyphicon-unchecked'}}"></span></td>
+                        </tr>
+
+                        <tr>
+                            <th>Is favourite</th>
+                            <td><span class="glyphicon {{block.content_block_favourite ? 'glyphicon-check' : 'glyphicon-unchecked'}}"></span></td>
+                        </tr>
+                    {% endfor %}
+
+                </table>
+
+            {% else %}
+
+                <p>No Content blocks found.</p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="col-xs-12"></div>
+
+        <div class="col-xs-12 col-sm-6">
+
+            <h4>Custom repeater</h4>
+
+            {% if __SELF__.recordDetail.custom_repeater|length %}
+
+                {% for repeaterBlock in __SELF__.recordDetail.custom_repeater %}
+                    
+                    <table class="table table-striped table-hover table-bordered">
+                    
+                        {% for key, value in repeaterBlock %}
+                        
+                            {% set customRepeaterFieldDefinition = __SELF__.getCustomRepeaterField(key) %}
+
+                            <tr>
+                                <th>{{ customRepeaterFieldDefinition.custom_repeater_field_label }}</th>
+                                <td>
+                                
+                                    {% if customRepeaterFieldDefinition.custom_repeater_field_type == 'mediafinder' and value %}
+                                        <img width="100%" class="thumbnail" src="{{ value|media }}" alt="{{ customRepeaterField.custom_repeater_field_label }}">
+                                    {% elseif customRepeaterFieldDefinition.custom_repeater_field_type == 'richeditor' %}
+                                        {{ value|raw }}
+                                    {% elseif customRepeaterFieldDefinition.custom_repeater_field_type == 'checkbox' %}
+                                        <span class="glyphicon {{value ? 'glyphicon-check' : 'glyphicon-unchecked'}}"></span>
+                                    {% else %}
+                                        {{ value }}
+                                    {% endif %}
+
+                                </td>
+                            </tr>
+
+                        {% endfor %}
+
+                    </table>
+                    
+                {% endfor %}
+
+            {% else %}
+
+                <p>No Custom repeater blocks found.</p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
 
 </div>

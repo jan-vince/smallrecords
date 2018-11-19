@@ -45,12 +45,12 @@
             'description' => 'Description',
             'content' => 'Content',
             'preview_image' => 'Preview image',
-            'preview_image_media' => 'Media preview',
+            'preview_image_media' => 'Preview (Media)',
             'images' => 'Images',
-            'images_media' => 'Images (from Media)',
+            'images_media' => 'Images (Media)',
             'attached_images_count' => 'Images',
             'area' => 'List',
-            'category' => 'Category',
+            'category' => 'Main category',
             'category_comment' => 'You can manage items on <a href="'.Backend::url('janvince/smallrecords/categories/index').'">Categories page</a>',
             'tags' => 'Tags',
             'attributes' => 'Attributes',
@@ -60,8 +60,10 @@
             'repeater_prompt' => 'Add new record ...',
             'testimonials' => 'Testimonials',
             'testimonials_prompt' => 'Add new record ...',
-            'created_at' => 'Created',
-            'updated_at' => 'Updated',
+            'created_at' => 'Created at',
+            'updated_at' => 'Updated at',
+            'created_by' => 'Created by',
+            'updated_by' => 'Updated by',
             'sort_order' => 'Custom order',
         ],
 
@@ -99,8 +101,48 @@
         'columns' => [
             'allowed_fields' => 'Available records fields',
             'allowed_fields_comment' => 'Checked fields will be visible in records editing form. This list is long so scroll down! <br><em>Some field will be visible after you create a record (they are dependent on record\'s ID)!</em>',
+
+            'custom_repeater_allow' => 'Allow custom form fields blocks',
+            'custom_repeater_tab_title' => 'Custom form fields tab title',
+            'custom_repeater_prompt' => 'Custom form fields "Add new item" custom prompt',
+            'custom_repeater_min_items' => 'Custom form fields minimum required items',
+            'custom_repeater_max_items' => 'Custom form fields maximum allowed items',
+
+            'custom_repeater' => [
+                'repeater_prompt' => 'Add field',
+                'field_type' => 'Field type',
+                'field_name' => 'Field name',
+                'field_name_comment' => 'Field name like: my_record_name. You will use this in Twig to access field value.',
+                'field_label' => 'Field label',
+                'field_span' => 'Field span',
+                'field_mode' => 'Mode',
+                'field_size' => 'Size',
+                'options' => [
+                    'text' => 'Text',
+                    'textarea' => 'Text area',
+                    'richeditor' => 'Richtext editor',
+                    'number' => 'Number',
+                    'checkbox' => 'Checkbox',
+                    'mediafinder' => 'Mediafinder',
+                    'section' => 'Section',
+                    'left' => 'Left',
+                    'right' => 'Right',
+                    'full' => 'Full',
+                    'file' => 'File',
+                    'image' => 'Image',
+                    'tiny' => 'Tiny',
+                    'small' => 'Small',
+                    'large' => 'Large',
+                    'huge' => 'Huge',
+                    'giant' => 'Giant',
+                    'empty_option' => 'Select ...'
+                ]
+            ],
         ],
 
+        'tabs' => [
+            'custom_repeater' => 'Custom form fields',
+        ]
     ],
 
     'records' => [
@@ -168,7 +210,7 @@
         'secondary_categories' => 'More categories',
 
         'columns' => [
-            'main_category' => 'Category',
+            'main_category' => 'Main category',
             'parent' => 'Parent category',
             'parent_comment' => 'You can change hierarchy and order on <a href="'.Backend::url('janvince/smallrecords/categories/reorder').'">Reorder page</a>',
         ],
@@ -237,81 +279,106 @@
 
     'components' => [
 
-        'records' => [
-            'name' => 'Records',
-            'description' => 'Get records of selected records list',
-
+        'common' => [
+            
             'properties' => [
-                'area' => 'List',
-                'area_description' => 'Select a List to get records from',
-                'category' => 'Category slug',
-                'category_description' => 'Category slug (dynamic like :category or manually entered)',
-                'tag' => 'Tag slug',
-                'tag_description' => 'Tag slug (dynamic like :tag or manually entered)',
-                'active_only' => 'Active records only',
-                'active_only_description' => 'Get only active records (unchecked will get all records)',
-                'favourite_only' => 'Favourite records only',
+                'active_only' => 'Active',
+                'active_only_description' => 'Filter only active records',
+                'active_records_only' => 'Active records',
+                'active_records_only_description' => 'Filter with active records only',
+                'favourite_only' => 'Favourite',
                 'favourite_only_description' => 'Get only favourite records (unchecked will get all records)',
-                'detail_page_slug' => 'Detail page slug',
-                'detail_page_slug_description' => 'Enter a slug of CMS page where you want to render a record\'s details',
-                'detail_page_param' => 'Parameter used on detail page',
-                'detail_page_param_description' => 'Enter a URL parameter name used on record detail page (eg. "slug" when URL is /records/detail/:slug)',
-                'sort_by' => 'Sort by',
-                'sort_by_direction' => 'Sort direction',
+                'root_categories_only' => 'Root categories only',
+                'root_categories_description' => 'Return only root categories',
+
+                'area_slug' => 'Filter records by list',
+                'area_slug_description' => 'Select a List to get records from',
+                'category_slug' => 'Category slug',
+                'category_slug_description' => 'Filter with dynamic URL parameter like ":category" or manually entered like "my-category".',
+                'record_slug' => 'Record slug',
+                'record_slug_description' => 'Filter with dynamic URL parameter like ":record" or manually entered like "my-record".',
+                'tag_slug' => 'Tag slug',
+                'tag_slug_description' => 'Filter with dynamic URL parameter like ":tag" or manually entered like "my-tag".',
+                'page_slug' => 'Page slug',
+                'page_slug_description' => 'Filter with dynamic URL parameter like ":page" or manually entered like "1".',
+                'parent_category_slug' => 'Parent category slug',
+                'parent_category_slug_description' => 'Filter with dynamic URL parameter like ":parent-category" or manually entered like "my-parent_category".',
+
+                'record_page' => 'Record page name',
+                'record_page_description' => 'Enter name of CMS page where you want to render a single record (eg. "record")',
+                'record_page_slug' => 'Record page slug',
+                'record_page_slug_description' => 'Enter URL parameter name used on the single record page (eg. "slug" for page URL like /record/:slug).',
+
+                'category_page' => 'Category page name',
+                'category_page_description' => 'Enter name of CMS page where you want to render single category (eg. "category")',
+                'category_page_slug' => 'Category page slug',
+                'category_page_slug_description' => 'Enter URL parameter name used on the single category page (eg. ":category" for page URL like /category/:category).',
+                'categories_page' => 'Categories page name',
+                'categories_page_description' => 'Enter name of CMS page where you want to render categories list (eg. "categories")',
+                'categories_page_slug' => 'Categories page slug',
+                'categories_page_slug_description' => 'Enter URL slug name used on the categories page (eg. ":category" for page URL like /records/:category).',
+
+                'use_main_category' => 'Filter by main category',
+                'use_main_category_description' => 'If category slug is set, return only record with this main category assigned.',
+                'use_multicategories' => 'Filter by secondary category',
+                'use_multicategories_description' => 'If category slug is set, return only record with this secondary category assigned.',
+
+                'order_by' => 'Order by',
+                'order_by_direction' => 'Order by direction',
+                'order_as_collection' => 'Order as collection',
+                'order_as_collection_description' => 'Get all data in collection and sort it. Usefull when database cannot order data correctly in current locale.',
+
                 'allow_limit' => 'Limit number or records',
-                'allow_limit_description' => 'If checked, only required number of records will be returned',
-                'limit' => 'Records count',
-                'limit_description' => 'How many records will be returned',
+                'allow_limit_description' => 'If checked, only required number of records will be returned. Also a pagination will be allowed.',
+                'limit' => 'Number of returned records',
+                'limit_description' => 'How many records will be returned.',
 
-                'groups' => [
-                    'links' => 'Links',
-                    'sort' => 'Sorting',
-                    'limit' => 'Limit',
-                ],
-
+                'throw404' => '404 error on error',
+                'throw404_description' => 'Return 404 error when any record has not been found.',
+                'set_page_meta' => 'Set page meta properties',
+                'set_page_meta_description' => 'page_title, meta_title and meta_description will be set from record name and description.',
             ],
 
+            'forms' => [
+                'empty_option' => 'Not selected',
+            ],
+
+            'groups' => [
+                'links' => 'Links',
+                'order' => 'Order by',
+                'limit' => 'Limit',
+                'filter_area' => 'Filter by List',
+                'filter_category' => 'Filter by Category',
+                'filter_tag' => 'Filter by Tag',
+                'filter_records' => 'Filter by Records',
+                'seo' => 'SEO',
+                'links' => 'Links',
+            ],            
+        ],
+
+        'records' => [
+            'name' => 'Records',
+            'description' => 'Get list of records',
         ],
 
         'record' => [
             'name' => 'Record',
             'description' => 'Get one specific record',
-
-            'properties' => [
-                'record_slug' => 'Record slug',
-                'record_slug_description' => 'Enter a slug of specific record',
-                'throw404' => '404 error on invalid slug',
-                'throw404_description' => 'Return 404 error when slug is invalid',
-            ],
-
         ],
 
         'categories' => [
             'name' => 'Categories',
-            'description' => 'Get categories of records',
+            'description' => 'Get list of categories',
 
             'properties' => [
-                'area' => 'Only with records in list',
-                'area_description' => 'Select only categories with records in this list',
-                'root_only' => 'Root categories only',
-                'root_only_description' => 'Return only root categories',
-                'area_id_empty_option' => '-- Do not limit to --',
+                'category_slug_description' => 'Set dynamic URL parameter like ":category" or manually entered like "my-category". This can be used eg. to set active category in categories menu.',
             ],
-
         ],
 
         'category' => [
             'name' => 'Category',
             'description' => 'Get one specific category',
-
-            'properties' => [
-                'throw404' => '404 error on invalid slug',
-                'throw404_description' => 'Return 404 error when slug is invalid',
-            ],
-
         ],
-
-
     ],
 
     'permissions' => [
@@ -348,7 +415,5 @@
             'allow_records_in_pages_comment' => 'Show records list in static page (Rainlab.Pages plugin must be installed)',
             'allow_records_in_pages_area' => 'Show records from List',
         ],
-
     ]
-
 ];

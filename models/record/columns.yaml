@@ -40,6 +40,30 @@ columns:
         sortable: true
         searchable: true
 
+    categories:
+        label: 'janvince.smallrecords::lang.common.columns.categories'
+        relation: categories
+        select: name
+        sortable: true
+        searchable: true
+        invisible: true
+
+    description:
+        label: 'janvince.smallrecords::lang.common.columns.description'
+        type: html_text_preview
+        select: description
+        searchable: true
+        sortable: true
+        invisible: true        
+
+    content:
+        label: 'janvince.smallrecords::lang.common.columns.content'
+        type: html_text_preview
+        select: content
+        searchable: true
+        sortable: true
+        invisible: true
+
     tags:
         label: 'janvince.smallrecords::lang.common.columns.tags'
         type: tags_names
@@ -78,3 +102,26 @@ columns:
         type: attached_images_count
         sortable: true
         invisible: true
+
+    created_at:
+        label: janvince.smallrecords::lang.common.columns.created_at
+        type: datetime
+        invisible: true
+
+    updated_at:
+        label: janvince.smallrecords::lang.common.columns.updated_at
+        type: datetime
+        invisible: true
+
+    author:
+        label: janvince.smallrecords::lang.common.columns.created_by
+        relation: author
+        select: concat(last_name, ' ',  first_name)
+        invisible: true
+
+    editor:
+        label: janvince.smallrecords::lang.common.columns.updated_by
+        relation: editor
+        select: concat(last_name, ' ',  first_name)
+        invisible: true
+

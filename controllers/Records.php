@@ -1,6 +1,7 @@
 <?php namespace JanVince\SmallRecords\Controllers;
 
 use Backend\Classes\Controller;
+use System\Classes\PluginManager;
 use BackendMenu;
 use Flash;
 use Lang;
@@ -148,14 +149,6 @@ class Records extends Controller
             $this->vars['record'] = $record;
         }
 
-        if($record ) {
-            $this->nextRecord = $record->getNextRecordByDate();
-        }
-
-        if($record) {
-            $this->previousRecord = $record->getPreviousRecordByDate();
-        }
-
     }
 
     public function onDeleteAttachedImages($recordId, $context = ''){
@@ -236,4 +229,80 @@ class Records extends Controller
 
     }
 
+    public function reorderExtendQuery($query) {
+        
+        $segments = Request::segments(); 
+        
+        $area_id = end($segments);
+
+        if( !empty($area_id) ) {
+            $query->where('area_id', $area_id);
+        } 
+    }
+
+    public function formExtendFields($form){
+
+        $params = $this->params;
+
+        if(empty($params[1])) {
+            return;
+        }
+
+        $areaId = $params[1];
+        $area = Area::find($areaId);
+
+        if(empty($area->custom_repeater_fields)) {
+            return;
+        }
+
+        $fields = [];
+        $counter = 0;
+
+        foreach($area->custom_repeater_fields as $field) {
+            
+            if(empty($field['custom_repeater_field_name'])) {
+                $fieldName = 'field' . $counter;
+            } else {
+                $fieldName = $field['custom_repeater_field_name'];
+            }
+
+            $fields[$fieldName] = [
+                'type' => $field['custom_repeater_field_type'],
+                'label' => $field['custom_repeater_field_label'],
+                'span' => $field['custom_repeater_field_span'],
+            ];
+
+            if(!empty($field['custom_repeater_field_mode'])) {
+                $fields[$fieldName]['mode'] = $field['custom_repeater_field_mode'];
+            }
+
+            if(!empty($field['custom_repeater_field_size'])) {
+                $fields[$fieldName]['size'] = $field['custom_repeater_field_size'];
+            }
+        }
+
+        /*
+         * Check the Rainlab.Translate plugin is installed
+         */
+        $repeaterType = 'repeater';
+
+        $pluginManager = PluginManager::instance()->findByIdentifier('Rainlab.Translate');
+
+        if ($pluginManager && !$pluginManager->disabled) {
+          $repeaterType = 'mlrepeater';
+        }
+
+        $form->addTabFields([
+            'custom_repeater' => [
+                'type' => $repeaterType,
+                'prompt' => ($area->custom_repeater_prompt ? $area->custom_repeater_prompt : '+'),
+                'minItems' => ($area->custom_repeater_min_items ? $area->custom_repeater_min_items : 1),
+                'maxItems' => ($area->custom_repeater_max_items ? $area->custom_repeater_max_items : false),
+                'tab' => ($area->custom_repeater_tab_title ? $area->custom_repeater_tab_title : 'Data'),
+                'form' => [
+                    'fields' => $fields,
+                ]
+            ],
+        ]);
+    }
 }

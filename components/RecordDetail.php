@@ -34,40 +34,100 @@ class RecordDetail extends ComponentBase
     {
 
         return [
-            'recordSlug'   => [
-                'title'       => 'janvince.smallrecords::lang.components.record.properties.record_slug',
-                'description' => 'janvince.smallrecords::lang.components.record.properties.record_slug_description',
-                'type'        => 'string',
-                'default'     => '{{ :slug }}',
-            ],
-            'areaSlug'  => [
-                'title' => 'janvince.smallrecords::lang.components.records.properties.area',
-                'type'  => 'dropdown',
-            ],
-            'categorySlug'    => [
-                'title'       => 'janvince.smallrecords::lang.components.records.properties.category',
-                'description' => 'janvince.smallrecords::lang.components.records.properties.category_description',
-                'type'        => 'string',
-                'default'     => '{{ :category }}',
-            ],
             'activeOnly'      => [
-                'title'       => 'janvince.smallrecords::lang.components.records.properties.active_only',
-                'description' => 'janvince.smallrecords::lang.components.records.properties.active_only_description',
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.active_only',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.active_only_description',
                 'type'        => 'checkbox',
                 'default'     => true,
             ],
-            'throw404'   => [
-                'title'       => 'janvince.smallrecords::lang.components.record.properties.throw404',
-                'description' => 'janvince.smallrecords::lang.components.record.properties.throw404_description',
+
+            'recordSlug'   => [
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.record_slug',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.record_slug_description',
+                'type'        => 'string',
+                'default'     => '{{ :record }}',
+            ],
+
+            'areaSlug'  => [
+                'title' => 'janvince.smallrecords::lang.components.common.properties.area_slug',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.area_slug_description',
+                'type'  => 'dropdown',
+                'group'         => 'janvince.smallrecords::lang.components.common.groups.filter_records',
+            ],
+
+            'categorySlug'    => [
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.category_slug',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.category_slug_description',
+                'type'        => 'string',
+                'default'     => '{{ :category }}',
+                'group'         => 'janvince.smallrecords::lang.components.common.groups.filter_category',
+            ],
+            'useMainCategory'      => [
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.use_main_category',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.use_main_category_description',
+                'type'        => 'checkbox',
+                'default'     => true,
+                'group'         => 'janvince.smallrecords::lang.components.common.groups.filter_category',
+            ],
+            'useMultiCategories'      => [
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.use_multicategories',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.use_multicategories_description',
                 'type'        => 'checkbox',
                 'default'     => false,
+                'group'         => 'janvince.smallrecords::lang.components.common.groups.filter_category',
+            ],
+
+            'setPageMeta'   => [
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.set_page_meta',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.set_page_meta_description',
+                'type'        => 'checkbox',
+                'default'     => false,
+                'group'         => 'janvince.smallrecords::lang.components.common.groups.seo',
+            ],
+            'throw404'   => [
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.throw404',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.throw404_description',
+                'type'        => 'checkbox',
+                'default'     => false,
+                'group'         => 'janvince.smallrecords::lang.components.common.groups.seo',
+            ],
+
+            'categoryPage'   => [
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.category_page',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.category_page_description',
+                'type'        => 'dropdown',
+                'default'     => 'category',
+                'group'       => 'janvince.smallrecords::lang.components.common.groups.links',
+            ],
+            'categoryPageSlug'   => [
+                'title'       => 'janvince.smallrecords::lang.components.common.properties.category_page_slug',
+                'description' => 'janvince.smallrecords::lang.components.common.properties.category_page_slug_description',
+                'type'        => 'string',
+                'default'     => '{{ :category }}',
+                'group'       => 'janvince.smallrecords::lang.components.common.groups.links',
             ],
         ];
 
     }
 
     public function getAreaSlugOptions() {
-        return  Area::isActive()->orderBy('name')->lists('name', 'slug');
+
+        $areas = [];
+
+        $areas = Area::isActive()->orderBy('name')->lists('name', 'slug');
+
+        $emptyOption = [0 => e(trans('janvince.smallrecords::lang.components.common.forms.empty_option')) ];
+
+        return $emptyOption + $areas;
+    }
+
+    public function getCategoryPageOptions() {
+
+        $pages = Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
+
+        $emptyOption = [0 => e(trans('janvince.smallrecords::lang.components.common.forms.empty_option')) ];
+
+        return $emptyOption + $pages;
     }
 
     public function onRun()
@@ -79,6 +139,10 @@ class RecordDetail extends ComponentBase
             abort(404, 'Record not found!');
         }
 
+        if( $this->property('setPageMeta') and $this->recordDetail ){
+            $this->page->meta_title = $this->page->title = strip_tags($this->recordDetail->name);
+            $this->page->meta_description = strip_tags($this->recordDetail->description);
+        }
     }
 
     public function onRender()
@@ -97,25 +161,44 @@ class RecordDetail extends ComponentBase
      */
     private function getRecord() {
 
-        /**
-         *  Filter area
-         */
-        $record = Record::whereHas('area', function ($query) {
-            $query->where('slug', '=', $this->property('areaSlug'));
-        });
+        $record = Record::query();
 
         /**
          *  Filter slug
          */
-        $record = Record::where('slug', $this->property('recordSlug'));
+        $record->where('slug', $this->property('recordSlug'));
+
+        /**
+         *  Filter area
+         */
+        if( $this->property('areaSlug') ) {
+         
+            $record->whereHas('area', function ($query) {
+
+                $query->where('slug', '=', $this->property('areaSlug'));
+            });
+        }
 
         /**
          *  Filter category
          */
         if( $this->property('categorySlug') ) {
-            $record->whereHas('category', function ($query) {
-                $query->where('slug', '=', $this->property('categorySlug'));
-            });
+
+            if( $this->property('useMainCategory') ) {
+
+                $record->whereHas('category', function ($query) {
+
+                    $query->where('slug', '=', $this->property('categorySlug'));
+                });
+            }
+
+            if( $this->property('useMultiCategories') ) {
+
+                $record->whereHas('categories', function ($query) {
+
+                    $query->where('slug', '=', $this->property('categorySlug'));
+                });
+            } 
         }
 
         /**
@@ -128,7 +211,32 @@ class RecordDetail extends ComponentBase
         $recordDetail = $record->first();
 
         return $recordDetail;
-
     }
 
+    /**
+     * Get area custom repeater field value
+     * return @array
+     */
+    public function getCustomRepeaterField($fieldName, $fieldKey = null) {
+
+        $record = Record::where('slug', $this->property('recordSlug'))->first();
+
+        if(empty($record->area->custom_repeater_fields)) {
+            return;
+        }
+
+        $customFields = $record->area->custom_repeater_fields;
+
+        foreach($customFields as $field) {
+            
+            if($field['custom_repeater_field_name'] == $fieldName) {
+                
+                if($fieldKey and !empty($field[$fieldKey])) {
+                    return $field[$fieldKey];
+                } else {
+                    return $field;
+                }
+            }
+        }
+    }
 }

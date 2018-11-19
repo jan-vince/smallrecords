@@ -1,58 +1,79 @@
 # Small Records
 > Universal plugin for storing and presenting (almost) any kind of data
 
+Install from OctoberCMS backend `Settings > Updates&Plugins > Install plugins` with name `Small Records`.
 
-## Installation
+You can set permissions for plugin parts and created lists.
 
-**GitHub** clone into `/plugins` dir:
+There ase som settings in `Settings > Small Plugins > Small records`.
 
-```sh
-git clone https://github.com/jan-vince/smallrecords.git
-```
+## **About Small Records**
 
-**OctoberCMS backend**
+Main idea behind this plugin is to have a place where I can easily organize records in several lists (like portfolio, partners, sliders and their images, simple photo galleries, etc.).
 
-Just look for 'Small Records' in search field in:
-> Settings > Updates&Plugins > Install plugins
+The simplest scenario is:
 
-### Permissions
+**Manage records:**
+* Go to backend and open Records from top menu.
+* Create some categories, tags, attributes.
+* Create lists of records.
+* Create records in those lists and assign categories, tags, attributes - if needed.
 
-You can set permissions to access each of a plugin parts.
+**Create pages**
+* Create default *Layout* for all pages
+* Create page `Record` with URL `/record/:record` 
+  * Add component *Small Records > Record*
+* Create page `Category` with URL `/category/:category`
+  * Add component *Small Records > Category*
+* Create page `Records` with URL `/records/:category?`
+  * Add components *Small Records > Categories* and *Small Records > Records* 
 
-### Settings
+**Visit frontend**
 
-* You can configure connection between (Rainlab) Blog posts and Records.
+Go to page /records. There should be categories listed and records.
 
-* You can set list's preview image height and width.
+All records and categories are connected with links.
+
+> Look at the end of this documentation for more detailed how to.
 
 
-## Records
+## **Small Records parts**
 
-> Main idea behind this is to have a place where I can easily collect records in several lists (like portfolio, partners, sliders and their images, simple photo galleries, etc.).
+## Lists
 
-### Records lists
+Lists are groups of records. They can be eg. Products, Photo albums, Logos, ...
 
-Create one or more lists of records and assign form fields that you want to be visible in the list.
+Created list will be appended to the top of the left side menu.
 
-*Created list will be appended to the top of the side menu in Records administration.*
+### Add custom records form fields
+
+When creating a new list you can allow predefined form fields or you can **create your own form** definition (based on repeater).
+
+When creating or editing a *List*, open tab `Custom form fields` and allow its use.
+
+Set basic settings and **add new fields** to your custom form.
+
+Each list can has a different form.
+
+*Look inside a default `Record detail` component partial to see how to work with custom repeater data.*
 
 ### Categories
 
-Here you can set up categories hierarchy (it is a nested tree).
+Here you can manage categories.
 
-*There are components ready to use for categories listing in Twig.*
+They can be organized into a tree - click on button Reorder and drag&drop category over another one.
 
-### Tags
+## Tags
 
 Simple list of tags that can be assigned to records.
 
-### Attributes
+## Attributes
 
-If you need a specific information for your records, here you can define a name of an attribute and it's type (string, text, number, switch).
+If you need to store a specific information for your records, that is not in default records form, here you can define a name of an attribute and it's type (string, text, number, switch).
 
-If Attributes are allowed in Records list, you can select an attribute and add a custom content to it.
+Create or edit a record and go to tab Attributes (but this tab must be allowed in List settings to be visible!).
 
-#### Access attributes in Twig
+### Access attributes in Twig
 
 If you assigned one or more attributes to any record, you can iterate through them with Twig code like:
 
@@ -72,27 +93,110 @@ Or there are functions to get a specific attribute (or attribute's value) by slu
 
 ````
 
-
 ## Import and Export
 
-You can export and import data to Categories and to Records (Records through Import/Export buttons in Lists toolbar).
+There are buttons ready in Records and Categories lists.
 
+## **Components**
 
-## Components
+There are components and default partials ready to use in your Layout, Page or Partial.
 
-### Records
+Component's default partials are meant as templates - you should customize them to your needs as these can change in a future!
 
-You can add a Records component to a page, layout or partial.
+Best way to customize them is to copy them to yout theme folder like:
 
-*There are several parameters - only Records list slug is required.*
+`/themes/my-theme/partials/records/default.htm`
 
-You can access all properties in twig like: ````{{records.property('detailPageSlug')}}````
+*Folder `records` should be named after component's alias name. See more details in [OctoberCMS docs](https://octobercms.com/docs/cms/components#overriding-partials).*
 
-#### Record detail
+### **Component: Categories**
 
-You can add a record detail to yout page, layout or partial.
+Put default partial `{{ component 'categories' }}` in your layout/page/partial to inspect how to work with categories lists.
 
-*Record list and record slug is required.*
+Customize component's parameters.
+
+### **Component: Records**
+
+>You can add a Records component to a page, layout or partial.
+
+Put default partial `{{ component 'records' }}` in your layout/page/partial to inspect how to work with records lists.
+
+Customize component's parameters.
+
+#### **Component: Record**
+
+Put default partial `{{ component 'recordDetail' }}` in your layout/page/partial to inspect how to work with records lists.
+
+Customize component's parameters.
+
+## **Basic use case**
+
+Install Small Records plugin.
+
+In OctoberCMS backend click in main menu on **Records** and then in left pane on **Lists**. 
+
+Create a new list.
+
+Add some records to this list, add some categories, tags and attributes (and assign them to some of your records if you want).
+
+### **Layout file**
+
+Go to a CMS part of backend and create a layout file `Default` with content:
+
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Records</title>
+        <meta name="title" content="Records">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        {% styles %}
+    </head>
+    <body>
+
+        {% page %}
+
+    </body>
+</html>
+```
+
+### **Single record page**
+
+Create a CMS page with name `Record` and URL `/record/:record`.
+
+Select its layout `Default`.
+
+From left pane add a **Small Records > Record** component to the page content window on right side.
+
+Save a file.
+
+### **Single category page**
+
+Create a CMS page with name `Category` and URL `/category/:category`.
+
+Select its layout `Default`.
+
+From left pane add a **Small Records > Category** component to the page content window on right side.
+
+Save a file.
+
+### **Records and categories page**
+
+Create a CMS page `Records` with URL `/records/:category?`.
+
+Select its layout `Default`.
+
+From left pane add components to the page content:
+
+Save a file;
+
+### **The result**
+
+Open URL `/records' to see the records list.
+
+You should be able to filter by category a and to click on records to see a detail.
 
 
 

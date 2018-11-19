@@ -78,3 +78,66 @@
     - Chanded input custom list column type for switch to prevent interaction with toolbar JS
 1.9.4:
     - Fixed Records component
+1.9.5:
+    - Added records columns for description and content. 
+    - Added html_text_preview column type.
+1.9.6:
+    - Added limit to categories component
+1.9.7:
+    - Removed Prev & Next buttons in Records update form (as it never worked reliable)
+1.9.8:
+    - Fixed custom reordering of records to show only selected Area records
+1.10.0:
+    - Added reverse relation 'blog_posts' to record object to allow related blog posts listing
+    - Fixed Records component params
+1.10.1:
+    - Added sorting to record's related blog posts
+1.11.0:
+    - Added multi-categories checkbox to Categories component. Added categories column to records list.
+1.11.1:
+    - Fixed allowLimit default false state in components
+1.12.0:
+    - Added useMultiCategories property to Records component to allow filtering by categories selected in Categories tab
+1.12.1:
+    - Fixed optional relationship with Blog post
+2.0.0: !!! Updated default Records and Categories components partials and params - please test them before update in production!
+2.0.1:
+    - Added custom repeater form builder for lists and its records
+    - sr-update-08.php
+2.0.2:
+    - Fixed custom repeater fields definition. Updated Record detail component.
+2.0.3:
+    - Updated Record detail component. Updated documentation in README.txt file.
+2.0.4:
+    - Fixed Records component record detail slug. Updated docs.
+2.0.5:
+    - Removed dumps from component.
+2.0.6:
+    - Tags are now ordered by name in Record form.
+2.0.7:
+    - Fixed bug in Record controller.
+2.1.0:
+    - Added pagination to Records component when limit is allowed (Length aware paginator is used).
+2.1.1:
+    - Changed the logic of filtering records and categories in Categories component.
+2.1.2:
+    - Updated Categories component default partial.
+2.2.0:
+    - Added Record detail default component partial. Added new Record detail parameters.
+3.0.0: !!! This is a breaking change update! I have unified components parameters naming and translation strings. Please review your code and change affected parameters! Look in components default partials for help and examples.
+3.0.1:
+    - Changed default values for Records component
+3.0.2:
+    - Updated default Category detail component partial
+3.0.3:
+    - Changed naming - Custom repeater -> Custom form fields
+3.1.0:
+    - Added option to order records as Collection (useful for SQL(ite) database records ordering in different locale)
+3.1.1:
+    - Fixed translations for Custom repeater 
+3.2.0:
+    - Added relation to Backend administrator in the Record, so autor/editor od the record can be displayed
+    - Added created_at and updated_at columns to all lists
+    - sr-update-09.php
+3.2.1:
+    - Changes beforeSave to beforeUpdate method

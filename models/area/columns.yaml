@@ -23,3 +23,13 @@ columns:
         type: text_preview
         searchable: true
         sortable: false
+
+    created_at:
+        label: janvince.smallrecords::lang.common.columns.created_at
+        type: datetime
+        invisible: true
+
+    updated_at:
+        label: janvince.smallrecords::lang.common.columns.updated_at
+        type: datetime
+        invisible: true

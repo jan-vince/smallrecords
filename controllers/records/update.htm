@@ -67,20 +67,6 @@
                     data-request-confirm="<?= e(trans('backend::lang.form.confirm_delete')) ?>">
                 </button>
 
-
-                <? if($this->nextRecord and $this->area_id) : ?>
-                    <a	href="<?= Backend::url('janvince/smallrecords/records/update', ['id' => $this->nextRecord, 'area_id' => $this->area_id]) ?>"
-                        class="oc-icon-arrow-right btn-icon info pull-right"
-                        title="Next record">
-                    </a>
-                <? endif ?>
-                <? if($this->previousRecord and $this->area_id) : ?>
-                    <a	href="<?= Backend::url('janvince/smallrecords/records/update', ['id' => $this->previousRecord, 'area_id' => $this->area_id]) ?>"
-                        class="oc-icon-arrow-left btn-icon info pull-right"
-                        title="Previous record">
-                    </a>
-                <? endif ?>
-
                 <span class="btn-text">
                     <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('janvince/smallrecords/records/index' , ['area_id' => $this->area_id]) ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
                 </span>

@@ -12,6 +12,7 @@ use Event;
 use JanVince\SmallRecords\Models\Settings;
 use JanVince\SmallRecords\Models\Area;
 use JanVince\SmallRecords\Models\Record;
+use JanVince\SmallRecords\Controllers\Records;
 
 
 class Plugin extends PluginBase
@@ -158,7 +159,7 @@ class Plugin extends PluginBase
         ];
 
         $areas = Area::get();
-        $customPermissions = null;
+        $customPermissions = [];
 
         foreach( $areas as $area ) {
 
@@ -194,6 +195,7 @@ class Plugin extends PluginBase
         return [
             'strong' => function($value) { return '<strong>'. $value . '</strong>'; },
             'text_preview' => function($value) { $content = mb_substr(strip_tags($value), 0, 150); if(mb_strlen($content) > 150) { return ($content . '...'); } else { return $content; } },
+            'html_text_preview' => function($value) { return strip_tags(nl2br($value), '<br>'); },
             'array_preview' => function($value) { $content = mb_substr(strip_tags( implode(' --- ', $value) ), 0, 150); if(mb_strlen($content) > 150) { return ($content . '...'); } else { return $content; } },
             'switch_icon_star' => function($value) { return '<div class="text-center"><span class="'. ($value==1 ? 'oc-icon-circle text-success' : 'text-muted oc-icon-circle text-draft') .'">' . ($value==1 ? e(trans('janvince.smallcontactform::lang.models.message.columns.new')) : e(trans('janvince.smallcontactform::lang.models.message.columns.read')) ) . '</span></div>'; },
             'switch_extended_input' => function($value) { if($value){return '<span class="list-badge badge-success"><span class="icon-check"></span></span>';} else { return '<span class="list-badge badge-danger"><span class="icon-minus"></span></span>';} },
@@ -220,7 +222,6 @@ class Plugin extends PluginBase
 
     public function boot() {
 
-
         if(Settings::get('allow_records_in_blog_posts')) {
 
             /**
@@ -232,13 +233,28 @@ class Plugin extends PluginBase
 
             if ($pluginManager && !$pluginManager->disabled) {
 
-                \RainLab\Blog\Models\Post::extend(function($model) {
+                \JanVince\SmallRecords\Models\Record::extend(function($model) {
 
+                    if(Settings::get('allow_records_in_blog_posts')) {
+
+                        $relationDefinition = [
+                            '\RainLab\Blog\Models\Post',
+                            'table' => 'janvince_smallrecords_records_posts',
+                            'key' => 'record_id',
+                            'otherKey' => 'post_id',
+                            'order' => 'published_at desc'
+                        ];
+
+                        $model->belongsToMany['blog_posts'] = $relationDefinition;
+
+                    }
+                });
+
+                \RainLab\Blog\Models\Post::extend(function($model) {
 
                     $relationDefinition = [
                         'JanVince\SmallRecords\Models\Record',
                         'table' => 'janvince_smallrecords_records_posts',
-                        'delete' => 'true',
                         'key' => 'post_id',
                         'otherKey' => 'record_id',
                     ];

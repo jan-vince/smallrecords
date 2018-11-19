@@ -34,6 +34,16 @@ class Settings extends Model
 
     }
 
+    public function getCustomRepeaterAreaOptions() {
+
+        $areas = Area::lists('name', 'id');
+
+        ksort($areas);
+
+        return $areas;
+
+    }
+
     public function getAllowRecordsInBlogPostsAreaOptions() {
 
         return $this->getAreaOptions();

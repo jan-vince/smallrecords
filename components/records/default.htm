@@ -1,21 +1,143 @@
-{% for record in __SELF__.items %}
+<div class="container {{ cssClass }}">
 
-    <div class="record-box {{ cssClass }}">
+    <div class="row">
 
-        {% if record.preview_image %}
-            <img alt="{{ record.name }}" src="{{ record.preview_image.getPath }}" />
-        {% endif %}
+        <div class="col-xs-12">
 
-        {% if record.preview_image_media %}
-            <img alt="{{ record.name }}" src="{{ record.preview_image_media|media }}" />
-        {% endif %}
+            <h1>Records</h1>
 
-        <h3>
-            <a href="{{ detailPageSlug|page( { (detailPageParam): record.slug } ) }}">
-                {{ record.name }}
-            </a>
-        </h3>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+
+            <ul class="list-group">
+                
+                <li class="list-group-item">Records from list: <strong>{{__SELF__.getProperties.areaSlug ? __SELF__.getProperties.areaSlug : 'Not set'}}</strong></li>
+
+                {% if __SELF__.property('categorySlug') %}
+                    <li class="list-group-item">Records filtered by category: <strong>{{__SELF__.property('categorySlug')}}</strong></li>
+                {% endif %}
+
+                {% if __SELF__.property('areaSlug') %}
+                    <li class="list-group-item">Records filtered by category used as: <strong>{{__SELF__.property('useMultiCategories') ? 'Secondary categories' : 'Main category'}}</strong></li>
+                {% endif %}
+
+                <li class="list-group-item">Ordered by: <strong>{{__SELF__.getProperties.orderBy}} ({{__SELF__.getProperties.orderByDirection}})</strong></li>
+
+            </ul>
+
+        </div>
+
+        <div class="col-xs-12">
+
+            <h3>Records details</h3>
+
+            <table class="table table-bordered table-striped table-hover">
+
+                <tr>
+                
+                    <th>Preview image</th>
+                    <th>Name</th>
+                    <th>List</th>
+                    <th>Main category</th>
+                    <th>Secondary categories</th>
+                    <th>Tags</th>
+                    <th>Attributes</th>
+                
+                </tr>
+
+                {% for record in __SELF__.items %}
+
+                    <tr>
+
+                        <th width="150">
+                            {% if record.preview_image %}
+                                <img class="thumbnail" alt="{{ record.name }}" src="{{ record.preview_image.getPath }}" width="100%" />
+                            {% elseif record.preview_image_media %}
+                                <img class="thumbnail" alt="{{ record.name }}" src="{{ record.preview_image_media|media }}" width="100%" />
+                            {% endif %}            
+                        </th>
+
+                        <td>
+                            <a href="{{__SELF__.property('recordPage') ? __SELF__.property('recordPage')|page({(__SELF__.paramName('recordPageSlug')):(record.slug)})}}">
+                                {{ record.name }}
+                            </a>
+                        </td>
+
+                        <td>
+                            {{ record.area.name }}
+                        </td>
+
+                        <td>
+                            {{ record.category.name }}
+                        </td>
+
+                        <td>
+                            {% if record.categories|length %}
+
+                            <ul>
+
+                                {% for category in record.categories %}
+
+                                    <li>{{ category.name }}</li>
+
+                                {% endfor %}
+
+                            </ul>
+
+                            {% endif %}
+                        </td>
+
+                        <td>
+                            {% if record.tags|length %}
+
+                            <ul>
+
+                                {% for tag in record.tags %}
+
+                                    <li>{{ tag.name }}</li>
+
+                                {% endfor %}
+
+                            </ul>
+
+                            {% endif %}
+                        </td>
+
+                        <td>
+                            {% if record.attributes|length %}
+
+                            <ul>
+
+                                {% for attribute in record.attributes %}
+
+                                    <li>{{ attribute.name }}:{{ attribute.value }}</li>
+
+                                {% endfor %}
+
+                            </ul>
+
+                            {% endif %}
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+            </table>
+
+            {% if __SELF__.property('allowLimit') %}
+            
+                <div>
+
+                    {{ __SELF__.items.render|raw }}
+                
+                </div>      
+            
+            {% endif %}
+
+        </div>
 
     </div>
 
-{% endfor %}
+</div>

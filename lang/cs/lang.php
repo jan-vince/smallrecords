@@ -46,12 +46,12 @@
             'description' => 'Popisek',
             'content' => 'Obsah',
             'preview_image' => 'Náhled',
-            'preview_image_media' => 'Náhled média',
+            'preview_image_media' => 'Náhled (Média)',
             'images' => 'Obrázky',
-            'images_media' => 'Obrázky (z Médií)',
+            'images_media' => 'Obrázky (Média)',
             'attached_images_count' => 'Obrázků',
             'area' => 'Seznam',
-            'category' => 'Kategorie',
+            'category' => 'Hlavní kategorie',
             'category_comment' => 'Záznamy můžete zpravovat na <a href="'.Backend::url('janvince/smallrecords/categories/index').'">stránce Kategorií</a>',
             'tags' => 'Štítky',
             'attributes' => 'Vlastnosti',
@@ -63,6 +63,8 @@
             'testimonials_prompt' => 'Přidat novou položku ...',
             'created_at' => 'Vytvořeno',
             'updated_at' => 'Aktualizováno',
+            'created_by' => 'Vytvořil',
+            'updated_by' => 'Aktualizoval',
             'sort_order' => 'Vlastní pořadí',
         ],
 
@@ -100,8 +102,48 @@
         'columns' => [
             'allowed_fields' => 'Povolené formulářové prvky',
             'allowed_fields_comment' => 'Označené položky budou viditelné ve formuláři při editaci záznamu. Položek je hodně, proto skrolujte dolů.<br><em>Některá pole formuláře budou viditelná až ve chvíli, kdy uložíte záznam (jsou závislá na ID záznamu)!</em>',
+
+            'custom_repeater_allow' => 'Povolit zobrazení vlastních formulářových polí',
+            'custom_repeater_tab_title' => 'Název záložky vlastních formulářových polí',
+            'custom_repeater_prompt' => 'Vlastní popisek pro "Přidat novou položku"',
+            'custom_repeater_min_items' => 'Minimální vyžadovaný počet položek',
+            'custom_repeater_max_items' => 'Maximální povolený počet položek',
+
+            'custom_repeater' => [
+                'repeater_prompt' => 'Přidat pole',
+                'field_type' => 'Typ pole',
+                'field_name' => 'Název pole',
+                'field_name_comment' => 'Např.: my_record_name. Název pole se používá v Twigu pro přístup k uložené hodnotě.',
+                'field_label' => 'Popisek pole',
+                'field_span' => 'Zarovnání pole (span)',
+                'field_mode' => 'Mód zobrazení (mode)',
+                'field_size' => 'Velikost pole',
+                'options' => [
+                    'text' => 'Text',
+                    'textarea' => 'Textová oblast (textarea)',
+                    'richeditor' => 'Richtext editor',
+                    'number' => 'Číslo',
+                    'checkbox' => 'Zaškrtávací pole (checkbox)',
+                    'mediafinder' => 'Mediafinder',
+                    'section' => 'Oddíl (section)',
+                    'left' => 'Vlevo',
+                    'right' => 'V pravo',
+                    'full' => 'Na celou šířku',
+                    'file' => 'Soubor',
+                    'image' => 'Obrázek',
+                    'tiny' => 'Drobný (tiny)',
+                    'small' => 'Malý (small)',
+                    'large' => 'Velký (large)',
+                    'huge' => 'Obrovský (huge)',
+                    'giant' => 'Gigantický (giant)',
+                    'empty_option' => 'Vyberte ...'
+                ]
+            ],
         ],
 
+        'tabs' => [
+            'custom_repeater' => 'Vlastní formulářová pole',
+        ]
     ],
 
     'records' => [
@@ -169,7 +211,7 @@
         'secondary_categories' => 'Další kategorie',
 
         'columns' => [
-            'main_category' => 'Kategorie',
+            'main_category' => 'Hlavní kategorie',
             'parent' => 'Nadřazená kategorie',
             'parent_comment' => 'Můžete změnit pořadí a zařazení na <a href="'.Backend::url('janvince/smallrecords/categories/reorder').'">stránce pro změnu pořadí</a>',
         ],
@@ -235,74 +277,22 @@
 
         'records' => [
             'name' => 'Záznamy',
-            'description' => 'Získá záznamy z vybraného seznamu záznamů',
-
-            'properties' => [
-                'area' => 'Seznam',
-                'area_description' => 'Vyberte seznam, ze kterého chcete získat záznamy',
-                'category' => 'Parametr kategorie (slug)',
-                'category_description' => 'Záznamy můžete omezit na vybranou kategorie (dynamicky parametrem např. ":category" nebo zadáním ručně)',
-                'tag' => 'Parametr štítku (slug)',
-                'tag_description' => 'Záznamy můžete omezit na vybraný štítek (dynamicky parametrem např. ":tag" nebo zadáním ručně)',
-                'active_only' => 'Pouze aktivní záznamy',
-                'active_only_description' => 'Vybere pouze záznamy označené jako aktivní (Pokud není zaškrtnuto, vybere všechny záznamy)',
-                'favourite_only' => 'Pouze oblíbené záznamy',
-                'favourite_only_description' => 'Vybere pouze záznamy označené jako oblíbené (Pokud není zaškrtnuto, vybere všechny záznamy)',
-                'detail_page_slug' => 'Slug stránky detailu záznamu',
-                'detail_page_slug_description' => 'Vložte slug CMS stránky, na které chcete zobrazit detail vybraného záznamu',
-                'detail_page_param' => 'Parameter použitý na stránce detailu',
-                'detail_page_param_description' => 'Vložte parametr URL adresy použité na stránce s detailem záznamu (např. "slug", pokud URL je /records/detail/:slug)',
-                'sort_by' => 'Řadit podle',
-                'sort_by_direction' => 'Směr řazení',
-                'allow_limit' => 'Omezit počet záznamů',
-                'allow_limit_description' => 'Pokud je zaškrtnuto, vrátí pouze uvedený počet záznamů',
-                'limit' => 'Počet záznamů',
-                'limit_description' => 'Kolik záznamů má být vráceno',
-
-                'groups' => [
-                    'links' => 'Odkazy',
-                    'sort' => 'Řazení',
-                ],
-
-            ],
-
+            'description' => 'Získá seznam záznamů',
         ],
 
         'record' => [
             'name' => 'Jeden záznam',
             'description' => 'Získá jeden konkrétní záznam',
-
-            'properties' => [
-                'record_slug' => 'Slug záznamu',
-                'record_slug_description' => 'Vložte slug vybraného záznamu',
-                'throw404' => 'Zobrazit chybu 404',
-                'throw404_description' => 'Vrátí chybu 404, pokud je neplatný slug',
-            ],
-
         ],
 
         'categories' => [
             'name' => 'Kategorie',
-            'description' => 'Získá kategorie',
-
-            'properties' => [
-                'area' => 'Se záznamy ze seznamu:',
-                'area_description' => 'Vybrat pouze kategorie se záznamy z tohoto seznamu',
-                'root_only' => 'Pouze nejvyšší kategorie',
-                'root_only_description' => 'Vrátí pouze kategorie nejvyšší úrovně',
-                'area_id_empty_option' => '-- Neomezovat --',
-            ],
-
+            'description' => 'Získá seznam kategorií',
         ],
 
         'category' => [
             'name' => 'Jedna kategorie',
             'description' => 'Získá jednu konkrétní kategorii',
-
-            'properties' => [
-                'throw404' => 'Zobrazit chybu 404',
-                'throw404_description' => 'Vrátí chybu 404, pokud je neplatný slug',
-            ],
         ],
 
     ],
@@ -342,9 +332,6 @@
             'allow_records_in_pages' => 'Povolit Záznamy ve Statických stránkách',
             'allow_records_in_pages_comment' => 'Zobrazá seznam záznamů v nastavení Statické stránky (musí být nainstalován plugin Rainlab.Pages)',
             'allow_records_in_pages_area' => 'Zobrazit záznamy ze Seznamu',
-
         ],
-
     ]
-
 ];

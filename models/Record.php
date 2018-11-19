@@ -9,6 +9,8 @@ use October\Rain\Router\Helper as RouterHelper;
 use Cms\Classes\Page as CmsPage;
 use Cms\Classes\Theme;
 use JanVince\SmallRecords\Models\Settings;
+use BackendAuth;
+use Log;
 
 /**
  * Model
@@ -28,7 +30,7 @@ class Record extends Model
 
     protected $guarded = [];
 
-    protected $jsonable = ['repeater', 'testimonials', 'images_media', 'content_blocks'];
+    protected $jsonable = ['repeater', 'testimonials', 'images_media', 'content_blocks', 'custom_repeater'];
 
     protected $dates = [
         'created_at',
@@ -52,13 +54,16 @@ class Record extends Model
         'url',
         'repeater',
         'testimonials',
-        'images_media'
+        'images_media',
+        'content_blocks',
+        'custom_repeater'
     ];
 
     /**
      * @var array Relations
      */
     public $belongsToMany = [
+
         'categories' => [
             'JanVince\SmallRecords\Models\Category',
             'table' => 'janvince_smallrecords_records_categories',
@@ -73,6 +78,7 @@ class Record extends Model
             'JanVince\SmallRecords\Models\Tag',
             'table' => 'janvince_smallrecords_records_tags',
             'timestamps' => true,
+            'order' => 'name',
         ],
 
         /*
@@ -87,24 +93,37 @@ class Record extends Model
             'pivot' => ['value_text', 'value_number', 'value_boolean', 'value_string'],
             'timestamps' => true,
         ]
-
     ];
 
     public $belongsTo = [
+        
         'area' => [
             'JanVince\SmallRecords\Models\Area',
         ],
         'category' => [
             'JanVince\SmallRecords\Models\Category',
-        ],
 
+        ],
+        'author' => [
+            '\Backend\Models\User',
+            'key' => 'created_by',
+            'otherKey' => 'id',
+        ],
+        'editor' => [
+            '\Backend\Models\User',
+            'key' => 'updated_by',
+            'otherKey' => 'id',
+        ],
     ];
 
     public $attachOne = [
+
         'preview_image' => ['System\Models\File'],
         'image' => ['System\Models\File'],
     ];
+
     public $attachMany = [
+
         'images' => ['System\Models\File', 'delete' => true],
         'files'    => ['System\Models\File', 'delete' => true],
     ];
@@ -113,6 +132,7 @@ class Record extends Model
      *  SCOPES
      */
     public function scopeIsActive($query) {
+
         return $query->where('active', '=', true);
     }
 
@@ -120,6 +140,7 @@ class Record extends Model
      *  SCOPES
      */
     public function scopeIsFavourite($query) {
+
         return $query->where('favourite', '=', true);
     }
 
@@ -148,6 +169,7 @@ class Record extends Model
             'name',
             'slug',
             'area',
+            'custom_repeater',
         ];
 
         foreach( $fields as $fieldKey => $field ) {
@@ -186,27 +208,6 @@ class Record extends Model
         $record = Record::whereDate('date', '<', $this->date)
                             ->where('id', '<>', $this->id)
                             ->orderBy('date', 'desc');
-
-        /**
-         *  Filter active only
-         */
-         if( $activeOnly ) {
-             $record->isActive();
-         }
-
-        return $record->first();
-
-    }
-
-    public function getPreviousRecordByDate($activeOnly = true){
-
-        if( empty($this->date) ) {
-            return null;
-        }
-
-        $record = Record::whereDate('date', '>', $this->date)
-                            ->where('id', '<>', $this->id)
-                            ->orderBy('date', 'asc');
 
         /**
          *  Filter active only
@@ -262,8 +263,25 @@ class Record extends Model
         }
 
         return false;
-
     }
 
+    /**
+     * Save creator of the record
+     * 
+     * @return void
+     */
+    public function beforeCreate() {
 
+        $this->created_by = BackendAuth::getUser()->id;
+    }
+
+    /**
+     * Save editor of the record
+     *
+     * @return void
+     */
+    public function beforeUpdate() {
+
+        $this->updated_by = BackendAuth::getUser()->id;
+    }
 }
