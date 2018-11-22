@@ -78,7 +78,7 @@ class Record extends Model
             'JanVince\SmallRecords\Models\Tag',
             'table' => 'janvince_smallrecords_records_tags',
             'timestamps' => true,
-            'order' => 'slug',
+            'order' => 'name',
         ],
 
         /*
