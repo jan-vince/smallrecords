@@ -166,7 +166,7 @@ class RecordDetail extends ComponentBase
         /**
          *  Filter slug
          */
-        $record->where('slug', $this->property('recordSlug'));
+        $record->transWhere('slug', $this->property('recordSlug'));
 
         /**
          *  Filter area
