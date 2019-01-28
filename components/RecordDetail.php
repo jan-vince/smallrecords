@@ -3,9 +3,11 @@
 namespace JanVince\SmallRecords\Components;
 
 use Db;
+use Log;
 use Carbon\Carbon;
 use Cms\Classes\Page;
 use Cms\Classes\ComponentBase;
+use System\Classes\PluginManager;
 use JanVince\SmallRecords\Models\Category;
 use JanVince\SmallRecords\Models\Record;
 use JanVince\SmallRecords\Models\Settings;
@@ -161,12 +163,18 @@ class RecordDetail extends ComponentBase
      */
     private function getRecord() {
 
+        $pluginManager = PluginManager::instance()->findByIdentifier('Rainlab.Translate');
+        
         $record = Record::query();
 
         /**
          *  Filter slug
          */
-        $record->transWhere('slug', $this->property('recordSlug'));
+        if ($pluginManager && !$pluginManager->disabled) {
+            $record->transWhere('slug', $this->property('recordSlug'));
+        } else {
+            $record->where('slug', $this->property('recordSlug'));
+        }
 
         /**
          *  Filter area
@@ -186,17 +194,25 @@ class RecordDetail extends ComponentBase
 
             if( $this->property('useMainCategory') ) {
 
-                $record->whereHas('category', function ($query) {
+                $record->whereHas('category', function ($query) use ($pluginManager) {
 
-                    $query->where('slug', '=', $this->property('categorySlug'));
+                    if ($pluginManager && !$pluginManager->disabled) {
+                        $query->transWhere('slug', '=', $this->property('categorySlug'));
+                    } else {
+                        $query->where('slug', '=', $this->property('categorySlug'));
+                    }
                 });
             }
 
             if( $this->property('useMultiCategories') ) {
 
-                $record->whereHas('categories', function ($query) {
+                $record->whereHas('categories', function ($query) use ($pluginManager) {
 
-                    $query->where('slug', '=', $this->property('categorySlug'));
+                    if ($pluginManager && !$pluginManager->disabled) {
+                        $query->transWhere('slug', '=', $this->property('categorySlug'));
+                    } else {
+                        $query->where('slug', '=', $this->property('categorySlug'));
+                    }
                 });
             } 
         }

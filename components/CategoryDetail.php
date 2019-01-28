@@ -6,6 +6,7 @@ use Db;
 use Carbon\Carbon;
 use Cms\Classes\Page;
 use Cms\Classes\ComponentBase;
+use System\Classes\PluginManager;
 use JanVince\SmallRecords\Models\Category;
 use JanVince\SmallRecords\Models\Record;
 use JanVince\SmallRecords\Models\Settings;
@@ -143,6 +144,8 @@ class CategoryDetail extends ComponentBase
      */
     private function getCategory() {
 
+        $pluginManager = PluginManager::instance()->findByIdentifier('Rainlab.Translate');
+
         $category = Category::query();
         
         $category->with(['records' => function($query) {
@@ -165,9 +168,13 @@ class CategoryDetail extends ComponentBase
             
             if( $this->property('areaSlug') ) {
                 
-                $query->whereHas('area', function ($query2) {
+                $query->whereHas('area', function ($query2) use($pluginManager) {
                     
-                    $query2->where('slug', '=', $this->property('areaSlug'));    
+                    if ($pluginManager && !$pluginManager->disabled) {
+                        $query2->transWhere('slug', '=', $this->property('areaSlug'));    
+                    } else {
+                        $query2->where('slug', '=', $this->property('areaSlug'));    
+                    }
                 });
             }    
             
@@ -180,7 +187,11 @@ class CategoryDetail extends ComponentBase
         /**
          *  Filter slug
          */
-        $category->where('slug', $this->property('categorySlug'));
+        if ($pluginManager && !$pluginManager->disabled) {
+            $category->transWhere('slug', $this->property('categorySlug'));
+        } else {
+            $category->where('slug', $this->property('categorySlug'));
+        }
 
         /**
          *  Filter active only
