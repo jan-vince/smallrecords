@@ -141,3 +141,5 @@
     - sr-update-09.php
 3.2.1:
     - Changes beforeSave to beforeUpdate method
+3.3.0:
+    - Slugs are now translatable in RecordDetail and CategoryDetail components (thanks kosmonowt)
