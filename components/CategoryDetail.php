@@ -164,7 +164,7 @@ class CategoryDetail extends ComponentBase
             }    
         }]);
 
-        $category->with(['records_multicategories' => function($query) {
+        $category->with(['records_multicategories' => function($query) use($pluginManager) {
             
             if( $this->property('areaSlug') ) {
                 

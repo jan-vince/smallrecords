@@ -143,3 +143,5 @@
     - Changes beforeSave to beforeUpdate method
 3.3.0:
     - Slugs are now translatable in RecordDetail and CategoryDetail components (thanks kosmonowt)
+3.3.1:
+    - Fixed bug in CategoryDetail component
