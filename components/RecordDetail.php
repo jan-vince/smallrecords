@@ -197,7 +197,7 @@ class RecordDetail extends ComponentBase
                 $record->whereHas('category', function ($query) use ($pluginManager) {
 
                     if ($pluginManager && !$pluginManager->disabled) {
-                        $query->transWhere('slug', '=', $this->property('categorySlug'));
+                        $query->transWhere('slug', $this->property('categorySlug'));
                     } else {
                         $query->where('slug', '=', $this->property('categorySlug'));
                     }
@@ -209,7 +209,7 @@ class RecordDetail extends ComponentBase
                 $record->whereHas('categories', function ($query) use ($pluginManager) {
 
                     if ($pluginManager && !$pluginManager->disabled) {
-                        $query->transWhere('slug', '=', $this->property('categorySlug'));
+                        $query->transWhere('slug', $this->property('categorySlug'));
                     } else {
                         $query->where('slug', '=', $this->property('categorySlug'));
                     }

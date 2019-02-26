@@ -171,7 +171,7 @@ class CategoryDetail extends ComponentBase
                 $query->whereHas('area', function ($query2) use($pluginManager) {
                     
                     if ($pluginManager && !$pluginManager->disabled) {
-                        $query2->transWhere('slug', '=', $this->property('areaSlug'));    
+                        $query2->transWhere('slug', $this->property('areaSlug'));    
                     } else {
                         $query2->where('slug', '=', $this->property('areaSlug'));    
                     }

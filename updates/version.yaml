@@ -145,3 +145,5 @@
     - Slugs are now translatable in RecordDetail and CategoryDetail components (thanks kosmonowt)
 3.3.1:
     - Fixed bug in CategoryDetail component
+3.3.2:
+    - Fixed bug in transWhere query for CategoryDetail and RecordDetail component
