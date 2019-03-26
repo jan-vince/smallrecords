@@ -147,3 +147,5 @@
     - Fixed bug in CategoryDetail component
 3.3.2:
     - Fixed bug in transWhere query for CategoryDetail and RecordDetail component
+3.3.3:
+    - Disabled default category image size (was 260x260px)

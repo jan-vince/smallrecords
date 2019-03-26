@@ -38,8 +38,8 @@ tabs:
             type: fileupload
             mode: image
             span: right
-            imageHeight: 260
-            imageWidth: 260
+            # imageHeight: 260
+            # imageWidth: 260
             tab: janvince.smallrecords::lang.common.tabs.info
 
         description:
