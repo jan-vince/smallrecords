@@ -149,3 +149,5 @@
     - Fixed bug in transWhere query for CategoryDetail and RecordDetail component
 3.3.3:
     - Disabled default category image size (was 260x260px)
+3.4.0:
+    - Slugs are now translatable in Records component

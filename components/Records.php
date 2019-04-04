@@ -6,6 +6,7 @@ use Db;
 use Carbon\Carbon;
 use Cms\Classes\Page;
 use Cms\Classes\ComponentBase;
+use System\Classes\PluginManager;
 use JanVince\SmallRecords\Models\Category;
 use JanVince\SmallRecords\Models\Record;
 use JanVince\SmallRecords\Models\Settings;
@@ -205,16 +206,22 @@ class Records extends ComponentBase
      */
     public function items($paramOverride = []) {
 
+        $pluginManager = PluginManager::instance()->findByIdentifier('Rainlab.Translate');
+        
         $records = Record::query();
 
         /**
          *  Filter area
          */
         if( $this->property('areaSlug') ) {
-         
-            $records->whereHas('area', function ($query) {
-                
-                $query->where('slug', '=', $this->property('areaSlug'));
+
+            $records->whereHas('area', function ($query) use ($pluginManager) {
+
+                if ($pluginManager && !$pluginManager->disabled) {
+                    $query->transWhere('slug', $this->property('areaSlug'));
+                } else {
+                    $query->where('slug', $this->property('areaSlug'));
+                }
             });
         }
 
@@ -225,17 +232,25 @@ class Records extends ComponentBase
 
             if( $this->property('useMainCategory') ) {
 
-                $records->whereHas('category', function ($query) {
+                $records->whereHas('category', function ($query) use ($pluginManager) {
 
-                    $query->where('slug', '=', $this->property('categorySlug'));
+                    if ($pluginManager && !$pluginManager->disabled) {
+                        $query->transWhere('slug', $this->property('categorySlug'));
+                    } else {
+                        $query->where('slug', $this->property('categorySlug'));
+                    }
                 });
             }
 
             if( $this->property('useMultiCategories') ) {
 
-                $records->whereHas('categories', function ($query) {
+                $records->whereHas('categories', function ($query) use ($pluginManager) {
 
-                    $query->where('slug', '=', $this->property('categorySlug'));
+                    if ($pluginManager && !$pluginManager->disabled) {
+                        $query->transWhere('slug', $this->property('categorySlug'));
+                    } else {
+                        $query->where('slug', $this->property('categorySlug'));
+                    }
                 });
             } 
         }
@@ -244,10 +259,14 @@ class Records extends ComponentBase
          *  Filter tag
          */
         if( $this->property('tagSlug') ) {
+            
+            $records->whereHas('tags', function ($query) use ($pluginManager) {
 
-            $records->whereHas('tags', function ($query) {
-
-                $query->where('slug', '=', $this->property('tagSlug'));
+                if ($pluginManager && !$pluginManager->disabled) {
+                    $query->transWhere('slug', $this->property('tagSlug'));
+                } else {
+                    $query->where('slug', $this->property('tagSlug'));
+                }
             });
         }
 
