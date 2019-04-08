@@ -68,6 +68,14 @@ tabs:
             span: left
             tab: 'janvince.smallrecords::lang.common.tabs.info'
 
+        author:
+            type: relation
+            nameFrom: fullname
+            span: left
+            emptyOption: 'janvince.smallrecords::lang.common.fields.empty_option'
+            label: 'janvince.smallrecords::lang.common.columns.author'
+            tab: 'janvince.smallrecords::lang.common.tabs.info'
+
         url:
             type: text
             span: left

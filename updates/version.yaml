@@ -151,3 +151,5 @@
     - Disabled default category image size (was 260x260px)
 3.4.0:
     - Slugs are now translatable in Records component
+3.5.0:
+    - Added option to edit record's author

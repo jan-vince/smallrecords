@@ -65,6 +65,7 @@
             'created_by' => 'Created by',
             'updated_by' => 'Updated by',
             'sort_order' => 'Custom order',
+            'author' => 'Author',
         ],
 
         'fields' => [

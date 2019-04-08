@@ -45,6 +45,7 @@ tabs:
                 description: 'janvince.smallrecords::lang.common.columns.description'
                 date: 'janvince.smallrecords::lang.common.columns.date'
                 url: 'janvince.smallrecords::lang.common.columns.url'
+                author: 'janvince.smallrecords::lang.common.columns.author'
                 active: 'janvince.smallrecords::lang.common.columns.active'
                 favourite: 'janvince.smallrecords::lang.common.columns.favourite'
                 content: 'janvince.smallrecords::lang.common.columns.content'

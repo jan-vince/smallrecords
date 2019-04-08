@@ -116,12 +116,12 @@ columns:
     author:
         label: janvince.smallrecords::lang.common.columns.created_by
         relation: author
-        select: concat(last_name, ' ',  first_name)
+        select: concat(first_name, ' ',  last_name)
         invisible: true
 
     editor:
         label: janvince.smallrecords::lang.common.columns.updated_by
         relation: editor
-        select: concat(last_name, ' ',  first_name)
+        select: concat(first_name, ' ',  last_name)
         invisible: true
 

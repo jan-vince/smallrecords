@@ -66,6 +66,7 @@
             'created_by' => 'Vytvořil',
             'updated_by' => 'Aktualizoval',
             'sort_order' => 'Vlastní pořadí',
+            'author' => 'Autor',
         ],
 
         'fields' => [
