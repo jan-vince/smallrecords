@@ -153,3 +153,5 @@
     - Slugs are now translatable in Records component
 3.5.0:
     - Added option to edit record's author
+3.6.0:
+    - Added tags and tagDetail components

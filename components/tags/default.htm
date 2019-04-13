@@ -1,0 +1,125 @@
+<div class="container {{ cssClass }}">
+
+    <div class="row">
+
+        <div class="col-xs-12">
+
+            <h1>Tags</h1>
+
+        </div>
+
+        <div class="col-xs-12 col-xs-6">
+
+            <ul class="list-group">
+                                
+                <li class="list-group-item">Limit records to list: <strong>{{__SELF__.property('areaSlug') ? __SELF__.property('areaSlug') : 'Not set'}}</strong></li>
+                
+                {% if __SELF__.property('activeRecordsOnly') %}
+                    <li class="list-group-item">Limit records to active only: <strong><span class="glyphicon {{__SELF__.property('activeRecordsOnly') ? 'glyphicon-check' : 'glyphicon-unchecked'}}"></span></strong></li>
+                {% endif %}
+
+                {% if __SELF__.property('tagsPageSlug') %}
+                    <li class="list-group-item">Current tag slug: <strong>{{__SELF__.property('tagPageSlug')}}</strong></li>
+                {% endif %}
+
+            </ul>
+
+        </div>
+
+        <div class="col-xs-12">
+
+            <hr>
+        
+            <ul class="nav nav-pills">
+
+                <li role="presentation" class="{{ __SELF__.property('tagsPageSlug') == tag.slug ? 'active'}}">
+
+                    <a href="{{__SELF__.property('tagsPage') ? __SELF__.property('tagsPage')|page({(__SELF__.paramName('tagsPageSlug')):(tag.slug)})}}">
+                
+                        All
+
+                    </a>
+                
+                </li>
+
+                {% for tag in __SELF__.items %}
+
+                    <li role="presentation" class="{{ __SELF__.property('tagsPageSlug') == tag.slug ? 'active'}}">
+
+                        <a href="{{__SELF__.property('tagsPage') ? __SELF__.property('tagsPage')|page({(__SELF__.paramName('tagsPageSlug')):(tag.slug)})}}">
+                    
+                            {{ tag.name }} 
+
+                        </a>
+
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+
+            <hr>
+        
+        </div>
+
+        <div class="col-xs-12">
+
+            <h3>Tag details</h3>
+
+            <table class="table table-bordered table-striped table-hover">
+
+                <tr>
+                
+                    <th>Preview image</th>
+                    <th>Name</th>
+                    <th>Records</th>
+                
+                </tr>
+
+                {% for tag in __SELF__.items %}
+
+                    <tr>
+
+                        <th width="150">
+                            {% if tag.preview_image %}
+                                <img class="thumbnail" alt="{{ tag.name }}" src="{{ tag.preview_image.getPath }}" width="100%" />
+                            {% elseif record.preview_image_media %}
+                                <img class="thumbnail" alt="{{ tag.name }}" src="{{ tag.preview_image_media|media }}" width="100%" />
+                            {% endif %}            
+                        </th>
+
+                        <td>
+                            <a href="{{__SELF__.property('tagPage') ? __SELF__.property('tagPage')|page({(__SELF__.paramName('tagPageSlug')):(tag.slug)})}}">
+                                {{ tag.name }}
+                            </a>
+                        </td>
+
+                        <td>
+
+                            {% if tag.records|length %}
+
+                            <ul>
+
+                                {% for record in tag.records %}
+
+                                    <li>{{ record.name }} [{{record.area.name}}]</li>
+
+                                {% endfor %}
+
+                            </ul>
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

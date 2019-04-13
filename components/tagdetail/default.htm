@@ -1,0 +1,137 @@
+<div class="container {{ cssClass }}">
+
+    <div class="row">
+
+        <div class="col-xs-12">
+
+            <h1>Tag detail</h1>
+
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+
+            <ul class="list-group">
+                
+                {% if __SELF__.property('tagSlug') %}
+                    <li class="list-group-item">Tag slug: <strong>{{__SELF__.property('tagSlug')}}</strong></li>
+                {% endif %}
+
+            </ul>
+
+        </div>
+
+        <div class="col-xs-12"><hr></div>
+
+        <div class="col-xs-12 col-sm-8">
+
+            <h3><strong>{{ __SELF__.tagDetail.name }}</strong></h3>
+        
+            <h4>Info</h4>
+
+            <table class="table table-striped table-hover table-bordered">
+
+                <tr>
+                    <th>Description</th>
+                    <td>{{__SELF__.tagDetail.description}}</td>
+                </tr>
+
+                <tr>
+                    <th>Is active</th>
+                    <td><span class="glyphicon {{__SELF__.tagDetail.active ? 'glyphicon-check' : 'glyphicon-unchecked'}}"></span></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+
+            {% if __SELF__.tagDetail.preview_image %}
+                <img class="thumbnail" alt="{{ __SELF__.tagDetail.name }}" src="{{ __SELF__.tagDetail.preview_image.getPath }}" width="100%" />
+            {% elseif __SELF__.tagDetail.preview_image_media %}
+                <img class="thumbnail" alt="{{ __SELF__.tagDetail.name }}" src="{{ __SELF__.tagDetail.preview_image_media|media }}" width="100%" />
+            {% endif %}            
+
+        </div>
+
+        <div class="col-xs-12">
+        
+            <h4>Content</h4>
+
+            <div class="well">{{__SELF__.tagDetail.content|raw}}</div>
+
+        </div>
+        
+        <div class="col-xs-12">
+
+            <h4>Images</h4>
+
+            {% if __SELF__.tagDetail.images|length %}
+            
+                <h5><strong>Images</strong></h4>
+
+                <div class="row">
+
+                    {% for image in __SELF__.tagDetail.images %}
+
+                        <div class="col-xs-12 col-sm-4 col-md-3 col-md-2">
+                        
+                            <a target="_blank" href="{{image.getPath}}">
+                                <img class="thumbnail" style="max-width: 100%;" src="{{image.getThumb(300,300)}}" alt="{{image.title ? image.title : __SELF__.tagDetail.name}}">
+                            </a>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <p>No uploaded images found.</p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="col-xs-12">
+
+            <h4>Records</h4>
+
+            <h5><strong>Tag records</strong></h5>
+
+            {% if __SELF__.tagDetail.records|length %}
+
+                <ul class="list-group">
+
+                    {% for record in __SELF__.tagDetail.records %}
+
+                        <li class="list-group-item">
+
+                            {% if __SELF__.property('recordPage') %}
+                                <a href="{{__SELF__.property('recordPage')|page({(__SELF__.paramName('recordPageSlug')):record.slug})}}">
+                            {% endif %}
+                            
+                                {{ record.name }} [{{record.area.name}}]
+                            
+                            {% if __SELF__.property('recordPage') %}
+                                </a>
+                            {% endif %}
+
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            {% else %}
+
+                <p>No records found.</p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>

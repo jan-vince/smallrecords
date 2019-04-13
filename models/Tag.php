@@ -59,4 +59,10 @@ class Tag extends Model
         $this->records()->detach();
     }
 
+    /**
+     *  SCOPES
+     */
+    public function scopeIsActive($query) {
+        return $query->where('active', '=', true);
+    }
 }

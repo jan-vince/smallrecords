@@ -319,6 +319,15 @@
                 'categories_page_slug' => 'Categories page slug',
                 'categories_page_slug_description' => 'Enter URL slug name used on the categories page (eg. ":category" for page URL like /records/:category).',
 
+                'tag_page' => 'Tag page name',
+                'tag_page_description' => 'Enter name of CMS page where you want to render single tag (eg. "tag")',
+                'tag_page_slug' => 'Tag page slug',
+                'tag_page_slug_description' => 'Enter URL parameter name used on the single tag page (eg. ":category" for page URL like /tag/:tag).',
+                'tags_page' => 'Tags page name',
+                'tags_page_description' => 'Enter name of CMS page where you want to render tags list (eg. "tags")',
+                'tags_page_slug' => 'Tags page slug',
+                'tags_page_slug_description' => 'Enter URL slug name used on the tags page (eg. ":tag" for page URL like /records/:tag).',
+
                 'use_main_category' => 'Filter by main category',
                 'use_main_category_description' => 'If category slug is set, return only record with this main category assigned.',
                 'use_multicategories' => 'Filter by secondary category',
@@ -379,6 +388,29 @@
         'category' => [
             'name' => 'Category',
             'description' => 'Get one specific category',
+        ],
+
+                'categories' => [
+            'name' => 'Categories',
+            'description' => 'Get list of categories',
+
+            'properties' => [
+                'category_slug_description' => 'Set dynamic URL parameter like ":category" or manually entered like "my-category". This can be used eg. to set active category in categories menu.',
+            ],
+        ],
+
+        'tags' => [
+            'name' => 'Tags',
+            'description' => 'Get list of tags',
+
+            'properties' => [
+                'tag_slug_description' => 'Set dynamic URL parameter like ":tag" or manually entered like "my-tag". This can be used eg. to set active tag in tags menu.',
+            ],
+        ],
+
+        'tag' => [
+            'name' => 'Tag',
+            'description' => 'Get one specific tag',
         ],
     ],
 

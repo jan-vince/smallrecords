@@ -25,14 +25,16 @@ The simplest scenario is:
   * Add component *Small Records > Record*
 * Create page `Category` with URL `/category/:category`
   * Add component *Small Records > Category*
+* Create page `Tag` with URL `/tag/:tag`
+  * Add component *Small Records > Tag*
 * Create page `Records` with URL `/records/:category?`
   * Add components *Small Records > Categories* and *Small Records > Records* 
 
 **Visit frontend**
 
-Go to page /records. There should be categories listed and records.
+Go to page /records. There should be categories tags and records listed.
 
-All records and categories are connected with links.
+All records, categories and tags are connected with links.
 
 > Look at the end of this documentation for more detailed how to.
 
@@ -115,6 +117,12 @@ Put default partial `{{ component 'categories' }}` in your layout/page/partial t
 
 Customize component's parameters.
 
+### **Component: Tags**
+
+Put default partial `{{ component 'tags' }}` in your layout/page/partial to inspect how to work with tags lists.
+
+Customize component's parameters.
+
 ### **Component: Records**
 
 >You can add a Records component to a page, layout or partial.
@@ -182,6 +190,16 @@ From left pane add a **Small Records > Category** component to the page content 
 
 Save a file.
 
+### **Single tag page**
+
+Create a CMS page with name `Tag` and URL `/tag/:tag`.
+
+Select its layout `Default`.
+
+From left pane add a **Small Records > Tag** component to the page content window on right side.
+
+Save a file.
+
 ### **Records and categories page**
 
 Create a CMS page `Records` with URL `/records/:category?`.
@@ -196,7 +214,7 @@ Save a file;
 
 Open URL `/records' to see the records list.
 
-You should be able to filter by category a and to click on records to see a detail.
+You should be able to filter by category and tag and to click on records to see a detail.
 
 
 

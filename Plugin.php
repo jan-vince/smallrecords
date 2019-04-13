@@ -181,6 +181,8 @@ class Plugin extends PluginBase
             'JanVince\SmallRecords\Components\RecordDetail' => 'recordDetail',
             'JanVince\SmallRecords\Components\Categories' => 'categories',
             'JanVince\SmallRecords\Components\CategoryDetail' => 'categoryDetail',
+            'JanVince\SmallRecords\Components\Tags' => 'tags',
+            'JanVince\SmallRecords\Components\TagDetail' => 'tagDetail',
         ];
     }
 

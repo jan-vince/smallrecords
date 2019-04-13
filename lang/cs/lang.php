@@ -296,6 +296,15 @@
             'description' => 'Získá jednu konkrétní kategorii',
         ],
 
+        'tags' => [
+            'name' => 'Štítky',
+            'description' => 'Získá seznam štítků',
+        ],
+
+        'tag' => [
+            'name' => 'Štítek',
+            'description' => 'Získá jeden konkrétní štítek',
+        ],
     ],
 
     'permissions' => [
