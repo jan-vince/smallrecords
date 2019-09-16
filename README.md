@@ -5,7 +5,7 @@ Install from OctoberCMS backend `Settings > Updates&Plugins > Install plugins` w
 
 You can set permissions for plugin parts and created lists.
 
-There ase som settings in `Settings > Small Plugins > Small records`.
+There are some settings in `Settings > Small Plugins > Small records`.
 
 ## **About Small Records**
 
