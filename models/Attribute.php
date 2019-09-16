@@ -23,7 +23,7 @@ class Attribute extends Model
      */
     public $rules = [
         'name' => 'required',
-        'slug' => 'required|between:3,64|unique:janvince_smallrecords_attributes',
+        'slug' => 'required|between:1,64|unique:janvince_smallrecords_attributes',
     ];
 
     public $translatable = [

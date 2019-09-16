@@ -155,3 +155,5 @@
     - Added option to edit record's author
 3.6.0:
     - Added tags and tagDetail components
+3.6.1:
+    - Changed slug validation to allow size from one letter

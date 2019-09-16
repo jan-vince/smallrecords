@@ -43,7 +43,7 @@ class Record extends Model
      */
     public $rules = [
         'name' => 'required',
-        'slug' => 'required|between:3,64',
+        'slug' => 'required|between:1,64',
     ];
 
     public $translatable = [
