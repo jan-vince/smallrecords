@@ -157,3 +157,5 @@
     - Added tags and tagDetail components
 3.6.1:
     - Changed slug validation to allow size from one letter
+3.6.2:
+    - Small typo fix (thanks thistehneisen) and better 404 handling (thanks zlobec)
