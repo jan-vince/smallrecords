@@ -144,6 +144,10 @@ class CategoryDetail extends ComponentBase
      */
     private function getCategory() {
 
+        if (empty($this->property('categorySlug'))) {
+            return null;
+        }
+
         $pluginManager = PluginManager::instance()->findByIdentifier('Rainlab.Translate');
 
         $category = Category::query();

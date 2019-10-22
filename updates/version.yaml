@@ -159,3 +159,5 @@
     - Changed slug validation to allow size from one letter
 3.6.2:
     - Small typo fix (thanks thistehneisen) and better 404 handling (thanks zlobec)
+3.7.0:
+    - Added empty slug test to detail components to speed up resolving them

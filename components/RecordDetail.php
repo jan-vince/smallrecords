@@ -164,6 +164,10 @@ class RecordDetail extends ComponentBase
      */
     private function getRecord() {
 
+        if (empty($this->property('recordSlug'))) {
+            return null;
+        }
+
         $pluginManager = PluginManager::instance()->findByIdentifier('Rainlab.Translate');
         
         $record = Record::query();

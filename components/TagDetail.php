@@ -144,6 +144,10 @@ class TagDetail extends ComponentBase
      */
     private function getTag() {
 
+        if (empty($this->property('tagSlug'))) {
+            return null;
+        }
+
         $pluginManager = PluginManager::instance()->findByIdentifier('Rainlab.Translate');
 
         $tag = Tag::query();
