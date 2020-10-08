@@ -161,3 +161,5 @@
     - Small typo fix (thanks thistehneisen) and better 404 handling (thanks zlobec)
 3.7.0:
     - Added empty slug test to detail components to speed up resolving them
+3.7.1:
+    - Added missing index in the Breadcrumbs URL (thank zlobec)
