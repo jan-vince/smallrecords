@@ -163,3 +163,6 @@
     - Added empty slug test to detail components to speed up resolving them
 3.7.1:
     - Added missing index in the Breadcrumbs URL (thank zlobec)
+3.8.1:
+    - Slovenian translation (thanks zlobec)
+    - Small fixes to EN translation (thanks zlobec)
