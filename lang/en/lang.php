@@ -290,7 +290,7 @@
                 'favourite_only' => 'Favourite',
                 'favourite_only_description' => 'Get only favourite records (unchecked will get all records)',
                 'root_categories_only' => 'Root categories only',
-                'root_categories_description' => 'Return only root categories',
+                'root_categories_only_description' => 'Return only root categories',
 
                 'area_slug' => 'Filter records by list',
                 'area_slug_description' => 'Select a List to get records from',
@@ -300,7 +300,7 @@
                 'record_slug_description' => 'Filter with dynamic URL parameter like ":record" or manually entered like "my-record".',
                 'tag_slug' => 'Tag slug',
                 'tag_slug_description' => 'Filter with dynamic URL parameter like ":tag" or manually entered like "my-tag".',
-                'page_slug' => 'Page slug',
+                'page_slug' => 'Page pagination slug',
                 'page_slug_description' => 'Filter with dynamic URL parameter like ":page" or manually entered like "1".',
                 'parent_category_slug' => 'Parent category slug',
                 'parent_category_slug_description' => 'Filter with dynamic URL parameter like ":parent-category" or manually entered like "my-parent_category".',
@@ -322,7 +322,7 @@
                 'tag_page' => 'Tag page name',
                 'tag_page_description' => 'Enter name of CMS page where you want to render single tag (eg. "tag")',
                 'tag_page_slug' => 'Tag page slug',
-                'tag_page_slug_description' => 'Enter URL parameter name used on the single tag page (eg. ":category" for page URL like /tag/:tag).',
+                'tag_page_slug_description' => 'Enter URL parameter name used on the single tag page (eg. ":tag" for page URL like /tag/:tag).',
                 'tags_page' => 'Tags page name',
                 'tags_page_description' => 'Enter name of CMS page where you want to render tags list (eg. "tags")',
                 'tags_page_slug' => 'Tags page slug',
@@ -388,15 +388,6 @@
         'category' => [
             'name' => 'Category',
             'description' => 'Get one specific category',
-        ],
-
-                'categories' => [
-            'name' => 'Categories',
-            'description' => 'Get list of categories',
-
-            'properties' => [
-                'category_slug_description' => 'Set dynamic URL parameter like ":category" or manually entered like "my-category". This can be used eg. to set active category in categories menu.',
-            ],
         ],
 
         'tags' => [
