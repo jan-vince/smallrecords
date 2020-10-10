@@ -9,7 +9,7 @@ class SmallRecordsTablesUpdate10 extends Migration
     {
 
         Schema::table('janvince_smallrecords_records', function($table) {
-            $table->longText('content_blocks')->change();
+            $table->mediumText('content_blocks')->change();
         });
     }
 
