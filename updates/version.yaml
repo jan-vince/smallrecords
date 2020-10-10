@@ -166,3 +166,6 @@
 3.8.1:
     - Slovenian translation (thanks zlobec)
     - Small fixes to EN translation (thanks zlobec)
+3.8.2:
+    - Changed content_blocks column type to larger mediumText (thanks xtsidx)
+    - sr-update-10.php

@@ -16,5 +16,8 @@ class SmallRecordsTablesUpdate10 extends Migration
     public function down()
     {
 
+        Schema::table('janvince_smallrecords_records', function ($table) {
+            $table->text('content_blocks')->change();
+        });
     }
 }
