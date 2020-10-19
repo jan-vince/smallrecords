@@ -172,3 +172,5 @@
 3.8.3:
     - Fixed problem when TEXT column is not changed to MEDIUMTEXT in migration
     - sr-update-11.php
+3.8.4:
+    - Added russian translation (thanks xtsidx)
