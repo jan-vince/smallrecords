@@ -101,7 +101,7 @@
 
         'columns' => [
             'allowed_fields' => 'Available records fields',
-            'allowed_fields_comment' => 'Checked fields will be visible in records editing form. This list is long so scroll down! <br><em>Some field will be visible after you create a record (they are dependent on record\'s ID)!</em>',
+            'allowed_fields_comment' => 'Checked fields will be visible in records editing form. This list is long so scroll down! <br><em>Some fields will be visible after you create a record (they are dependent on record\'s ID)!</em>',
 
             'custom_repeater_allow' => 'Allow custom form fields blocks',
             'custom_repeater_tab_title' => 'Custom form fields tab title',
@@ -197,7 +197,7 @@
             'records_common' => 'Common',
             'latest_record' => 'Latest',
             'latest_record_date' => 'Created: ',
-            'active_area' => '{0} records in|{1} record in|[2,Inf[ %count% records in',
+            'active_area' => '{0} records in | {1} record in | [2,Inf[ %count% records in',
         ]
 
     ],
@@ -207,7 +207,6 @@
         'category' => 'Category',
         'new_category' => 'New category',
         'return_to_categories' => 'Return to Categories',
-        'category' => 'Category',
         'secondary_categories' => 'More categories',
 
         'columns' => [
@@ -362,7 +361,6 @@
                 'filter_tag' => 'Filter by Tag',
                 'filter_records' => 'Filter by Records',
                 'seo' => 'SEO',
-                'links' => 'Links',
             ],            
         ],
 
