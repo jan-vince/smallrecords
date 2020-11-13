@@ -168,6 +168,30 @@ class Record extends Model
         } );
 
     }
+    
+    /**
+     * Scope records by tag slug
+     *
+     * @param string $slug tag slug
+     * @param boolean $onlyActive only active tag, default false
+     **/
+    public function scopeTag($query, $slug, $onlyActive = false) {
+
+        return $query->whereHas('tags', function ($q) use ($slug, $onlyActive) {
+
+            $pluginManager = PluginManager::instance()->findByIdentifier('Rainlab.Translate');
+
+            if($onlyActive) $q->where('active', true);
+
+            if ($pluginManager && !$pluginManager->disabled) {
+                $q->transWhere('slug', $slug);
+            } else {
+                $q->where('slug',  $slug);
+            }
+
+        } );
+
+    }
 
     /**
     *    FILTERS
