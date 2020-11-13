@@ -210,6 +210,7 @@
         'return_to_categories' => 'Zpět na kategorie',
         'category' => 'Kategorie',
         'secondary_categories' => 'Další kategorie',
+        'delete_confirm' => 'Opravdu chcete smazat tuto kategorii?',
 
         'columns' => [
             'main_category' => 'Hlavní kategorie',

@@ -208,6 +208,7 @@
         'new_category' => 'New category',
         'return_to_categories' => 'Return to Categories',
         'secondary_categories' => 'More categories',
+        'delete_confirm' => 'Do you really want to delete this category?',
 
         'columns' => [
             'main_category' => 'Main category',
