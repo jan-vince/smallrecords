@@ -11,6 +11,7 @@ use Cms\Classes\Theme;
 use JanVince\SmallRecords\Models\Settings;
 use BackendAuth;
 use Log;
+use System\Classes\PluginManager;
 
 /**
  * Model
@@ -142,6 +143,30 @@ class Record extends Model
     public function scopeIsFavourite($query) {
 
         return $query->where('favourite', '=', true);
+    }
+    
+    /**
+     * Scope records by area slug
+     *
+     * @param string $slug area slug
+     * @param boolean $onlyActive only active area, default FALSE
+     **/
+    public function scopeArea($query, $slug, $onlyActive = false) {
+
+        return $query->whereHas('area', function ($q) use ($slug, $onlyActive) {
+
+            $pluginManager = PluginManager::instance()->findByIdentifier('Rainlab.Translate');
+
+            if($onlyActive) $q->where('active', true);
+
+            if ($pluginManager && !$pluginManager->disabled) {
+                $q->transWhere('slug', $slug);
+            } else {
+                $q->where('slug',  $slug);
+            }
+
+        } );
+
     }
 
     /**
