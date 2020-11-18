@@ -6,6 +6,7 @@ use Db;
 use Carbon\Carbon;
 use Cms\Classes\Page;
 use Cms\Classes\ComponentBase;
+use System\Classes\PluginManager;
 use JanVince\SmallRecords\Models\Category;
 use JanVince\SmallRecords\Models\Record;
 use JanVince\SmallRecords\Models\Settings;
@@ -186,83 +187,105 @@ class Categories extends ComponentBase
      */
     public function items() {
 
+        $pluginManager = PluginManager::instance()->findByIdentifier('Rainlab.Translate');
+
         $categories = Category::query();
 
         /**
          *  Get only categories with one or more "main category" records
          */
-        
-        $categories->with(['records' => function($query) {
-            
+
+        $categories->with(['records' => function($query) use($pluginManager) {
+
             if( $this->property('areaSlug') ) {
-                
-                $query->whereHas('area', function ($query2) {
-                    
-                    $query2->where('slug', '=', $this->property('areaSlug'));    
+
+                $query->whereHas('area', function ($query2) use($pluginManager) {
+
+                    if ($pluginManager && !$pluginManager->disabled) {
+                      $query2->transWhere('slug', '=', $this->property('areaSlug'));
+                    } else {
+                      $query2->where('slug', '=', $this->property('areaSlug'));
+                    }
+
                 });
-            }    
-            
+            }
+
             if( $this->property('activeRecordsOnly') ) {
-                
-                $query->where('active', '=', true);    
-            }    
+
+                $query->where('active', '=', true);
+            }
         }]);
-        
+
         if( $this->property('useMainCategory') ) {
 
-            $categories->whereHas('records', function ($query) {
-            
-                if( $this->property('areaSlug') ) {
-       
-                    $query->whereHas('area', function ($query2) {
+            $categories->whereHas('records', function ($query) use($pluginManager) {
 
-                        $query2->where('slug', '=', $this->property('areaSlug'));    
+                if( $this->property('areaSlug') ) {
+
+                    $query->whereHas('area', function ($query2) use($pluginManager) {
+
+                        if ($pluginManager && !$pluginManager->disabled) {
+                          $query2->transWhere('slug', '=', $this->property('areaSlug'));
+                        } else {
+                          $query2->where('slug', '=', $this->property('areaSlug'));
+                        }
+
                     });
-                }    
+                }
 
                 if( $this->property('activeRecordsOnly') ) {
 
-                    $query->where('active', '=', true);    
-                }    
+                    $query->where('active', '=', true);
+                }
             });
         }
 
         /**
          *  Get only categories with one or more "secondary categories" records
          */
-        
-        $categories->with(['records_multicategories' => function($query) {
-            
-            if( $this->property('areaSlug') ) {
-                
-                $query->whereHas('area', function ($query2) {
-                    
-                    $query2->where('slug', '=', $this->property('areaSlug'));    
-                });
-            }    
-            
-            if( $this->property('activeRecordsOnly') ) {
-                
-                $query->where('active', '=', true);    
-            }    
-        }]);
-        
-        if( $this->property('useMultiCategories') ) {
-            
-            $categories->whereHas('records_multicategories', function ($query) {
-            
-                if( $this->property('areaSlug') ) {
-       
-                    $query->whereHas('area', function ($query2) {
 
-                        $query2->where('slug', '=', $this->property('areaSlug'));    
+        $categories->with(['records_multicategories' => function($query) use($pluginManager) {
+
+            if( $this->property('areaSlug') ) {
+
+                $query->whereHas('area', function ($query2) use($pluginManager) {
+
+                    if ($pluginManager && !$pluginManager->disabled) {
+                      $query2->transWhere('slug', '=', $this->property('areaSlug'));
+                    } else {
+                      $query2->where('slug', '=', $this->property('areaSlug'));
+                    }
+
+                });
+            }
+
+            if( $this->property('activeRecordsOnly') ) {
+
+                $query->where('active', '=', true);
+            }
+        }]);
+
+        if( $this->property('useMultiCategories') ) {
+
+            $categories->whereHas('records_multicategories', function ($query) use($pluginManager) {
+
+                if( $this->property('areaSlug') ) {
+
+                    $query->whereHas('area', function ($query2) use($pluginManager) {
+
+                      if ($pluginManager && !$pluginManager->disabled) {
+                        $query2->transWhere('slug', '=', $this->property('areaSlug'));
+                      } else {
+                        $query2->where('slug', '=', $this->property('areaSlug'));
+                      }
+
                     });
-                }    
+                }
 
                 if( $this->property('activeRecordsOnly') ) {
 
-                    $query->where('active', '=', true);    
-                }    
+                    $query->where('active', '=', true);
+                }
             });
         }
 
@@ -270,12 +293,16 @@ class Categories extends ComponentBase
          *  Filter only children of parent category
          */
          if( $this->property('parentCategorySlug') ) {
-             
-            $parentCategory = Category::where('slug', $this->property('parentCategorySlug'))->first();
 
-             if($parentCategory) {
-                 $categories->where('parent_id', $parentCategory->id);
-             }
+            if ($pluginManager && !$pluginManager->disabled) {
+                $parentCategory = Category::transWhere('slug', $this->property('parentCategorySlug'))->first();
+            } else {
+                $parentCategory = Category::where('slug', $this->property('parentCategorySlug'))->first();
+            }
+
+            if ($parentCategory) {
+                $categories->where('parent_id', $parentCategory->id);
+            }
          }
 
         /**
