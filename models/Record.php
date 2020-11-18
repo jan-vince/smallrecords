@@ -132,17 +132,28 @@ class Record extends Model
     /**
      *  SCOPES
      */
-    public function scopeIsActive($query) {
-
-        return $query->where('active', '=', true);
-    }
 
     /**
-     *  SCOPES
+     * Scope records by active value.
+     * 
+     * Short alias for scope isActive with option
+     * 
+     * @param boolean $value active value, default TRUE
      */
-    public function scopeIsFavourite($query) {
+    public function scopeActive($query, $value = true)
+    {
+        return $query->where('active', $value);
+    }
 
-        return $query->where('favourite', '=', true);
+
+    /**
+     *  Scope records by favourite value.
+     *
+     * @param boolean $value favourite value, default TRUE
+     */
+    public function scopeIsFavourite($query, $value = true) {
+
+        return $query->where('favourite', $value);
     }
     
     /**
