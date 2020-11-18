@@ -178,3 +178,6 @@
     - Added romanian translation (thanks luciandex)
 3.9.1:
     - Added missing message (thanks xtsidx)
+3.10.0.:
+    - Added model scopes (thanks xtsidx)
+    - Updated RU translation (thanks xtsidx)

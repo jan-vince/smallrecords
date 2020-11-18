@@ -217,6 +217,12 @@ Open URL `/records' to see the records list.
 You should be able to filter by category and tag and to click on records to see a detail.
 
 
+# HOWTO
+
+## Getting records with scopes
+
+`Record::isActive()->area('news')->tag('important')->limit(6)->get();`
+
 
 ----
 > Special thanks goes to:    

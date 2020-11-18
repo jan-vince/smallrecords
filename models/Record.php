@@ -140,9 +140,14 @@ class Record extends Model
      * 
      * @param boolean $value active value, default TRUE
      */
-    public function scopeActive($query, $value = true)
+    public function scopeIsActive($query, $value = true)
     {
         return $query->where('active', $value);
+    }
+
+    // Alias for isActive
+    public function scopeActive($query, $value = true) {
+        return $this->scopeIsActive($query, $value);
     }
 
 
@@ -155,7 +160,13 @@ class Record extends Model
 
         return $query->where('favourite', $value);
     }
-    
+
+    // Alias for isFavourite
+    public function scopeFavourite($query, $value = true)
+    {
+        return $this->scopeIsFavourite($query, $value);
+    }
+
     /**
      * Scope records by area slug
      *
@@ -272,9 +283,9 @@ class Record extends Model
         /**
          *  Filter active only
          */
-         if( $activeOnly ) {
-             $record->isActive();
-         }
+        if( $activeOnly ) {
+            $record->isActive();
+        }
 
         return $record->first();
 
