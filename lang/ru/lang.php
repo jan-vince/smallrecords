@@ -26,7 +26,7 @@
             'fields' => 'Поля',
             'notes' => 'Заметки',
             'tags' => 'Теги',
-            'attributes' => 'Аттрибуты',
+            'attributes' => 'Атрибуты',
             'attachments' => 'Файлы',
             'secondary_categories' => 'Категории',
             'testimonials' => 'Отзывы',
@@ -53,7 +53,7 @@
             'category' => 'Основная категория',
             'category_comment' => 'Вы можете управлять предметами на <a href="'.Backend::url('janvince/smallrecords/categories/index').'">Странице Категорий</a>',
             'tags' => 'Теги',
-            'attributes' => 'Аттрибуты',
+            'attributes' => 'Атрибуты',
             'files' => 'Файлы',
             'categories' => 'Категории',
             'repeater' => 'Информация',
@@ -209,6 +209,7 @@
         'return_to_categories' => 'Вернуться к Категориям',
         'category' => 'Категория',
         'secondary_categories' => 'Больше категорий',
+        'delete_confirm' => 'Вы действительно хотите удалить эту категорию?',
 
         'columns' => [
             'main_category' => 'Основная категория',
@@ -224,10 +225,10 @@
     ],
 
     'attributes' => [
-        'menu_label' => 'Аттрибуты',
+        'menu_label' => 'Атрибуты',
         'new_attribute' => 'Новый аттрибут',
-        'attribute' => 'Аттрибут',
-        'return_to_attributes' => 'Вернуться к Аттрибутам',
+        'attribute' => 'Атрибут',
+        'return_to_attributes' => 'Вернуться к Атрибутам',
 
         'columns' => [
             'name' => 'Имя',
@@ -242,7 +243,7 @@
         ],
 
         'tabs' => [
-            'attributes' => 'Аттрибуты',
+            'attributes' => 'Атрибуты',
             'attributes_comment' => 'Вы можете назначать атрибуты и добавлять их значения',
 
         ],
