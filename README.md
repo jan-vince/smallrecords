@@ -113,13 +113,13 @@ Best way to customize them is to copy them to yout theme folder like:
 
 ### **Component: Categories**
 
-Put default partial `{{ component 'categories' }}` in your layout/page/partial to inspect how to work with categories lists.
+Put default partial `{% component 'categories' %}` in your layout/page/partial to inspect how to work with categories lists.
 
 Customize component's parameters.
 
 ### **Component: Tags**
 
-Put default partial `{{ component 'tags' }}` in your layout/page/partial to inspect how to work with tags lists.
+Put default partial `{% component 'tags' %}` in your layout/page/partial to inspect how to work with tags lists.
 
 Customize component's parameters.
 
@@ -127,13 +127,13 @@ Customize component's parameters.
 
 >You can add a Records component to a page, layout or partial.
 
-Put default partial `{{ component 'records' }}` in your layout/page/partial to inspect how to work with records lists.
+Put default partial `{% component 'records' %}` in your layout/page/partial to inspect how to work with records lists.
 
 Customize component's parameters.
 
 #### **Component: Record**
 
-Put default partial `{{ component 'recordDetail' }}` in your layout/page/partial to inspect how to work with records lists.
+Put default partial `{% component 'recordDetail' %}` in your layout/page/partial to inspect how to work with records lists.
 
 Customize component's parameters.
 
