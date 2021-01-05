@@ -181,3 +181,5 @@
 3.10.0.:
     - Added model scopes (thanks xtsidx)
     - Updated RU translation (thanks xtsidx)
+3.10.1:
+    - Fixed redirect after create new record
