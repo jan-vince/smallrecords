@@ -188,4 +188,5 @@
     - sr-update-12.php
 3.10.3:
     - Fixed url column size and type
-    - sr-update-13.php
+3.10.4:
+    - Fixed typo in url column size

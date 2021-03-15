@@ -10,7 +10,7 @@ class SmallRecordsTablesUpdate12 extends Migration
     public function up()
     {
         Schema::table('janvince_smallrecords_records', function ($table) {
-            $table->text('url')->nullable()->comment(' ')->change();
+            $table->string('url', 600)->nullable()->change();
         });
     }
 
