@@ -5,7 +5,7 @@ namespace JanVince\SmallRecords\Updates;
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
-class SmallRecordsTablesUpdate12 extends Migration
+class SmallRecordsTablesUpdate13 extends Migration
 {
     public function up()
     {
@@ -18,7 +18,7 @@ class SmallRecordsTablesUpdate12 extends Migration
     {
 
         Schema::table('janvince_smallrecords_records', function ($table) {
-            $table->string('url')->comment('')->change();
+            $table->text('url')->comment('')->change();
         });
     }
 }

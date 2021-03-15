@@ -186,3 +186,6 @@
 3.10.2:
     - Changed url column size (thanks zlobec)
     - sr-update-12.php
+3.10.3:
+    - Fixed url column size and type
+    - sr-update-13.php
