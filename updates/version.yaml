@@ -183,3 +183,6 @@
     - Updated RU translation (thanks xtsidx)
 3.10.1:
     - Fixed redirect after create new record
+3.10.2:
+    - Changed url column size (thanks zlobec)
+    - sr-update-12.php
