@@ -181,3 +181,12 @@
 3.10.0.:
     - Added model scopes (thanks xtsidx)
     - Updated RU translation (thanks xtsidx)
+3.10.1:
+    - Fixed redirect after create new record
+3.10.2:
+    - Changed url column size (thanks zlobec)
+    - sr-update-12.php
+3.10.3:
+    - Fixed url column size and type
+3.10.4:
+    - Fixed typo in url column size

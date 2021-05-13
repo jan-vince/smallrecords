@@ -11,6 +11,7 @@ use JanVince\SmallRecords\Models\Area;
 use Redirect;
 use Backend;
 use Request;
+use Log;
 
 class Records extends Controller
 {
@@ -45,6 +46,23 @@ class Records extends Controller
 
         BackendMenu::setContext('JanVince.SmallRecords', 'smallrecords', 'records' );
 
+    }
+
+    public function create_onSave($areaId = null, $context = null)
+    {
+        $test = parent::create_onSave($context);
+
+        // Redirect to update
+        if(!empty($this->formGetWidget()->model->id) and empty(post('close'))) 
+        {
+            $recordId = $this->formGetWidget()->model->id;
+            return Redirect::to(Backend::url('janvince/smallrecords/records/update', ['id' => $recordId, 'area_id' => $areaId]));
+
+        } 
+        else 
+        {
+            return Redirect::to(Backend::url('janvince/smallrecords/records/index', ['area_id' => $areaId]));
+        }
     }
 
     public function create_onSaveNew($context = null)
