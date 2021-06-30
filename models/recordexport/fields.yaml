@@ -4,7 +4,7 @@
 
 fields:
 
-    list_id:
+    area_id:
         label: janvince.smallrecords::lang.common.columns.area
         description: janvince.smallrecords::lang.areas.import.area_id_description
         type: dropdown

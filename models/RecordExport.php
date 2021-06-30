@@ -3,6 +3,7 @@
 namespace JanVince\SmallRecords\Models;
 
 use Db;
+use Log;
 use \Backend\Models\ExportModel;
 use \October\Rain\Support\Collection;
 
@@ -11,9 +12,9 @@ class RecordExport extends ExportModel {
     /**
      * @var array Fillable fields
      */
-    protected $fillable = ['list_id'];
+    protected $fillable = ['area_id'];
 
-    public function getListIdOptions($value, $formData) {
+    public function getAreaIdOptions($value, $formData) {
 
         $areas = [];
 
@@ -28,7 +29,14 @@ class RecordExport extends ExportModel {
     public function exportData($columns, $sessionKey = null)
     {
 
-        $records = Record::all();
+        if ($this->area_id)
+        {
+            $records = Record::where('area_id', $this->area_id)->get();
+        } 
+        else
+        {
+            $records = Record::all();
+        }
 
         $records->each(function($record) use ($columns) {
 
