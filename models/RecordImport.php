@@ -4,6 +4,7 @@ namespace JanVince\SmallRecords\Models;
 
 use \Backend\Models\ImportModel;
 use Db;
+use Log;
 
 class RecordImport extends ImportModel {
 
@@ -42,12 +43,27 @@ class RecordImport extends ImportModel {
 
         foreach ($results as $row => $data) {
 
-            try {
-                $record = new Record;
-                $record->fill($data);
-                $record->save();
+            $record = new Record;
 
-                $this->logCreated();
+            if( isset($data['date']) and $data['date'] == '')
+            {
+                $data['date'] = null;
+            }
+
+            $record->fill($data);
+
+            /**
+             * Reinsert images_media as fill not work for json fields
+             */
+            if( isset($data['images_media']))
+            {
+                $record->images_media = json_decode($data['images_media']);
+            }
+
+            $record->save();
+            
+            $this->logCreated();
+            try {
 
             } catch (\Exception $ex) {
                 $this->logError($row, $ex->getMessage());

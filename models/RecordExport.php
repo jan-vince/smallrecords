@@ -40,6 +40,7 @@ class RecordExport extends ExportModel {
 
             $item->testimonials = json_encode($item->testimonials);
             $item->repeater = json_encode($item->repeater);
+            $item->images_media = json_encode($item->images_media);
 
             return $item;
 

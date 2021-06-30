@@ -190,3 +190,5 @@
     - Fixed url column size and type
 3.10.4:
     - Fixed typo in url column size
+3.11.0:
+    - Added option to export and import media_images for records

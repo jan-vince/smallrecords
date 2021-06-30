@@ -33,6 +33,10 @@ columns:
         label: 'janvince.smallrecords::lang.common.columns.preview_image_media'
         type: string
 
+    images_media:
+        label: 'janvince.smallrecords::lang.common.columns.images_media'
+        type: string
+
     url:
         label: 'janvince.smallrecords::lang.common.columns.url'
         type: text
