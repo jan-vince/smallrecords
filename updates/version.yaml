@@ -194,3 +194,5 @@
     - Added option to export and import media_images for records
 3.12.0:
     - Fixed exporting filtered by list
+3.13.0:
+    - Renamed Record scope area() to byArea() to prevent relation override (thanks xtsidx).

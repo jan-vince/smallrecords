@@ -221,7 +221,7 @@ You should be able to filter by category and tag and to click on records to see 
 
 ## Getting records with scopes
 
-`Record::isActive()->area('news')->tag('important')->limit(6)->get();`
+`Record::isActive()->byArea('news')->tag('important')->limit(6)->get();`
 
 
 ----
