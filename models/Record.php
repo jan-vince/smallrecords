@@ -173,7 +173,7 @@ class Record extends Model
      * @param string $slug area slug
      * @param boolean $onlyActive only active area, default FALSE
      **/
-    public function scopeArea($query, $slug, $onlyActive = false) {
+    public function scopeByArea($query, $slug, $onlyActive = false) {
 
         return $query->whereHas('area', function ($q) use ($slug, $onlyActive) {
 
