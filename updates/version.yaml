@@ -196,3 +196,5 @@
     - Fixed exporting filtered by list
 3.13.0:
     - Renamed Record scope area() to byArea() to prevent relation override (thanks xtsidx).
+3.14.0:
+    - Added random order for Records component

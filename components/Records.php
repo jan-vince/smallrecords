@@ -169,6 +169,7 @@ class Records extends ComponentBase
             'created_at' => e(trans('janvince.smallrecords::lang.common.columns.created_at')),
             'updated_at' => e(trans('janvince.smallrecords::lang.common.columns.updated_at')),
             'sort_order' => e(trans('janvince.smallrecords::lang.common.columns.sort_order')),
+            'random' => e(trans('janvince.smallrecords::lang.common.columns.random')),
         ];
     }
 
@@ -327,7 +328,21 @@ class Records extends ComponentBase
 
             } else {
 
-                $records->orderBy($orderByColumn, $orderByDirection);
+                switch($orderByColumn)
+                {
+                    case 'random':
+                        
+                        $records->inRandomOrder();
+                        
+                        break;
+
+                    default:
+                        
+                        $records->orderBy($orderByColumn, $orderByDirection);
+                        
+                        break;
+
+                }
             }
          }
 
