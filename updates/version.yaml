@@ -100,7 +100,8 @@
     - Added useMultiCategories property to Records component to allow filtering by categories selected in Categories tab
 1.12.1:
     - Fixed optional relationship with Blog post
-2.0.0: !!! Updated default Records and Categories components partials and params - please test them before update in production!
+2.0.0:
+    - Updated default Records and Categories components partials and params - please test them before update in production!
 2.0.1:
     - Added custom repeater form builder for lists and its records
     - sr-update-08.php
@@ -124,7 +125,8 @@
     - Updated Categories component default partial.
 2.2.0:
     - Added Record detail default component partial. Added new Record detail parameters.
-3.0.0: !!! This is a breaking change update! I have unified components parameters naming and translation strings. Please review your code and change affected parameters! Look in components default partials for help and examples.
+3.0.0:
+    - This is a breaking change update! I have unified components parameters naming and translation strings. Please review your code and change affected parameters! Look in components default partials for help and examples.
 3.0.1:
     - Changed default values for Records component
 3.0.2:
@@ -198,3 +200,5 @@
     - Renamed Record scope area() to byArea() to prevent relation override (thanks xtsidx).
 3.14.0:
     - Added random order for Records component
+3.14.1:
+    - Fixed invalid YAML (thanks LukeTowers)
