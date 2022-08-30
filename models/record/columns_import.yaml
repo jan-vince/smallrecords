@@ -10,11 +10,9 @@ columns:
     slug:
         label: 'janvince.smallrecords::lang.common.columns.slug'
         type: text
-        type: text
 
     name:
         label: 'janvince.smallrecords::lang.common.columns.name'
-        type: text
         type: text
 
     category_id:
