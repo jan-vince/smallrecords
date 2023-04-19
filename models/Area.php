@@ -31,7 +31,7 @@ class Area extends Model
      */
     public $rules = [
         'name' => 'required',
-        'slug' => 'required|between:1,64|unique:janvince_smallrecords_categories',
+        'slug' => 'required|between:1,64|unique:janvince_smallrecords_areas',
     ];
 
     public $translatable = [
